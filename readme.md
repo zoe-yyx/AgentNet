@@ -32,12 +32,17 @@ This figure illustrates the overall architecture of AgentNet. It consists of mul
 - **📚 Retrieval-Augmented Adaptive Learning**  
   Agents store and retrieve relevant memory fragments from past tasks to refine their expertise over time, supporting continuous specialization.
 
-The illustration contrasts Pre-Defined Multi-Agents (hierarchical, static, with centralized control and single point of failure) against Self-Evolving Agents/AgentNet (adaptive, decentralized, and fault-tolerant with dynamic expertise development).
+
+---
+## 🧭 Why AgentNet over Traditional Architectures?
+
+This illustration compares conventional **Pre-Defined Multi-Agent Systems** (which are hierarchical, static, and prone to single points of failure) with **AgentNet**, which is fully decentralized, self-evolving, and dynamically specialized.
 
 <p align="center">
   <img src="./Figure/compare_systems.png" alt="Compare Systems" width="700"/>
 </p>
 
+AgentNet enables fault-tolerant collaboration and adaptive skill growth without needing predefined roles or a central controller.
 
 ---
 
