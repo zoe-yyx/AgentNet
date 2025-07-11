@@ -2,7 +2,8 @@
 
 **AgentNet** is a novel framework for building **decentralized, privacy-preserving, and adaptive multi-agent systems (MAS)** powered by large language models (LLMs). It addresses the limitations of traditional MAS architectures that rely on centralized controllers and static workflows.
 
-> 📄 **Paper Title**: *AgentNet: Decentralized Evolutionary Coordination for LLM-Based Multi-Agent Systems*  
+> 📄 **Paper Title**: *AgentNet: Decentralized Evolutionary Coordination for LLM-Based Multi-Agent Systems*
+
 > 👨‍🔬 Authors: Yingxuan Yang*, Huacan Chai*, Shuai Shao, Yuanyi Song, Siyuan Qi, Renting Rui, Weinan Zhang
 
 > 🏫 Affiliation: Shanghai Jiao Tong University
