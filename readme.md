@@ -36,3 +36,27 @@ This demo showcases our **LLM-based multi-agent system** in action. It visualize
 
 ## 📁 Repository Structure
 
+
+---
+
+## 🛠️ Setup and Usage
+
+Coming soon...
+
+---
+
+## 📌 Citation
+
+If you use AgentNet in your research, please cite us as follows:
+
+```bibtex
+@misc{yang2025agentnetdecentralizedevolutionarycoordination,
+  title={AgentNet: Decentralized Evolutionary Coordination for LLM-based Multi-Agent Systems}, 
+  author={Yingxuan Yang and Huacan Chai and Shuai Shao and Yuanyi Song and Siyuan Qi and Renting Rui and Weinan Zhang},
+  year={2025},
+  eprint={2504.00587},
+  archivePrefix={arXiv},
+  primaryClass={cs.MA},
+  url={https://arxiv.org/abs/2504.00587}
+}
+
