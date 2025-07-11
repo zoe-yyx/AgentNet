@@ -29,7 +29,8 @@ The following animation provides a comprehensive demonstration of AgentNet's dec
 - How agents **adapt and evolve their capabilities** based on their past performance  
 - The emergence of **specialized agent roles** over time
 
-> 📽️ ![AgentNet Demo](./Recording_Agentnet.gif)
+<img src="./Recording_Agentnet.gif" alt="AgentNet Demo" width="800"/>
+
 
 
 
