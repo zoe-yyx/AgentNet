@@ -4,7 +4,9 @@
 
 > 📄 **Paper Title**: *AgentNet: Decentralized Evolutionary Coordination for LLM-Based Multi-Agent Systems*  
 > 👨‍🔬 Authors: Yingxuan Yang*, Huacan Chai*, Shuai Shao, Yuanyi Song, Siyuan Qi, Renting Rui, Weinan Zhang
+
 > 🏫 Affiliation: Shanghai Jiao Tong University
+
 > 📎 [arXiv:2504.00587](https://arxiv.org/abs/2504.00587)
 
 ---
