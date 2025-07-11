@@ -58,7 +58,7 @@ The following animation provides a comprehensive demonstration of AgentNet's dec
   <img src="./Video/Recording_Agentnet.gif" alt="AgentNet Demo" width="400"/>
 </p>
 
-
+📹 [Watch Full Video Demo](./Video/Recording%202025-04-22%20235246%20(online-video-cutter.com).mp4)
 
 
 
