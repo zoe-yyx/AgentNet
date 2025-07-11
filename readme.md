@@ -39,7 +39,7 @@ This figure illustrates the overall architecture of AgentNet. It consists of mul
 This illustration compares conventional **Pre-Defined Multi-Agent Systems** (which are hierarchical, static, and prone to single points of failure) with **AgentNet**, which is fully decentralized, self-evolving, and dynamically specialized.
 
 <p align="center">
-  <img src="./Figure/compare_systems.png" alt="Compare Systems" width="700"/>
+  <img src="./Figure/compare_systems.png" alt="Compare Systems" width="600"/>
 </p>
 
 AgentNet enables fault-tolerant collaboration and adaptive skill growth without needing predefined roles or a central controller.
