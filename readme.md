@@ -30,7 +30,8 @@ This demo showcases our **LLM-based multi-agent system** in action. It visualize
 - How agents **adapt and evolve their capabilities** based on their past performance  
 - The emergence of **specialized agent roles** over time
 
-> 📽️ **[Click to Watch the Demo](#)** *(Upload to YouTube or GitHub and replace this with the actual video link)*
+> 📽️ <video src="1895261334.mp4" controls width="600" />
+
 
 
 
