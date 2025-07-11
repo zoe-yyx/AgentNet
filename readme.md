@@ -22,15 +22,14 @@
 
 ---
 
-## 🎥 Demo Video: LLM-Based Task Routing and Capability Evolution
+## 🎥 Demo: Agent Collaboration, Task Processing, and Specialization in Action
 
-This demo showcases our **LLM-based multi-agent system** in action. It visualizes:
-
+The following animation provides a comprehensive demonstration of AgentNet's decentralized multi-agent coordination:
 - How tasks are dynamically **routed, forwarded, split, and executed** across agents  
 - How agents **adapt and evolve their capabilities** based on their past performance  
 - The emergence of **specialized agent roles** over time
 
-> 📽️ <video src="1895261334.mp4" controls width="600" />
+> 📽️ ![AgentNet Demo](./Recording_Agentnet.gif)
 
 
 
