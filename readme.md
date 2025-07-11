@@ -11,6 +11,15 @@
 > 📎 [arXiv:2504.00587](https://arxiv.org/abs/2504.00587)
 
 ---
+## 🧱 AgentNet Architecture
+
+This figure illustrates the overall architecture of AgentNet. It consists of multiple LLM-based agents connected in a dynamic, decentralized Directed Acyclic Graph (DAG). Each agent has its own retrieval-augmented memory, local routing strategy, and can evolve independently.
+
+<p align="center">
+  <img src="./Figure/llutration of AgentNet.png" alt="AgentNet Architecture" width="700"/>
+</p>
+
+---
 
 ## 🚀 Key Innovations
 
@@ -32,7 +41,7 @@ The following animation provides a comprehensive demonstration of AgentNet's dec
 - How agents **adapt and evolve their capabilities** based on their past performance  
 - The emergence of **specialized agent roles** over time
 
-<img src="./Recording_Agentnet.gif" alt="AgentNet Demo" width="400"/>
+<img src="./Video/Recording_Agentnet.gif" alt="AgentNet Demo" width="400"/>
 
 
 
