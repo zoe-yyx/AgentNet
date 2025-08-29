@@ -1,0 +1,52 @@
+experiment_config:
+  LLM: gpt-4o-mini
+  dataset: bigbenchhard
+  task_num: 100
+  agent_num: 9
+  forward_path_max_length: 3
+  max_execution_times: 5 ## for tuning
+  user_react: True
+
+
+default_agent_config: &default_agent_config
+  LLM: gpt-4o-mini
+  abilities:
+    reasoning: 0.6
+    mathematical: 0.6
+    language: 0.6
+    knowledge: 0.6
+    sequence: 0.6
+    spatial: 0.6
+    inference: 0.6
+  executor_memory_limit: 40
+  embedding_cache_limit: 1000
+  router_memory_limit: -1
+  decay_rate: 0.1
+  decay_interval: 10
+  router_retrieval_num: 3
+  executor_retrieval_num: 3
+
+agent_config:
+- id: 0
+  config: *default_agent_config
+- id: 1
+  config: *default_agent_config
+- id: 2
+  config: *default_agent_config
+- id: 3
+  config: *default_agent_config
+- id: 4
+  config: *default_agent_config
+- id: 5
+  config: *default_agent_config
+- id: 6
+  config: *default_agent_config
+- id: 7
+  config: *default_agent_config
+- id: 8
+  config: *default_agent_config
+# - id: 9
+  # config: *default_agent_config
+
+agent_graph_config:
+  graph_type: complete

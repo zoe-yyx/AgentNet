@@ -1,0 +1,24 @@
+{
+    "examples": [
+        {
+            "input": "\"Here comes a perfectly valid argument: Every uncle of Harvey is not an ancestor of Adrian and not a nephew of Ward. In consequence, no nephew of Ward and no ancestor of Adrian is an uncle of Harvey.\"\nIs the argument, given the explicitly stated premises, deductively valid or invalid?\nOptions:\n- valid \n- invalid",
+            "target": "valid"
+        },
+        {
+            "input": "\"Here comes a perfectly valid argument: First, being an ingredient of CND VINYLUX is necessary for being an ingredient of Liquid Lips Catnip. Second, every ingredient of TV Paint Stick is not an ingredient of HIGHLIGHTER DUO or not an ingredient of Liquid Lips Catnip. Third, being an ingredient of CND VINYLUX is necessary for being an ingredient of HIGHLIGHTER DUO. We may conclude: Being an ingredient of CND VINYLUX is necessary for being an ingredient of TV Paint Stick.\"\nIs the argument, given the explicitly stated premises, deductively valid or invalid?\nOptions:\n- valid \n- invalid",
+            "target": "invalid"
+        },
+        {
+            "input": "\"Here comes a perfectly valid argument: To start with, everyone who is both a rare consumer of Pantene shampoo and an occasional purchaser of Herbal Essences shampoo is a frequent consumer of Tom's of Maine soap or a regular user of Mysore soap. Now, every frequent consumer of Tom's of Maine soap is neither a rare consumer of Pantene shampoo nor an occasional purchaser of Herbal Essences shampoo. We may conclude that everyone who is not both a rare consumer of Pantene shampoo and an occasional purchaser of Herbal Essences shampoo is however a regular user of Mysore soap.\"\nIs the argument, given the explicitly stated premises, deductively valid or invalid?\nOptions:\n- valid \n- invalid",
+            "target": "invalid"
+        },
+        {
+            "input": "\"Here comes a perfectly valid argument: To start with, something is an ingredient of C-Note Green and not an ingredient of Loose pearls. Now, every ingredient of Blue Taffy Acrylic is an ingredient of Loose pearls. We may conclude: Not every ingredient of C-Note Green is an ingredient of Blue Taffy Acrylic.\"\nIs the argument, given the explicitly stated premises, deductively valid or invalid?\nOptions:\n- valid \n- invalid",
+            "target": "valid"
+        },
+        {
+            "input": "\"Here comes a perfectly valid argument: First of all, everyone who is a close friend of Andy or an uncle of Reyes is also a classmate of Marvin. Next, Johnnie is a close friend of Andy. All this entails that Johnnie is a classmate of Marvin.\"\nIs the argument, given the explicitly stated premises, deductively valid or invalid?\nOptions:\n- valid \n- invalid",
+            "target": "valid"
+        }
+    ]
+}

@@ -1,0 +1,502 @@
+[
+  {
+    "input":"Here is a table where the first line is a header and each subsequent line is a penguin:  name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm.  We now add a penguin to the table:\nJames, 12, 90, 12\nAnd here is a similar table, but listing giraffes:\nname, age, height (cm), weight (kg)\nJody, 5, 430, 620\nGladys, 10, 420, 590\nMarian, 2, 310, 410\nDonna, 9, 440, 650\nHow many penguins are there in the tables?\nOptions:\n(A) 1\n(B) 2\n(C) 3\n(D) 4\n(E) 5",
+    "target":"(E)",
+    "task_type":"penguins_in_a_table"
+  },
+  {
+    "input":"Find a movie similar to The Usual Suspects, Braveheart, Pulp Fiction, Schindler's List:\nOptions:\n(A) The Cabinet of Dr Caligari\n(B) The Shawshank Redemption\n(C) Spider-Man 2\n(D) Taxi",
+    "target":"(B)",
+    "task_type":"movie_recommendation"
+  },
+  {
+    "input":"Alice, Bob, Claire, Dave, Eve, Fred, and Gertrude are on the same team in a soccer match. At the start of the match, they are each assigned to a position: Alice is playing left midfielder, Bob is playing cheerleader, Claire is playing right winger, Dave is playing right midfielder, Eve is playing striker, Fred is playing left winger, and Gertrude is playing fullback.\nAs the game progresses, pairs of players occasionally swap positions. First, Fred and Gertrude trade positions. Then, Dave and Gertrude trade positions. Then, Gertrude and Fred trade positions. Then, Alice and Bob trade positions. Then, Claire and Dave trade positions. Then, Eve and Claire trade positions. Finally, Alice and Gertrude trade positions. At the end of the match, Fred is playing\nOptions:\n(A) left midfielder\n(B) cheerleader\n(C) right winger\n(D) right midfielder\n(E) striker\n(F) left winger\n(G) fullback",
+    "target":"(D)",
+    "task_type":"tracking_shuffled_objects_seven_objects"
+  },
+  {
+    "input":"Today, Kimberly went to the football field. Between what times could they have gone?\nWe know that:\nKimberly woke up at 6am.\nWilliam saw Kimberly buying a phone at the electronics store from 6am to 8am.\nJason saw Kimberly waiting at the train station from 8am to 9am.\nTiffany saw Kimberly walking towards the Statue of Liberty from 9am to 1pm.\nLinda saw Kimberly stretching at a yoga studio from 3pm to 8pm.\nSean saw Kimberly driving to the water park from 8pm to 9pm.\nThe football field was closed after 9pm.\nBetween what times could Kimberly have gone to the football field?\nOptions:\n(A) 8am to 9am\n(B) 9am to 1pm\n(C) 1pm to 3pm\n(D) 8pm to 9pm",
+    "target":"(C)",
+    "task_type":"temporal_sequences"
+  },
+  {
+    "input":"Alice, Bob, Claire, Dave, and Eve are holding a white elephant gift exchange. At the start of the event, they are each holding a present of a different color: Alice has a blue present, Bob has a black ball, Claire has a brown present, Dave has a orange ball, and Eve has a red present.\nAs the event progresses, pairs of people swap gifts. First, Bob and Dave swap their gifts. Then, Alice and Dave swap their gifts. Then, Eve and Claire swap their gifts. Then, Alice and Bob swap their gifts. Finally, Dave and Claire swap their gifts. At the end of the event, Alice has the\nOptions:\n(A) blue present\n(B) black ball\n(C) brown present\n(D) orange ball\n(E) red present",
+    "target":"(D)",
+    "task_type":"tracking_shuffled_objects_five_objects"
+  },
+  {
+    "input":"Alice, Bob, Claire, Dave, and Eve are dancers at a square dance. At the start of a song, they each have a partner: Alice is dancing with Ophelia, Bob is dancing with Lola, Claire is dancing with Izzi, Dave is dancing with Karl, and Eve is dancing with Jamie.\nThroughout the song, the dancers often trade partners. First, Bob and Claire switch partners. Then, Eve and Dave switch partners. Then, Eve and Claire switch partners. Then, Alice and Eve switch partners. Finally, Alice and Bob switch partners. At the end of the dance, Alice is dancing with\nOptions:\n(A) Ophelia\n(B) Lola\n(C) Izzi\n(D) Karl\n(E) Jamie",
+    "target":"(C)",
+    "task_type":"tracking_shuffled_objects_five_objects"
+  },
+  {
+    "input":"\"Some football fans admire various clubs, others love only a single team. But who is a fan of whom precisely? The following argument pertains to this question: First of all, not being an opponent to FC Utrecht is sufficient for not being an admirer of St Johnstone FC. All this entails that everyone who is an admirer of St Johnstone FC is an opponent to FC Utrecht, too.\"\nIs the argument, given the explicitly stated premises, deductively valid or invalid?\nOptions:\n- valid \n- invalid",
+    "target":"valid",
+    "task_type":"formal_fallacies"
+  },
+  {
+    "input":"Find a movie similar to The Shawshank Redemption, Pulp Fiction, Schindler's List, Braveheart:\nOptions:\n(A) The Bank Job\n(B) Robot Carnival\n(C) Dances with Wolves\n(D) The Family Stone",
+    "target":"(C)",
+    "task_type":"movie_recommendation"
+  },
+  {
+    "input":"Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { } < { } < > (",
+    "target":") >",
+    "task_type":"dyck_languages"
+  },
+  {
+    "input":"On the nightstand, you see a yellow necklace, a blue stress ball, a brown textbook, and a black pen. How many items are neither red nor green?\nOptions:\n(A) zero\n(B) one\n(C) two\n(D) three\n(E) four\n(F) five\n(G) six",
+    "target":"(E)",
+    "task_type":"reasoning_about_colored_objects"
+  },
+  {
+    "input":"I have a table, a strawberry, and three nectarines. How many fruits do I have?",
+    "target":"4",
+    "task_type":"object_counting"
+  },
+  {
+    "input":"((5 - 7 - 8 - 6) * (-2 * -8 * -9 + 4)) =",
+    "target":"2240",
+    "task_type":"multistep_arithmetic_two"
+  },
+  {
+    "input":"\"Here comes a perfectly valid argument: First premise: Julie is a member of SL Benfica or a follower of FC Ufa. Second premise: Everyone who is not an ex-fan of FC Astana is however a member of SL Benfica and a follower of FC Ufa. We may conclude that Julie is not an ex-fan of FC Astana.\"\nIs the argument, given the explicitly stated premises, deductively valid or invalid?\nOptions:\n- valid \n- invalid",
+    "target":"invalid",
+    "task_type":"formal_fallacies"
+  },
+  {
+    "input":"Find a movie similar to The Shawshank Redemption, Schindler's List, Terminator 2 Judgment Day, Aladdin:\nOptions:\n(A) Nina's Heavenly Delights\n(B) American Pie Presents The Book of Love\n(C) The Recruit\n(D) The Lion King",
+    "target":"(D)",
+    "task_type":"movie_recommendation"
+  },
+  {
+    "input":"How would a typical person answer each of the following questions about causation?\nBilly and Suzy work for the same company. They work in different rooms, and both of them sometimes need to access the central computer of the company. Nobody at the company is aware that if two people are logged into the central computer at the same time, some spam emails containing important customer information are immediately deleted from the central computer. In order to make sure that one person is always available to answer incoming phone calls, the company issued the following official policy: Suzy is the only one permitted to log into the central computer in the mornings, whereas Billy is the only one permitted to log into the central computer in the afternoons. Billy is not permitted to log into the central computer in the morning. Today at 9 am, Billy and Suzy both log into the central computer at the same time. Immediately, some work emails containing important customer information are deleted from the central computer. Did Suzy cause the central computer to delete some work emails containing important customer information?\nOptions:\n- Yes\n- No",
+    "target":"No",
+    "task_type":"causal_judgement"
+  },
+  {
+    "input":"False or not not True or not False is",
+    "target":"True",
+    "task_type":"boolean_expressions"
+  },
+  {
+    "input":"Jane was born on the last day of Feburary in 2001. Today is her 16-year-old birthday. What is the date one week ago from today in MM\/DD\/YYYY?\nOptions:\n(A) 03\/03\/2017\n(B) 04\/27\/2017\n(C) 03\/21\/2017\n(D) 02\/21\/1961\n(E) 02\/21\/2017",
+    "target":"(E)",
+    "task_type":"date_understanding"
+  },
+  {
+    "input":"Which sentence has the correct adjective order:\nOptions:\n(A) German gray lovely ship\n(B) lovely gray German ship",
+    "target":"(B)",
+    "task_type":"hyperbaton"
+  },
+  {
+    "input":"((8 + 3 * -8 - -8) - (2 + 2 * -9 - 6)) =",
+    "target":"14",
+    "task_type":"multistep_arithmetic_two"
+  },
+  {
+    "input":"In the following sentences, explain the antecedent of the pronoun (which thing the pronoun refers to), or state that it is ambiguous.\nSentence: The investigator wanted to interview the witness in person, but they were too late.\nOptions:\n(A) The investigator was too late\n(B) The witness was too late\n(C) Ambiguous",
+    "target":"(C)",
+    "task_type":"disambiguation_qa"
+  },
+  {
+    "input":"Alice, Bob, and Claire are dancers at a square dance. At the start of a song, they each have a partner: Alice is dancing with Rodrigo, Bob is dancing with Jamie, and Claire is dancing with Sam.\nThroughout the song, the dancers often trade partners. First, Bob and Alice switch partners. Then, Bob and Claire switch partners. Finally, Alice and Claire switch partners. At the end of the dance, Alice is dancing with\nOptions:\n(A) Rodrigo\n(B) Jamie\n(C) Sam",
+    "target":"(A)",
+    "task_type":"tracking_shuffled_objects_three_objects"
+  },
+  {
+    "input":"If you follow these instructions, do you return to the starting point? Always face forward. Take 4 steps right. Take 7 steps right. Take 1 step left. Take 4 steps left. Take 6 steps left.\nOptions:\n- Yes\n- No",
+    "target":"Yes",
+    "task_type":"navigate"
+  },
+  {
+    "input":"Alice, Bob, Claire, Dave, Eve, Fred, and Gertrude are dancers at a square dance. At the start of a song, they each have a partner: Alice is dancing with Izzi, Bob is dancing with Sam, Claire is dancing with Helga, Dave is dancing with Jamie, Eve is dancing with Rodrigo, Fred is dancing with Ophelia, and Gertrude is dancing with Melissa.\nThroughout the song, the dancers often trade partners. First, Gertrude and Eve switch partners. Then, Fred and Dave switch partners. Then, Alice and Bob switch partners. Then, Gertrude and Bob switch partners. Then, Alice and Claire switch partners. Then, Dave and Alice switch partners. Finally, Gertrude and Claire switch partners. At the end of the dance, Dave is dancing with\nOptions:\n(A) Izzi\n(B) Sam\n(C) Helga\n(D) Jamie\n(E) Rodrigo\n(F) Ophelia\n(G) Melissa",
+    "target":"(C)",
+    "task_type":"tracking_shuffled_objects_seven_objects"
+  },
+  {
+    "input":"Question: Shaunda lies. Elanor says Shaunda lies. Fidel says Elanor tells the truth. Lorine says Fidel tells the truth. Raymond says Lorine lies. Does Raymond tell the truth?",
+    "target":"No",
+    "task_type":"web_of_lies"
+  },
+  {
+    "input":"Today, Susan went to the art studio. Between what times could they have gone?\nWe know that:\nSusan woke up at 5am.\nKimberly saw Susan waiting at the train station from 5am to 6am.\nLisa saw Susan working out at the gym from 6am to 11am.\nBetty saw Susan reading at the library from 11am to 12pm.\nThe art studio was closed after 1pm.\nBetween what times could Susan have gone to the art studio?\nOptions:\n(A) 12pm to 1pm\n(B) 11am to 12pm\n(C) 6am to 11am\n(D) 5am to 6am",
+    "target":"(A)",
+    "task_type":"temporal_sequences"
+  },
+  {
+    "input":"Find a movie similar to The Fifth Element, Gladiator, Gattaca, The Matrix:\nOptions:\n(A) Birdman of Alcatraz\n(B) Raiders of the Lost Ark\n(C) Le Samouraï\n(D) Imagine That",
+    "target":"(B)",
+    "task_type":"movie_recommendation"
+  },
+  {
+    "input":"Question: Fidel lies. Sal says Fidel tells the truth. Osvaldo says Sal lies. Alexis says Osvaldo lies. Millie says Alexis tells the truth. Does Millie tell the truth?",
+    "target":"No",
+    "task_type":"web_of_lies"
+  },
+  {
+    "input":"If you follow these instructions, do you return to the starting point? Turn left. Turn right. Take 7 steps. Turn around. Take 7 steps. Turn right. Turn left. Turn right.\nOptions:\n- Yes\n- No",
+    "target":"Yes",
+    "task_type":"navigate"
+  },
+  {
+    "input":"In the following sentences, explain the antecedent of the pronoun (which thing the pronoun refers to), or state that it is ambiguous.\nSentence: The secretary corrected the developer because they better understood the problem.\nOptions:\n(A) The secretary understood the problem\n(B) The developer understood the problem\n(C) Ambiguous",
+    "target":"(A)",
+    "task_type":"disambiguation_qa"
+  },
+  {
+    "input":"Here is a table where the first line is a header and each subsequent line is a penguin:  name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm.  And here is a similar table, but listing giraffes:\nname, age, height (cm), weight (kg)\nJody, 5, 430, 620\nGladys, 10, 420, 590\nMarian, 2, 310, 410\nDonna, 9, 440, 650\nWhich is the oldest giraffe?\nOptions:\n(A) Jody\n(B) Gladys\n(C) Marian\n(D) Donna\n(E) Louise",
+    "target":"(B)",
+    "task_type":"penguins_in_a_table"
+  },
+  {
+    "input":"Alice, Bob, and Claire are holding a white elephant gift exchange. At the start of the event, they are each holding a present of a different color: Alice has a red present, Bob has a black ball, and Claire has a white present.\nAs the event progresses, pairs of people swap gifts. First, Bob and Alice swap their gifts. Then, Claire and Bob swap their gifts. Finally, Alice and Claire swap their gifts. At the end of the event, Bob has the\nOptions:\n(A) red present\n(B) black ball\n(C) white present",
+    "target":"(C)",
+    "task_type":"tracking_shuffled_objects_three_objects"
+  },
+  {
+    "input":"Today is 3\/5, and it is Jane's second time in the year 1973 to see a meteor shower. What is the date tomorrow in MM\/DD\/YYYY?\nOptions:\n(A) 03\/08\/1983\n(B) 03\/06\/1973\n(C) 03\/02\/1973\n(D) 04\/05\/1973\n(E) 03\/05\/2007\n(F) 01\/02\/1973",
+    "target":"(B)",
+    "task_type":"date_understanding"
+  },
+  {
+    "input":"The following translations from German to English contain a particular error. That error will be one of the following types: Named Entities: An entity (names, places, locations, etc.) is changed to a different entity. Numerical Values: Numerical values (ordinals or cardinals), dates, and\/or units are changed. Modifiers or Adjectives: The modifiers and adjectives pertaining to a noun are changed. Negation or Antonyms: Introduce or remove a negation or change comparatives to their antonyms. Facts: Trivial factual errors not pertaining to the above classes are introduced in the translations. Dropped Content: A significant clause in the translation is removed. Please identify that error.  Source: Fabian Baumgärtel ist ein deutscher Fußballspieler.\nTranslation: Fabian Baumgärtel is a German footballer who plays as a goalkeeper.\nThe translation contains an error pertaining to\nOptions:\n(A) Modifiers or Adjectives\n(B) Numerical Values\n(C) Negation or Antonyms\n(D) Named Entities\n(E) Dropped Content\n(F) Facts",
+    "target":"(F)",
+    "task_type":"salient_translation_error_detection"
+  },
+  {
+    "input":"The following translations from German to English contain a particular error. That error will be one of the following types: Named Entities: An entity (names, places, locations, etc.) is changed to a different entity. Numerical Values: Numerical values (ordinals or cardinals), dates, and\/or units are changed. Modifiers or Adjectives: The modifiers and adjectives pertaining to a noun are changed. Negation or Antonyms: Introduce or remove a negation or change comparatives to their antonyms. Facts: Trivial factual errors not pertaining to the above classes are introduced in the translations. Dropped Content: A significant clause in the translation is removed. Please identify that error.  Source: ist ein ehemaliger tschechischer Tennisspieler.\nTranslation: is a former Czech soccer player.\nThe translation contains an error pertaining to\nOptions:\n(A) Modifiers or Adjectives\n(B) Numerical Values\n(C) Negation or Antonyms\n(D) Named Entities\n(E) Dropped Content\n(F) Facts",
+    "target":"(F)",
+    "task_type":"salient_translation_error_detection"
+  },
+  {
+    "input":"Which of the following is a humorous edit of this artist or movie name: 'my fair lady'?\nOptions:\n(A) my fair laddy\n(B) my fmair lady\n(C) my faird lady\n(D) my fair laady",
+    "target":"(A)",
+    "task_type":"ruin_names"
+  },
+  {
+    "input":"In the following sentences, explain the antecedent of the pronoun (which thing the pronoun refers to), or state that it is ambiguous.\nSentence: My parent called her secretary for more information\nOptions:\n(A) They were my parent's secretary\n(B) They were the secretary's secretary\n(C) Ambiguous",
+    "target":"(A)",
+    "task_type":"disambiguation_qa"
+  },
+  {
+    "input":"On the floor, there is a green pair of sunglasses, a silver necklace, a burgundy dog leash, and a mauve jug. Is the jug mauve?\nOptions:\n(A) yes\n(B) no",
+    "target":"(A)",
+    "task_type":"reasoning_about_colored_objects"
+  },
+  {
+    "input":"If you follow these instructions, do you return to the starting point? Take 3 steps. Take 1 step. Take 10 steps.\nOptions:\n- Yes\n- No",
+    "target":"No",
+    "task_type":"navigate"
+  },
+  {
+    "input":"Question: Ryan tells the truth. Helene says Ryan tells the truth. Kandi says Helene tells the truth. Inga says Kandi tells the truth. Delbert says Inga lies. Does Delbert tell the truth?",
+    "target":"No",
+    "task_type":"web_of_lies"
+  },
+  {
+    "input":"not ( True ) and ( False ) is",
+    "target":"False",
+    "task_type":"boolean_expressions"
+  },
+  {
+    "input":"Alice, Bob, Claire, Dave, Eve, Fred, and Gertrude are playing a game. At the start of the game, they are each holding a ball: Alice has a black ball, Bob has a blue ball, Claire has a red ball, Dave has a purple ball, Eve has a pink ball, Fred has a brown ball, and Gertrude has a white ball.\nAs the game progresses, pairs of players trade balls. First, Fred and Gertrude swap balls. Then, Fred and Alice swap balls. Then, Alice and Claire swap balls. Then, Bob and Dave swap balls. Then, Fred and Eve swap balls. Then, Gertrude and Fred swap balls. Finally, Gertrude and Bob swap balls. At the end of the game, Alice has the\nOptions:\n(A) black ball\n(B) blue ball\n(C) red ball\n(D) purple ball\n(E) pink ball\n(F) brown ball\n(G) white ball",
+    "target":"(C)",
+    "task_type":"tracking_shuffled_objects_seven_objects"
+  },
+  {
+    "input":"Today, Betty went to the art show. Between what times could they have gone?\nWe know that:\nBetty woke up at 8am.\nElizabeth saw Betty buying lunch at the deli from 8am to 10am.\nTiffany saw Betty fixing their computer at the electronic store from 10am to 1pm.\nSusan saw Betty taking photos near the Eiffel Tower from 1pm to 2pm.\nBetty saw Betty getting a coffee at the cafe from 7pm to 10pm.\nThe art show was closed after 10pm.\nBetween what times could Betty have gone to the art show?\nOptions:\n(A) 2pm to 7pm\n(B) 7pm to 10pm\n(C) 8am to 10am\n(D) 1pm to 2pm",
+    "target":"(A)",
+    "task_type":"temporal_sequences"
+  },
+  {
+    "input":"On May 9th, 2017 Jane bought 40 eggs. She ate one per day. Today she ran out of eggs. What is the date a month ago in MM\/DD\/YYYY?\nOptions:\n(A) 05\/04\/2017\n(B) 05\/19\/2017\n(C) 06\/24\/2017\n(D) 05\/11\/2017\n(E) 10\/18\/2017\n(F) 05\/18\/2017",
+    "target":"(F)",
+    "task_type":"date_understanding"
+  },
+  {
+    "input":"((-6 - -5 - -9 - -9) * (-6 * 4 - 8 - -9)) =",
+    "target":"-391",
+    "task_type":"multistep_arithmetic_two"
+  },
+  {
+    "input":"This SVG path element <path d=\"M 74.18,59.65 L 50.54,71.20 M 50.54,71.20 L 38.08,45.69 M 38.08,45.69 L 61.71,34.14 M 61.71,34.14 L 74.18,59.65\"\/> draws a\nOptions:\n(A) circle\n(B) heptagon\n(C) hexagon\n(D) kite\n(E) line\n(F) octagon\n(G) pentagon\n(H) rectangle\n(I) sector\n(J) triangle\n(K) trapezoid",
+    "target":"(K)",
+    "task_type":"geometric_shapes"
+  },
+  {
+    "input":"Which sentence has the correct adjective order:\nOptions:\n(A) lovely ancient triangular orange Turkish wood smoking shoe\n(B) Turkish wood smoking lovely orange ancient triangular shoe",
+    "target":"(A)",
+    "task_type":"hyperbaton"
+  },
+  {
+    "input":"The following translations from German to English contain a particular error. That error will be one of the following types: Named Entities: An entity (names, places, locations, etc.) is changed to a different entity. Numerical Values: Numerical values (ordinals or cardinals), dates, and\/or units are changed. Modifiers or Adjectives: The modifiers and adjectives pertaining to a noun are changed. Negation or Antonyms: Introduce or remove a negation or change comparatives to their antonyms. Facts: Trivial factual errors not pertaining to the above classes are introduced in the translations. Dropped Content: A significant clause in the translation is removed. Please identify that error.  Source: Doch das Böse gibt es nicht ist ein Spielfilm von Mohammad Rasulof aus dem Jahr 2020.\nTranslation: But evil is a 2020 feature film by Mohammad Rasulof.\nThe translation contains an error pertaining to\nOptions:\n(A) Modifiers or Adjectives\n(B) Numerical Values\n(C) Negation or Antonyms\n(D) Named Entities\n(E) Dropped Content\n(F) Facts",
+    "target":"(C)",
+    "task_type":"salient_translation_error_detection"
+  },
+  {
+    "input":"The following translations from German to English contain a particular error. That error will be one of the following types: Named Entities: An entity (names, places, locations, etc.) is changed to a different entity. Numerical Values: Numerical values (ordinals or cardinals), dates, and\/or units are changed. Modifiers or Adjectives: The modifiers and adjectives pertaining to a noun are changed. Negation or Antonyms: Introduce or remove a negation or change comparatives to their antonyms. Facts: Trivial factual errors not pertaining to the above classes are introduced in the translations. Dropped Content: A significant clause in the translation is removed. Please identify that error.  Source: Dingwall ist eine Kleinstadt mit 5491 Einwohnern in den Highlands im Nordosten von Schottland.\nTranslation: Dingwall is a town in the Highlands in north-east Scotland.\nThe translation contains an error pertaining to\nOptions:\n(A) Modifiers or Adjectives\n(B) Numerical Values\n(C) Negation or Antonyms\n(D) Named Entities\n(E) Dropped Content\n(F) Facts",
+    "target":"(B)",
+    "task_type":"salient_translation_error_detection"
+  },
+  {
+    "input":"In the following sentences, explain the antecedent of the pronoun (which thing the pronoun refers to), or state that it is ambiguous.\nSentence: The reporter and the chef will discuss his favorite dishes.\nOptions:\n(A) They will discuss the reporter's favorite dishes\n(B) They will discuss the chef's favorite dishes\n(C) Ambiguous",
+    "target":"(C)",
+    "task_type":"disambiguation_qa"
+  },
+  {
+    "input":"This is the last day of 1899. What is the date 10 days ago in MM\/DD\/YYYY?\nOptions:\n(A) 12\/11\/1899\n(B) 12\/21\/1887\n(C) 12\/24\/1899\n(D) 12\/21\/1899\n(E) 03\/22\/1900",
+    "target":"(D)",
+    "task_type":"date_understanding"
+  },
+  {
+    "input":"Alice, Bob, and Claire are dancers at a square dance. At the start of a song, they each have a partner: Alice is dancing with Sam, Bob is dancing with Jamie, and Claire is dancing with Melissa.\nThroughout the song, the dancers often trade partners. First, Alice and Claire switch partners. Then, Claire and Bob switch partners. Finally, Alice and Bob switch partners. At the end of the dance, Claire is dancing with\nOptions:\n(A) Sam\n(B) Jamie\n(C) Melissa",
+    "target":"(B)",
+    "task_type":"tracking_shuffled_objects_three_objects"
+  },
+  {
+    "input":"((-7 * -2 + -4 + -4) - (9 * 1 * -6 * 6)) =",
+    "target":"330",
+    "task_type":"multistep_arithmetic_two"
+  },
+  {
+    "input":"I have three snails, a snake, a donkey, and a rabbit. How many animals do I have?",
+    "target":"6",
+    "task_type":"object_counting"
+  },
+  {
+    "input":"Which of the following is a humorous edit of this artist or movie name: 'the third man'?\nOptions:\n(A) the third mans\n(B) the third men\n(C) the jhird man\n(D) the third nan",
+    "target":"(D)",
+    "task_type":"ruin_names"
+  },
+  {
+    "input":"Alice, Bob, and Claire are friends and avid readers who occasionally trade books. At the start of the semester, they each buy one new book: Alice gets The Odyssey, Bob gets Frankenstein, and Claire gets The Pearl.\nAs the semester proceeds, they start trading around the new books. First, Bob and Alice swap books. Then, Alice and Claire swap books. Finally, Bob and Alice swap books. At the end of the semester, Claire has\nOptions:\n(A) The Odyssey\n(B) Frankenstein\n(C) The Pearl",
+    "target":"(B)",
+    "task_type":"tracking_shuffled_objects_three_objects"
+  },
+  {
+    "input":"The following translations from German to English contain a particular error. That error will be one of the following types: Named Entities: An entity (names, places, locations, etc.) is changed to a different entity. Numerical Values: Numerical values (ordinals or cardinals), dates, and\/or units are changed. Modifiers or Adjectives: The modifiers and adjectives pertaining to a noun are changed. Negation or Antonyms: Introduce or remove a negation or change comparatives to their antonyms. Facts: Trivial factual errors not pertaining to the above classes are introduced in the translations. Dropped Content: A significant clause in the translation is removed. Please identify that error.  Source: Der Flughafen München „Franz Josef Strauß“ ist der internationale Verkehrsflughafen der bayerischen Landeshauptstadt München und zählt mit rund 48 Millionen Passagieren zu den zehn verkehrsreichsten Luftfahrt-Drehkreuzen in Europa.\nTranslation: Munich Airport \"Franz Josef Strauss\" is the international airport of the Bavarian capital Munich and with around 68 million passengers is one of the ten busiest aviation hubs in Europe.\nThe translation contains an error pertaining to\nOptions:\n(A) Modifiers or Adjectives\n(B) Numerical Values\n(C) Negation or Antonyms\n(D) Named Entities\n(E) Dropped Content\n(F) Facts",
+    "target":"(B)",
+    "task_type":"salient_translation_error_detection"
+  },
+  {
+    "input":"Find a movie similar to Braveheart, Pretty Woman, Schindler's List, Apollo 13:\nOptions:\n(A) Bad Taste\n(B) My Big Fat Greek Wedding 2\n(C) The Santa Clause 2\n(D) Dances with Wolves",
+    "target":"(D)",
+    "task_type":"movie_recommendation"
+  },
+  {
+    "input":"Alice, Bob, and Claire are dancers at a square dance. At the start of a song, they each have a partner: Alice is dancing with Izzi, Bob is dancing with Melissa, and Claire is dancing with Lola.\nThroughout the song, the dancers often trade partners. First, Claire and Alice switch partners. Then, Bob and Claire switch partners. Finally, Alice and Bob switch partners. At the end of the dance, Alice is dancing with\nOptions:\n(A) Izzi\n(B) Melissa\n(C) Lola",
+    "target":"(A)",
+    "task_type":"tracking_shuffled_objects_three_objects"
+  },
+  {
+    "input":"Which of the following is a humorous edit of this artist or movie name: 'bridge of spies'?\nOptions:\n(A) bridge of spivs\n(B) bridges of spies\n(C) brikge of spies\n(D) bridge off spies",
+    "target":"(A)",
+    "task_type":"ruin_names"
+  },
+  {
+    "input":"Alice, Bob, Claire, Dave, and Eve are dancers at a square dance. At the start of a song, they each have a partner: Alice is dancing with Melissa, Bob is dancing with Patrick, Claire is dancing with Izzi, Dave is dancing with Lola, and Eve is dancing with Rodrigo.\nThroughout the song, the dancers often trade partners. First, Alice and Claire switch partners. Then, Dave and Eve switch partners. Then, Alice and Claire switch partners. Then, Alice and Eve switch partners. Finally, Dave and Bob switch partners. At the end of the dance, Bob is dancing with\nOptions:\n(A) Melissa\n(B) Patrick\n(C) Izzi\n(D) Lola\n(E) Rodrigo",
+    "target":"(E)",
+    "task_type":"tracking_shuffled_objects_five_objects"
+  },
+  {
+    "input":"The following paragraphs each describe a set of three objects arranged in a fixed order. The statements are logically consistent within each paragraph. On a shelf, there are three books: a purple book, a black book, and a blue book. The purple book is to the right of the blue book. The black book is the second from the left.\nOptions:\n(A) The purple book is the rightmost\n(B) The black book is the rightmost\n(C) The blue book is the rightmost",
+    "target":"(A)",
+    "task_type":"logical_deduction_three_objects"
+  },
+  {
+    "input":"True or False and not ( True ) is",
+    "target":"True",
+    "task_type":"boolean_expressions"
+  },
+  {
+    "input":"This SVG path element <path d=\"M 15.58,68.68 L 0.01,36.09 M 0.01,36.09 L 9.06,81.94 L 15.58,68.68\"\/> draws a\nOptions:\n(A) circle\n(B) heptagon\n(C) hexagon\n(D) kite\n(E) line\n(F) octagon\n(G) pentagon\n(H) rectangle\n(I) sector\n(J) triangle",
+    "target":"(J)",
+    "task_type":"geometric_shapes"
+  },
+  {
+    "input":"The following paragraphs each describe a set of seven objects arranged in a fixed order. The statements are logically consistent within each paragraph. On a shelf, there are seven books: a black book, an orange book, a yellow book, a white book, a blue book, a red book, and a green book. The red book is to the right of the yellow book. The white book is the second from the right. The red book is to the left of the green book. The blue book is to the right of the black book. The black book is the third from the right. The orange book is the leftmost.\nOptions:\n(A) The black book is the second from the left\n(B) The orange book is the second from the left\n(C) The yellow book is the second from the left\n(D) The white book is the second from the left\n(E) The blue book is the second from the left\n(F) The red book is the second from the left\n(G) The green book is the second from the left",
+    "target":"(C)",
+    "task_type":"logical_deduction_seven_objects"
+  },
+  {
+    "input":"The following paragraphs each describe a set of seven objects arranged in a fixed order. The statements are logically consistent within each paragraph. On a branch, there are seven birds: a cardinal, a blue jay, a robin, a crow, a falcon, a hawk, and a raven. The hawk is the second from the right. The raven is the fourth from the left. The robin is the second from the left. The cardinal is to the left of the raven. The falcon is to the left of the robin. The crow is to the right of the blue jay.\nOptions:\n(A) The cardinal is the third from the left\n(B) The blue jay is the third from the left\n(C) The robin is the third from the left\n(D) The crow is the third from the left\n(E) The falcon is the third from the left\n(F) The hawk is the third from the left\n(G) The raven is the third from the left",
+    "target":"(A)",
+    "task_type":"logical_deduction_seven_objects"
+  },
+  {
+    "input":"How would a typical person answer each of the following questions about causation?\nTom has a huge garden and loves flowers. He employed two gardeners who take care of the plants on his 30 flower beds: Alex and Benni. Both can independently decide on their working hours and arrange who cares for which flower beds. Alex and Benni are very reliable and Tom is satisfied with their work. Nevertheless he wants to optimize the plant growth. Since Tom has read in a magazine that plants grow better when they are fertilized, he decides to let Alex and Benni fertilize his plants. The magazine recommends the use of the chemicals A X200R or B Y33R, since both are especially effective. However, Tom also read that it can damage plants when they are exposed to multiple different types of chemicals. Tom therefore decides that he only wants to use one fertilizer. He goes for A X200R. Tom instructs Alex and Benni to buy the chemical A X200R and to use only this fertilizer. Alex volunteers for buying several bottles of this chemical for Benni and himself. After a few weeks, Tom goes for a walk in his garden. He realizes that some of his plants are much prettier and bigger than before. However, he also realizes that some of his plants have lost their beautiful color and are dried up. That makes Tom very sad and reflective. He wonders whether the drying of his plants might have something to do with the fertilization. He wants to investigate this matter and talks to Alex and Benni. Alex tells him that he followed Tom's instruction: \"I only bought and used the chemical A X200R which I had funneled into the blue can.\" Benni suddenly is startled and says to Alex: \"What? You funneled A X200R into the blue can? But you told me you had funneled it into the green can! That's why I always used the green can!\" Alex replies: \"Did I? Then I am sorry!\" Tom remembers that he had filled B Y33R in a green can - long before he had read about the chemicals in his magazine. He had never used it. So Benni must have accidentally, without knowing it, applied the chemical B Y33R, whereas only Alex applied A X200R. Tom realizes that the plants dried up in the flower beds on which both A X200R and B Y33R were applied by the gardeners. Did the fertilization by Benni cause the plant to dry out?\nOptions:\n- Yes\n- No",
+    "target":"Yes",
+    "task_type":"causal_judgement"
+  },
+  {
+    "input":"On the floor, you see a set of objects arranged in a row: a teal teddy bear, a brown jug, and a purple pencil. What is the color of the object directly to the left of the jug?\nOptions:\n(A) red\n(B) orange\n(C) yellow\n(D) green\n(E) blue\n(F) brown\n(G) magenta\n(H) fuchsia\n(I) mauve\n(J) teal\n(K) turquoise\n(L) burgundy\n(M) silver\n(N) gold\n(O) black\n(P) grey\n(Q) purple\n(R) pink",
+    "target":"(J)",
+    "task_type":"reasoning_about_colored_objects"
+  },
+  {
+    "input":"In the following sentences, explain the antecedent of the pronoun (which thing the pronoun refers to), or state that it is ambiguous.\nSentence: The developer met with the secretary because he made a mistake.\nOptions:\n(A) The developer made a mistake\n(B) The secretary made a mistake\n(C) Ambiguous",
+    "target":"(C)",
+    "task_type":"disambiguation_qa"
+  },
+  {
+    "input":"The following paragraphs each describe a set of seven objects arranged in a fixed order. The statements are logically consistent within each paragraph. On a branch, there are seven birds: a robin, an owl, a quail, a falcon, a hummingbird, a cardinal, and a crow. The hummingbird is to the left of the falcon. The crow is to the right of the cardinal. The cardinal is the second from the right. The quail is the third from the right. The falcon is to the left of the robin. The owl is the second from the left.\nOptions:\n(A) The robin is the second from the right\n(B) The owl is the second from the right\n(C) The quail is the second from the right\n(D) The falcon is the second from the right\n(E) The hummingbird is the second from the right\n(F) The cardinal is the second from the right\n(G) The crow is the second from the right",
+    "target":"(F)",
+    "task_type":"logical_deduction_seven_objects"
+  },
+  {
+    "input":"Today, Ashley went to the art studio. Between what times could they have gone?\nWe know that:\nAshley woke up at 5am.\nMary saw Ashley getting a coffee at the cafe from 5am to 6am.\nWilliam saw Ashley buying a phone at the electronics store from 6am to 4pm.\nJennifer saw Ashley buying a bike at the bike shop from 4pm to 5pm.\nAnthony saw Ashley waiting at the train station from 5pm to 6pm.\nThe art studio was closed after 8pm.\nBetween what times could Ashley have gone to the art studio?\nOptions:\n(A) 4pm to 5pm\n(B) 6am to 4pm\n(C) 6pm to 8pm\n(D) 5am to 6am",
+    "target":"(C)",
+    "task_type":"temporal_sequences"
+  },
+  {
+    "input":"Alice, Bob, and Claire are holding a white elephant gift exchange. At the start of the event, they are each holding a present of a different color: Alice has a yellow present, Bob has a brown present, and Claire has a blue present.\nAs the event progresses, pairs of people swap gifts. First, Bob and Alice swap their gifts. Then, Claire and Alice swap their gifts. Finally, Bob and Alice swap their gifts. At the end of the event, Bob has the\nOptions:\n(A) yellow present\n(B) brown present\n(C) blue present",
+    "target":"(C)",
+    "task_type":"tracking_shuffled_objects_three_objects"
+  },
+  {
+    "input":"((7 + 1 + 9 * 1) + (7 - -3 + 3 * 1)) =",
+    "target":"30",
+    "task_type":"multistep_arithmetic_two"
+  },
+  {
+    "input":"On the nightstand, there is a silver jug, a blue pair of sunglasses, a fuchsia stress ball, and a purple sheet of paper. What color is the stress ball?\nOptions:\n(A) red\n(B) orange\n(C) yellow\n(D) green\n(E) blue\n(F) brown\n(G) magenta\n(H) fuchsia\n(I) mauve\n(J) teal\n(K) turquoise\n(L) burgundy\n(M) silver\n(N) gold\n(O) black\n(P) grey\n(Q) purple\n(R) pink",
+    "target":"(H)",
+    "task_type":"reasoning_about_colored_objects"
+  },
+  {
+    "input":"The following translations from German to English contain a particular error. That error will be one of the following types: Named Entities: An entity (names, places, locations, etc.) is changed to a different entity. Numerical Values: Numerical values (ordinals or cardinals), dates, and\/or units are changed. Modifiers or Adjectives: The modifiers and adjectives pertaining to a noun are changed. Negation or Antonyms: Introduce or remove a negation or change comparatives to their antonyms. Facts: Trivial factual errors not pertaining to the above classes are introduced in the translations. Dropped Content: A significant clause in the translation is removed. Please identify that error.  Source: NGC 1767 ist die Bezeichnung eines Emissionsnebels mit einem eingebetteten offenen Sternhaufen im Sternbild Dorado.\nTranslation: NGC 1767 is an emission nebula with an embedded closed cluster in the constellation Dorado.\nThe translation contains an error pertaining to\nOptions:\n(A) Modifiers or Adjectives\n(B) Numerical Values\n(C) Negation or Antonyms\n(D) Named Entities\n(E) Dropped Content\n(F) Facts",
+    "target":"(C)",
+    "task_type":"salient_translation_error_detection"
+  },
+  {
+    "input":"How would a typical person answer each of the following questions about causation?\nTom has a huge garden and loves flowers. He employed two gardeners who take care of the plants on his 30 flower beds: Alex and Benni. Both can independently decide on their working hours and arrange who cares for which flower beds. Alex and Benni are very reliable and Tom is satisfied with their work. Nevertheless he wants to optimize the plant growth. Since Tom has read in a magazine that plants grow better when they are fertilized, he decides to let Alex and Benni fertilize his plants. The magazine recommends the use of the chemicals A X200R or B Y33R, since both are especially effective. However, Tom also read that it can damage plants when they are exposed to multiple different types of chemicals. Tom therefore decides that he only wants to use one fertilizer. He goes for A X200R. When Tom meets Alex in the garden shortly afterwards, he instructs him to buy the chemical A X200R and to use only this fertilizer. He also explicitly instructs him to tell Benni to only use A X200R. Alex volunteers to buy several bottles of this chemical for Benni and himself and to tell Benni about Tom's instruction. After a few weeks, Tom goes for a walk in his garden. He realizes that some of his plants are much prettier and bigger than before. However, he also realizes that some of his plants have lost their beautiful color and are dried up. That makes Tom very sad and reflective. He wonders whether the drying of his plants might have something to do with the fertilization. He wants to investigate this matter and talks to Alex and Benni. After some interrogation, Alex finally confesses that he had told Benni that Tom wanted them to buy and use the chemical B Y33R instead of A X200R. He wanted Benni to use the wrong fertilizer and to get fired because he wanted to have more working hours to earn more money. He himself only used A X200R. Benni tells Tom that Alex had told him that they were only supposed to use B Y33R. He therefore only used B Y33R without knowing that Tom actually intended both gardeners to use A X200R. Tom realizes that the plants dried up in the flower beds on which both A X200R and B Y33R were applied by the gardeners. Did Alex cause the plant to dry out?\nOptions:\n- Yes\n- No",
+    "target":"Yes",
+    "task_type":"causal_judgement"
+  },
+  {
+    "input":"Which of the following is a humorous edit of this artist or movie name: 'reservoir dogs'?\nOptions:\n(A) reservoir dog\n(B) reservoirzdogs\n(C) reservojr dogs\n(D) reservoir bogs",
+    "target":"(D)",
+    "task_type":"ruin_names"
+  },
+  {
+    "input":"\"Is Fred a fan of Liverpool? Are supporters of Real Madrid devotees of PSG? In European football, it is sometimes difficult to keep track of the mutual admiration and dislike. The following argument seeks to clarify some such relations: First, everyone who is both an opponent to Real Sociedad de Fútbol and an ex-fan of Beşiktaş JK is a follower of Liverpool FC, too. Second, being an admirer of HŠK Zrinjski is sufficient for not being an opponent to Real Sociedad de Fútbol. Third, whoever is an admirer of HŠK Zrinjski is not an ex-fan of Beşiktaş JK. In consequence, every admirer of HŠK Zrinjski is a follower of Liverpool FC.\"\nIs the argument, given the explicitly stated premises, deductively valid or invalid?\nOptions:\n- valid \n- invalid",
+    "target":"invalid",
+    "task_type":"formal_fallacies"
+  },
+  {
+    "input":"Alice, Bob, and Claire are holding a white elephant gift exchange. At the start of the event, they are each holding a present of a different color: Alice has a white present, Bob has a pink ball, and Claire has a black ball.\nAs the event progresses, pairs of people swap gifts. First, Alice and Claire swap their gifts. Then, Alice and Bob swap their gifts. Finally, Claire and Alice swap their gifts. At the end of the event, Claire has the\nOptions:\n(A) white present\n(B) pink ball\n(C) black ball",
+    "target":"(B)",
+    "task_type":"tracking_shuffled_objects_three_objects"
+  },
+  {
+    "input":"Alice, Bob, and Claire are on the same team in a soccer match. At the start of the match, they are each assigned to a position: Alice is playing right midfielder, Bob is playing center midfielder, and Claire is playing striker.\nAs the game progresses, pairs of players occasionally swap positions. First, Alice and Bob trade positions. Then, Alice and Claire trade positions. Finally, Bob and Claire trade positions. At the end of the match, Bob is playing\nOptions:\n(A) right midfielder\n(B) center midfielder\n(C) striker",
+    "target":"(B)",
+    "task_type":"tracking_shuffled_objects_three_objects"
+  },
+  {
+    "input":"Alice, Bob, Claire, Dave, Eve, Fred, and Gertrude are holding a white elephant gift exchange. At the start of the event, they are each holding a present of a different color: Alice has a brown present, Bob has a orange ball, Claire has a pink ball, Dave has a white present, Eve has a yellow present, Fred has a blue present, and Gertrude has a purple present.\nAs the event progresses, pairs of people swap gifts. First, Bob and Alice swap their gifts. Then, Bob and Eve swap their gifts. Then, Claire and Gertrude swap their gifts. Then, Claire and Eve swap their gifts. Then, Bob and Dave swap their gifts. Then, Dave and Eve swap their gifts. Finally, Fred and Dave swap their gifts. At the end of the event, Alice has the\nOptions:\n(A) brown present\n(B) orange ball\n(C) pink ball\n(D) white present\n(E) yellow present\n(F) blue present\n(G) purple present",
+    "target":"(B)",
+    "task_type":"tracking_shuffled_objects_seven_objects"
+  },
+  {
+    "input":"Alice, Bob, and Claire are playing a game. At the start of the game, they are each holding a ball: Alice has a yellow ball, Bob has a purple ball, and Claire has a blue ball.\nAs the game progresses, pairs of players trade balls. First, Alice and Claire swap balls. Then, Bob and Claire swap balls. Finally, Alice and Claire swap balls. At the end of the game, Alice has the\nOptions:\n(A) yellow ball\n(B) purple ball\n(C) blue ball",
+    "target":"(B)",
+    "task_type":"tracking_shuffled_objects_three_objects"
+  },
+  {
+    "input":"( True ) and True and not True is",
+    "target":"False",
+    "task_type":"boolean_expressions"
+  },
+  {
+    "input":"If you follow these instructions, do you return to the starting point? Take 6 steps. Take 2 steps. Take 6 steps.\nOptions:\n- Yes\n- No",
+    "target":"No",
+    "task_type":"navigate"
+  },
+  {
+    "input":"Which of the following is a humorous edit of this artist or movie name: 'free willy'?\nOptions:\n(A) frre willy\n(B) freeh willy\n(C) tree willy\n(D) frees willy",
+    "target":"(C)",
+    "task_type":"ruin_names"
+  },
+  {
+    "input":"Which sentence has the correct adjective order:\nOptions:\n(A) little prismlike Russian nice knife\n(B) nice little prismlike Russian knife",
+    "target":"(B)",
+    "task_type":"hyperbaton"
+  },
+  {
+    "input":"Here is a table where the first line is a header and each subsequent line is a penguin:  name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm.  What is the name of the last penguin?\nOptions:\n(A) Louis\n(B) Bernard\n(C) Vincent\n(D) Gwen\n(E) James",
+    "target":"(D)",
+    "task_type":"penguins_in_a_table"
+  },
+  {
+    "input":"Alice, Bob, Claire, Dave, Eve, Fred, and Gertrude are dancers at a square dance. At the start of a song, they each have a partner: Alice is dancing with Melissa, Bob is dancing with Lola, Claire is dancing with Patrick, Dave is dancing with Sam, Eve is dancing with Izzi, Fred is dancing with Helga, and Gertrude is dancing with Rodrigo.\nThroughout the song, the dancers often trade partners. First, Fred and Gertrude switch partners. Then, Claire and Fred switch partners. Then, Dave and Alice switch partners. Then, Alice and Bob switch partners. Then, Gertrude and Eve switch partners. Then, Dave and Gertrude switch partners. Finally, Alice and Dave switch partners. At the end of the dance, Eve is dancing with\nOptions:\n(A) Melissa\n(B) Lola\n(C) Patrick\n(D) Sam\n(E) Izzi\n(F) Helga\n(G) Rodrigo",
+    "target":"(F)",
+    "task_type":"tracking_shuffled_objects_seven_objects"
+  },
+  {
+    "input":"Today, Sarah went to the amusement park. Between what times could they have gone?\nWe know that:\nSarah woke up at 10am.\nAnthony saw Sarah getting a coffee at the cafe from 11am to 12pm.\nAndrew saw Sarah buying a phone at the electronics store from 12pm to 2pm.\nKimberly saw Sarah driving to the water park from 2pm to 7pm.\nSarah saw Sarah attending class at the school from 7pm to 8pm.\nJennifer saw Sarah watching a movie at the theater from 8pm to 10pm.\nThe amusement park was closed after 10pm.\nBetween what times could Sarah have gone to the amusement park?\nOptions:\n(A) 2pm to 7pm\n(B) 12pm to 2pm\n(C) 10am to 11am\n(D) 7pm to 8pm",
+    "target":"(C)",
+    "task_type":"temporal_sequences"
+  },
+  {
+    "input":"Today, David went to the art studio. Between what times could they have gone?\nWe know that:\nDavid woke up at 5am.\nLinda saw David watching a movie at the theater from 5am to 7am.\nJames saw David buying lunch at the deli from 9am to 10am.\nMary saw David buying a phone at the electronics store from 10am to 11am.\nLeslie saw David driving to the water park from 11am to 2pm.\nJessica saw David buying a bike at the bike shop from 2pm to 7pm.\nThe art studio was closed after 7pm.\nBetween what times could David have gone to the art studio?\nOptions:\n(A) 7am to 9am\n(B) 2pm to 7pm\n(C) 5am to 7am\n(D) 11am to 2pm",
+    "target":"(A)",
+    "task_type":"temporal_sequences"
+  },
+  {
+    "input":"How would a typical person answer each of the following questions about causation?\nJanet is an employee in a factory. Since she works in the maintenance department, she knows how to grease and oil all of the machines in the factory. It is her responsibility to put oil into the machines. Kate is also an employee at the factory. While she works in the human resources department, she knows how to grease and oil all of the machines in the factory. If Janet does not put oil in the machines, it is not Kate's responsibility to do so. One day, Janet forgets to put oil in an important machine. Kate noticed that Janet did not put oil in the machine, and Kate also did not put oil in the machine. The machine broke down a few days later. Did Kate not putting oil in the machine cause it to break down?\nOptions:\n- Yes\n- No",
+    "target":"Yes",
+    "task_type":"causal_judgement"
+  },
+  {
+    "input":"The following paragraphs each describe a set of five objects arranged in a fixed order. The statements are logically consistent within each paragraph. In a golf tournament, there were five golfers: Rob, Eve, Eli, Amy, and Dan. Dan finished second. Amy finished below Eve. Dan finished above Eve. Amy finished above Eli.\nOptions:\n(A) Rob finished last\n(B) Eve finished last\n(C) Eli finished last\n(D) Amy finished last\n(E) Dan finished last",
+    "target":"(C)",
+    "task_type":"logical_deduction_five_objects"
+  },
+  {
+    "input":"Alice, Bob, and Claire are friends and avid readers who occasionally trade books. At the start of the semester, they each buy one new book: Alice gets Frankenstein, Bob gets The Odyssey, and Claire gets Ulysses.\nAs the semester proceeds, they start trading around the new books. First, Claire and Alice swap books. Then, Claire and Bob swap books. Finally, Bob and Alice swap books. At the end of the semester, Bob has\nOptions:\n(A) Frankenstein\n(B) The Odyssey\n(C) Ulysses",
+    "target":"(C)",
+    "task_type":"tracking_shuffled_objects_three_objects"
+  },
+  {
+    "input":"Today, Andrew went to the dance studio. Between what times could they have gone?\nWe know that:\nAndrew woke up at 8am.\nThomas saw Andrew playing tennis at the tennis court from 8am to 11am.\nMary saw Andrew reading at the library from 11am to 1pm.\nMichael saw Andrew fixing their computer at the electronic store from 8pm to 10pm.\nThe dance studio was closed after 10pm.\nBetween what times could Andrew have gone to the dance studio?\nOptions:\n(A) 8pm to 10pm\n(B) 11am to 1pm\n(C) 8am to 11am\n(D) 1pm to 8pm",
+    "target":"(D)",
+    "task_type":"temporal_sequences"
+  },
+  {
+    "input":"The following translations from German to English contain a particular error. That error will be one of the following types: Named Entities: An entity (names, places, locations, etc.) is changed to a different entity. Numerical Values: Numerical values (ordinals or cardinals), dates, and\/or units are changed. Modifiers or Adjectives: The modifiers and adjectives pertaining to a noun are changed. Negation or Antonyms: Introduce or remove a negation or change comparatives to their antonyms. Facts: Trivial factual errors not pertaining to the above classes are introduced in the translations. Dropped Content: A significant clause in the translation is removed. Please identify that error.  Source: Georg Otto Bussenius war ein deutscher Lehrer.\nTranslation: Otto was a German teacher.\nThe translation contains an error pertaining to\nOptions:\n(A) Modifiers or Adjectives\n(B) Numerical Values\n(C) Negation or Antonyms\n(D) Named Entities\n(E) Dropped Content\n(F) Facts",
+    "target":"(D)",
+    "task_type":"salient_translation_error_detection"
+  },
+  {
+    "input":"Today, Ashley went to the football field. Between what times could they have gone?\nWe know that:\nAshley woke up at 1pm.\nLisa saw Ashley taking photos near the Leaning Tower of Pisa from 2pm to 5pm.\nNancy saw Ashley working out at the gym from 5pm to 6pm.\nSteven saw Ashley working at the office from 6pm to 9pm.\nKimberly saw Ashley buying a bike at the bike shop from 9pm to 10pm.\nThe football field was closed after 10pm.\nBetween what times could Ashley have gone to the football field?\nOptions:\n(A) 1pm to 2pm\n(B) 5pm to 6pm\n(C) 9pm to 10pm\n(D) 2pm to 5pm",
+    "target":"(A)",
+    "task_type":"temporal_sequences"
+  },
+  {
+    "input":"Today, Andrew went to the museum. Between what times could they have gone?\nWe know that:\nAndrew woke up at 5am.\nJames saw Andrew walking in the garden from 5am to 6am.\nAshley saw Andrew getting a coffee at the cafe from 6am to 8am.\nDavid saw Andrew sitting on a rooftop from 8am to 10am.\nBetty saw Andrew buying lunch at the deli from 10am to 11am.\nThomas saw Andrew fixing their computer at the electronic store from 8pm to 10pm.\nThe museum was closed after 10pm.\nBetween what times could Andrew have gone to the museum?\nOptions:\n(A) 8am to 10am\n(B) 5am to 6am\n(C) 6am to 8am\n(D) 11am to 8pm",
+    "target":"(D)",
+    "task_type":"temporal_sequences"
+  },
+  {
+    "input":"Which of the following is a humorous edit of this artist or movie name: 'mean girls'?\nOptions:\n(A) bean girls\n(B) oean girls\n(C) meyan girls\n(D) mean giwls",
+    "target":"(A)",
+    "task_type":"ruin_names"
+  },
+  {
+    "input":"Alice, Bob, Claire, Dave, Eve, Fred, and Gertrude are holding a white elephant gift exchange. At the start of the event, they are each holding a present of a different color: Alice has a green present, Bob has a yellow present, Claire has a red present, Dave has a white present, Eve has a pink ball, Fred has a blue present, and Gertrude has a purple present.\nAs the event progresses, pairs of people swap gifts. First, Fred and Eve swap their gifts. Then, Dave and Claire swap their gifts. Then, Bob and Gertrude swap their gifts. Then, Fred and Dave swap their gifts. Then, Bob and Gertrude swap their gifts. Then, Dave and Gertrude swap their gifts. Finally, Claire and Alice swap their gifts. At the end of the event, Gertrude has the\nOptions:\n(A) green present\n(B) yellow present\n(C) red present\n(D) white present\n(E) pink ball\n(F) blue present\n(G) purple present",
+    "target":"(E)",
+    "task_type":"tracking_shuffled_objects_seven_objects"
+  },
+  {
+    "input":"Find a movie similar to Forrest Gump, The Matrix, Pulp Fiction, Inception:\nOptions:\n(A) Like Crazy\n(B) Win Win\n(C) Morvern Callar\n(D) Independence Day",
+    "target":"(D)",
+    "task_type":"movie_recommendation"
+  },
+  {
+    "input":"The following paragraphs each describe a set of seven objects arranged in a fixed order. The statements are logically consistent within each paragraph. In an antique car show, there are seven vehicles: a bus, a motorcyle, a hatchback, a station wagon, a minivan, a truck, and a limousine. The station wagon is the fourth-newest. The motorcyle is newer than the truck. The station wagon is older than the hatchback. The minivan is newer than the hatchback. The bus is newer than the minivan. The truck is newer than the limousine.\nOptions:\n(A) The bus is the third-oldest\n(B) The motorcyle is the third-oldest\n(C) The hatchback is the third-oldest\n(D) The station wagon is the third-oldest\n(E) The minivan is the third-oldest\n(F) The truck is the third-oldest\n(G) The limousine is the third-oldest",
+    "target":"(B)",
+    "task_type":"logical_deduction_seven_objects"
+  }
+]

@@ -1,0 +1,24 @@
+{
+    "examples": [
+        {
+            "input": "Today, David went to the gas station. Between what times could they have gone?\nWe know that:\nDavid woke up at 5am.\nJennifer saw David taking photos near the Leaning Tower of Pisa from 7am to 9am.\nKimberly saw David buying a bike at the bike shop from 9am to 3pm.\nLinda saw David walking towards the Statue of Liberty from 3pm to 9pm.\nThe gas station was closed after 9pm.\nBetween what times could David have gone to the gas station?\nOptions:\n(A) 5am to 7am\n(B) 7am to 9am\n(C) 3pm to 9pm\n(D) 9am to 3pm",
+            "target": "(A)"
+        },
+        {
+            "input": "Today, Richard went to the physics classroom. Between what times could they have gone?\nWe know that:\nRichard woke up at 7am.\nDavid saw Richard reading at the library from 10am to 11am.\nSamantha saw Richard sitting on a rooftop from 11am to 2pm.\nAshley saw Richard working at the office from 2pm to 4pm.\nHannah saw Richard fixing their computer at the electronic store from 4pm to 8pm.\nThe physics classroom was closed after 8pm.\nBetween what times could Richard have gone to the physics classroom?\nOptions:\n(A) 7am to 10am\n(B) 2pm to 4pm\n(C) 11am to 2pm\n(D) 4pm to 8pm",
+            "target": "(A)"
+        },
+        {
+            "input": "Today, Ashley went to the basketball court. Between what times could they have gone?\nWe know that:\nAshley woke up at 9am.\nJohn saw Ashley taking photos near the Eiffel Tower from 9am to 10am.\nLinda saw Ashley walking in the garden from 10am to 1pm.\nAshley saw Ashley attending class at the school from 1pm to 2pm.\nThe basketball court was closed after 7pm.\nBetween what times could Ashley have gone to the basketball court?\nOptions:\n(A) 2pm to 7pm\n(B) 9am to 10am\n(C) 1pm to 2pm\n(D) 10am to 1pm",
+            "target": "(A)"
+        },
+        {
+            "input": "Today, Emily went to the orchestra hall. Between what times could they have gone?\nWe know that:\nEmily woke up at 5am.\nLinda saw Emily waiting at the airport from 5am to 6am.\nDavid saw Emily buying cookies at a bakery from 2pm to 7pm.\nMichael saw Emily buying clothes at the mall from 7pm to 8pm.\nThomas saw Emily working out at the gym from 8pm to 10pm.\nThe orchestra hall was closed after 10pm.\nBetween what times could Emily have gone to the orchestra hall?\nOptions:\n(A) 5am to 6am\n(B) 2pm to 7pm\n(C) 8pm to 10pm\n(D) 6am to 2pm",
+            "target": "(D)"
+        },
+        {
+            "input": "Today, Hannah went to the park. Between what times could they have gone?\nWe know that:\nHannah woke up at 11am.\nMichael saw Hannah getting a coffee at the cafe from 11am to 3pm.\nJames saw Hannah buying clothes at the mall from 3pm to 4pm.\nHannah saw Hannah walking in the garden from 6pm to 8pm.\nLisa saw Hannah sitting on a rooftop from 8pm to 9pm.\nTiffany saw Hannah waiting at the train station from 9pm to 10pm.\nThe park was closed after 10pm.\nBetween what times could Hannah have gone to the park?\nOptions:\n(A) 4pm to 6pm\n(B) 6pm to 8pm\n(C) 8pm to 9pm\n(D) 3pm to 4pm",
+            "target": "(A)"
+        }
+    ]
+}

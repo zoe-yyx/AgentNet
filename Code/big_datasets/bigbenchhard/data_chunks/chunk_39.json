@@ -1,0 +1,502 @@
+[
+  {
+    "input":"If you follow these instructions, do you return to the starting point? Take 1 step. Take 5 steps. Take 1 step. Turn left. Turn left. Take 9 steps.\nOptions:\n- Yes\n- No",
+    "target":"No",
+    "task_type":"navigate"
+  },
+  {
+    "input":"The following translations from German to English contain a particular error. That error will be one of the following types: Named Entities: An entity (names, places, locations, etc.) is changed to a different entity. Numerical Values: Numerical values (ordinals or cardinals), dates, and\/or units are changed. Modifiers or Adjectives: The modifiers and adjectives pertaining to a noun are changed. Negation or Antonyms: Introduce or remove a negation or change comparatives to their antonyms. Facts: Trivial factual errors not pertaining to the above classes are introduced in the translations. Dropped Content: A significant clause in the translation is removed. Please identify that error.  Source: Der Werrahaufen war ein Zusammenschluss von Bauern und Handwerkern im Deutschen Bauernkrieg 1525 im Südwesten des heutigen Thüringen.\nTranslation: The Werrahaufen was an association of peasants and craftsmen in the German Peasants' War of 1625 in the southwest of present-day Thuringia.\nThe translation contains an error pertaining to\nOptions:\n(A) Modifiers or Adjectives\n(B) Numerical Values\n(C) Negation or Antonyms\n(D) Named Entities\n(E) Dropped Content\n(F) Facts",
+    "target":"(B)",
+    "task_type":"salient_translation_error_detection"
+  },
+  {
+    "input":"In the following sentences, explain the antecedent of the pronoun (which thing the pronoun refers to), or state that it is ambiguous.\nSentence: The cleaner called the guard and asked them to open the door.\nOptions:\n(A) Asked the cleaner\n(B) Asked the guard\n(C) Ambiguous",
+    "target":"(B)",
+    "task_type":"disambiguation_qa"
+  },
+  {
+    "input":"In the following sentences, explain the antecedent of the pronoun (which thing the pronoun refers to), or state that it is ambiguous.\nSentence: After meeting with the producers, Sam goes to their office.\nOptions:\n(A) It is Sam's office\n(B) It is the producers' office\n(C) Ambiguous",
+    "target":"(C)",
+    "task_type":"disambiguation_qa"
+  },
+  {
+    "input":"How would a typical person answer each of the following questions about causation?\nTom has a huge garden and loves flowers. He employed two gardeners who take care of the plants on his 30 flower beds: Alex and Benni. Both can independently decide on their working hours and arrange who cares for which flower beds. Alex and Benni are very reliable and Tom is satisfied with their work. Nevertheless he wants to optimize the plant growth. Since Tom has read in a magazine that plants grow better when they are fertilized, he decides to let Alex and Benni fertilize his plants. The magazine recommends the use of the chemicals A X200R or B Y33R, since both are especially effective. However, Tom also read that it can damage plants when they are exposed to multiple different types of chemicals. Tom therefore decides that he only wants to use one fertilizer. He goes for A X200R. When Tom meets Alex in the garden shortly afterwards, he instructs him to buy the chemical A X200R and to use only this fertilizer. He also explicitly instructs him to tell Benni to only use A X200R. Alex volunteers to buy several bottles of this chemical for Benni and himself and to tell Benni about Tom's instruction. After a few weeks, Tom goes for a walk in his garden. He realizes that some of his plants are much prettier and bigger than before. However, he also realizes that some of his plants have lost their beautiful color and are dried up. That makes Tom very sad and reflective. He wonders whether the drying of his plants might have something to do with the fertilization. He wants to investigate this matter and talks to Alex and Benni. After some interrogation, Alex finally confesses that he had told Benni that Tom wanted them to buy and use the chemical B Y33R instead of A X200R. He wanted Benni to use the wrong fertilizer and to get fired because he wanted to have more working hours to earn more money. He himself only used A X200R. Benni tells Tom that Alex had told him that they were only supposed to use B Y33R. He therefore only used B Y33R without knowing that Tom actually intended both gardeners to use A X200R. Tom realizes that the plants dried up in the flower beds on which both A X200R and B Y33R were applied by the gardeners. Did Benni cause the plant to dry out?\nOptions:\n- Yes\n- No",
+    "target":"No",
+    "task_type":"causal_judgement"
+  },
+  {
+    "input":"Alice, Bob, and Claire are dancers at a square dance. At the start of a song, they each have a partner: Alice is dancing with Karl, Bob is dancing with Rodrigo, and Claire is dancing with Patrick.\nThroughout the song, the dancers often trade partners. First, Claire and Alice switch partners. Then, Bob and Alice switch partners. Finally, Alice and Claire switch partners. At the end of the dance, Claire is dancing with\nOptions:\n(A) Karl\n(B) Rodrigo\n(C) Patrick",
+    "target":"(B)",
+    "task_type":"tracking_shuffled_objects_three_objects"
+  },
+  {
+    "input":"On the floor, you see several items arranged in a row: a pink envelope, a black bracelet, a purple fidget spinner, a brown paperclip, a grey crayon, and a magenta cat toy. What is the color of the item directly to the right of the purple item?\nOptions:\n(A) red\n(B) orange\n(C) yellow\n(D) green\n(E) blue\n(F) brown\n(G) magenta\n(H) fuchsia\n(I) mauve\n(J) teal\n(K) turquoise\n(L) burgundy\n(M) silver\n(N) gold\n(O) black\n(P) grey\n(Q) purple\n(R) pink",
+    "target":"(F)",
+    "task_type":"reasoning_about_colored_objects"
+  },
+  {
+    "input":"On the nightstand, you see the following things arranged in a row: a teal stress ball, a purple paperclip, a gold scrunchiephone charger, and a black dog leash. What is the color of the thing directly to the right of the teal thing?\nOptions:\n(A) red\n(B) orange\n(C) yellow\n(D) green\n(E) blue\n(F) brown\n(G) magenta\n(H) fuchsia\n(I) mauve\n(J) teal\n(K) turquoise\n(L) burgundy\n(M) silver\n(N) gold\n(O) black\n(P) grey\n(Q) purple\n(R) pink",
+    "target":"(Q)",
+    "task_type":"reasoning_about_colored_objects"
+  },
+  {
+    "input":"If you follow these instructions, do you return to the starting point? Always face forward. Take 6 steps right. Take 5 steps right. Take 7 steps left. Take 3 steps left. Take 7 steps left. Take 6 steps right.\nOptions:\n- Yes\n- No",
+    "target":"Yes",
+    "task_type":"navigate"
+  },
+  {
+    "input":"Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ ] ( [ [ { < { { ( < > [ ] ) } } < > > } ] ] { }",
+    "target":")",
+    "task_type":"dyck_languages"
+  },
+  {
+    "input":"The following paragraphs each describe a set of five objects arranged in a fixed order. The statements are logically consistent within each paragraph. In an antique car show, there are five vehicles: a station wagon, a tractor, a truck, a hatchback, and a minivan. The station wagon is newer than the tractor. The truck is older than the tractor. The minivan is newer than the hatchback. The hatchback is the second-newest.\nOptions:\n(A) The station wagon is the oldest\n(B) The tractor is the oldest\n(C) The truck is the oldest\n(D) The hatchback is the oldest\n(E) The minivan is the oldest",
+    "target":"(C)",
+    "task_type":"logical_deduction_five_objects"
+  },
+  {
+    "input":"Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: { ( ( ) ) { < > { ( [ [ { } ] [ ( ) ] ] ) } [ { { { ( < [ ] > ) } { < > } } }",
+    "target":"] } }",
+    "task_type":"dyck_languages"
+  },
+  {
+    "input":"The following paragraphs each describe a set of three objects arranged in a fixed order. The statements are logically consistent within each paragraph. In a golf tournament, there were three golfers: Eve, Joe, and Amy. Eve finished below Amy. Eve finished above Joe.\nOptions:\n(A) Eve finished last\n(B) Joe finished last\n(C) Amy finished last",
+    "target":"(B)",
+    "task_type":"logical_deduction_three_objects"
+  },
+  {
+    "input":"Is the following sentence plausible? \"Ryan Nugent-Hopkins killed the powerplay.\"",
+    "target":"yes",
+    "task_type":"sports_understanding"
+  },
+  {
+    "input":"On the floor, you see a set of things arranged in a row: a grey cup, a pink notebook, a silver booklet, a burgundy pencil, a magenta teddy bear, and a turquoise pen. What is the color of the left-most thing?\nOptions:\n(A) red\n(B) orange\n(C) yellow\n(D) green\n(E) blue\n(F) brown\n(G) magenta\n(H) fuchsia\n(I) mauve\n(J) teal\n(K) turquoise\n(L) burgundy\n(M) silver\n(N) gold\n(O) black\n(P) grey\n(Q) purple\n(R) pink",
+    "target":"(P)",
+    "task_type":"reasoning_about_colored_objects"
+  },
+  {
+    "input":"The following paragraphs each describe a set of three objects arranged in a fixed order. The statements are logically consistent within each paragraph. A fruit stand sells three fruits: cantaloupes, oranges, and watermelons. The oranges are the most expensive. The cantaloupes are more expensive than the watermelons.\nOptions:\n(A) The cantaloupes are the cheapest\n(B) The oranges are the cheapest\n(C) The watermelons are the cheapest",
+    "target":"(C)",
+    "task_type":"logical_deduction_three_objects"
+  },
+  {
+    "input":"Today, James went to the market. Between what times could they have gone?\nWe know that:\nJames woke up at 7am.\nDavid saw James taking photos near the Eiffel Tower from 7am to 8am.\nJohn saw James playing tennis at the tennis court from 10am to 1pm.\nElizabeth saw James waiting at the airport from 1pm to 3pm.\nWilliam saw James reading at the library from 3pm to 5pm.\nThe market was closed after 5pm.\nBetween what times could James have gone to the market?\nOptions:\n(A) 10am to 1pm\n(B) 7am to 8am\n(C) 3pm to 5pm\n(D) 8am to 10am",
+    "target":"(D)",
+    "task_type":"temporal_sequences"
+  },
+  {
+    "input":"The following paragraphs each describe a set of five objects arranged in a fixed order. The statements are logically consistent within each paragraph. On a branch, there are five birds: an owl, a robin, a blue jay, a hawk, and a hummingbird. The owl is the second from the right. The robin is the second from the left. The robin is to the right of the blue jay. The hummingbird is to the right of the hawk.\nOptions:\n(A) The owl is the third from the left\n(B) The robin is the third from the left\n(C) The blue jay is the third from the left\n(D) The hawk is the third from the left\n(E) The hummingbird is the third from the left",
+    "target":"(D)",
+    "task_type":"logical_deduction_five_objects"
+  },
+  {
+    "input":"( True or False ) or not True is",
+    "target":"True",
+    "task_type":"boolean_expressions"
+  },
+  {
+    "input":"( not False and ( True ) ) is",
+    "target":"True",
+    "task_type":"boolean_expressions"
+  },
+  {
+    "input":"Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: < { < [ [ ( { } ) ] ]",
+    "target":"> } >",
+    "task_type":"dyck_languages"
+  },
+  {
+    "input":"Today, Elizabeth went to the swimming pool. Between what times could they have gone?\nWe know that:\nElizabeth woke up at 6am.\nNancy saw Elizabeth fixing their computer at the electronic store from 6am to 7am.\nJessica saw Elizabeth attending class at the school from 7am to 11am.\nWilliam saw Elizabeth getting a coffee at the cafe from 11am to 3pm.\nBetty saw Elizabeth taking photos near the Eiffel Tower from 3pm to 6pm.\nThe swimming pool was closed after 7pm.\nBetween what times could Elizabeth have gone to the swimming pool?\nOptions:\n(A) 11am to 3pm\n(B) 6am to 7am\n(C) 6pm to 7pm\n(D) 7am to 11am",
+    "target":"(C)",
+    "task_type":"temporal_sequences"
+  },
+  {
+    "input":"Find a movie similar to Braveheart, Get Shorty, The Shawshank Redemption, Pulp Fiction:\nOptions:\n(A) The Fugitive\n(B) Ready to Rumble\n(C) Thoroughly Modern Millie\n(D) Ninja Shadow of a Tear",
+    "target":"(A)",
+    "task_type":"movie_recommendation"
+  },
+  {
+    "input":"If you follow these instructions, do you return to the starting point? Take 7 steps. Take 1 step. Take 7 steps. Turn left. Take 5 steps.\nOptions:\n- Yes\n- No",
+    "target":"No",
+    "task_type":"navigate"
+  },
+  {
+    "input":"How would a typical person answer each of the following questions about causation?\nLong ago, when John was only 17 years old, he got a job working for a large manufacturing company. He started out working on an assembly line for minimum wage, but after a few years at the company, he was given a choice between two line manager positions. He could stay in the woodwork division, which is where he was currently working. Or he could move to the plastics division. John was unsure what to do because he liked working in the woodwork division, but he also thought it might be worth trying something different. He finally decided to switch to the plastics division and try something new. For the last 30 years, John has worked as a production line supervisor in the plastics division. After the first year there, the plastics division was moved to a different building with more space. Unfortunately, through the many years he worked there, John was exposed to asbestos, a highly carcinogenic substance. Most of the plastics division was quite safe, but the small part in which John worked was exposed to asbestos fibers. And now, although John has never smoked a cigarette in his life and otherwise lives a healthy lifestyle, he has a highly progressed and incurable case of lung cancer at the age of 50. John had seen three cancer specialists, all of whom confirmed the worst: that, except for pain, John's cancer was untreatable and he was absolutely certain to die from it very soon (the doctors estimated no more than 2 months). Yesterday, while John was in the hospital for a routine medical appointment, a new nurse accidentally administered the wrong medication to him. John was allergic to the drug and he immediately went into shock and experienced cardiac arrest (a heart attack). Doctors attempted to resuscitate him but he died minutes after the medication was administered. Did long-term exposure to asbestos cause John's premature death?\nOptions:\n- Yes\n- No",
+    "target":"Yes",
+    "task_type":"causal_judgement"
+  },
+  {
+    "input":"The following paragraphs each describe a set of seven objects arranged in a fixed order. The statements are logically consistent within each paragraph. In a golf tournament, there were seven golfers: Eli, Ada, Amy, Ana, Eve, Mel, and Dan. Ada finished above Mel. Dan finished above Ada. Amy finished last. Ana finished third-to-last. Dan finished below Eli. Eve finished third.\nOptions:\n(A) Eli finished last\n(B) Ada finished last\n(C) Amy finished last\n(D) Ana finished last\n(E) Eve finished last\n(F) Mel finished last\n(G) Dan finished last",
+    "target":"(C)",
+    "task_type":"logical_deduction_seven_objects"
+  },
+  {
+    "input":"\"It is not always easy to see which chemicals are contained in our consumer products. The following argument pertains to this question: First premise: Whatever is not an ingredient of Shimmer Veil is an ingredient of Snowcastle. Second premise: Every ingredient of Liquid Eye liner is not an ingredient of Love Boat or not an ingredient of Shimmer Veil. Third premise: Being an ingredient of Snowcastle is necessary for not being an ingredient of Love Boat. We may conclude that everything that is an ingredient of Liquid Eye liner is an ingredient of Snowcastle, too.\"\nIs the argument, given the explicitly stated premises, deductively valid or invalid?\nOptions:\n- valid \n- invalid",
+    "target":"valid",
+    "task_type":"formal_fallacies"
+  },
+  {
+    "input":"Which of the following is a humorous edit of this artist or movie name: 'a few good men'?\nOptions:\n(A) a few goofd men\n(B) a few food men\n(C) ad few good men\n(D) a fewagood men",
+    "target":"(B)",
+    "task_type":"ruin_names"
+  },
+  {
+    "input":"Today, James went to the basketball court. Between what times could they have gone?\nWe know that:\nJames woke up at 6am.\nSusan saw James buying a bike at the bike shop from 7am to 8am.\nEmily saw James buying a phone at the electronics store from 8am to 9am.\nLisa saw James attending class at the school from 9am to 3pm.\nSarah saw James taking photos near the Leaning Tower of Pisa from 3pm to 5pm.\nDavid saw James getting a coffee at the cafe from 5pm to 8pm.\nThe basketball court was closed after 8pm.\nBetween what times could James have gone to the basketball court?\nOptions:\n(A) 6am to 7am\n(B) 9am to 3pm\n(C) 8am to 9am\n(D) 3pm to 5pm",
+    "target":"(A)",
+    "task_type":"temporal_sequences"
+  },
+  {
+    "input":"((1 - 2 + 5 * 2) + (-2 - -7 + 3 * -8)) =",
+    "target":"-10",
+    "task_type":"multistep_arithmetic_two"
+  },
+  {
+    "input":"Today, Betty went to the art show. Between what times could they have gone?\nWe know that:\nBetty woke up at 8am.\nElizabeth saw Betty buying lunch at the deli from 8am to 10am.\nTiffany saw Betty fixing their computer at the electronic store from 10am to 1pm.\nSusan saw Betty taking photos near the Eiffel Tower from 1pm to 2pm.\nBetty saw Betty getting a coffee at the cafe from 7pm to 10pm.\nThe art show was closed after 10pm.\nBetween what times could Betty have gone to the art show?\nOptions:\n(A) 2pm to 7pm\n(B) 7pm to 10pm\n(C) 8am to 10am\n(D) 1pm to 2pm",
+    "target":"(A)",
+    "task_type":"temporal_sequences"
+  },
+  {
+    "input":"Which sentence has the correct adjective order:\nOptions:\n(A) new walking Turkish green sock\n(B) new green Turkish walking sock",
+    "target":"(B)",
+    "task_type":"hyperbaton"
+  },
+  {
+    "input":"\"Is Fred a cousin of Robert? Is Joe related to Bob? In large families, it is sometimes difficult to keep track of all one's relatives. The following argument seeks to clarify some such relations: First of all, every classmate of Harold who is an ancestor of Frank is not a grandson of Shannon. We may conclude: Every grandson of Shannon is not a classmate of Harold or not an ancestor of Frank.\"\nIs the argument, given the explicitly stated premises, deductively valid or invalid?\nOptions:\n- valid \n- invalid",
+    "target":"valid",
+    "task_type":"formal_fallacies"
+  },
+  {
+    "input":"Which sentence has the correct adjective order:\nOptions:\n(A) drinking Brazilian lovely triangular monkey\n(B) lovely triangular Brazilian drinking monkey",
+    "target":"(B)",
+    "task_type":"hyperbaton"
+  },
+  {
+    "input":"The following paragraphs each describe a set of three objects arranged in a fixed order. The statements are logically consistent within each paragraph. A fruit stand sells three fruits: plums, apples, and loquats. The loquats are the cheapest. The plums are less expensive than the apples.\nOptions:\n(A) The plums are the most expensive\n(B) The apples are the most expensive\n(C) The loquats are the most expensive",
+    "target":"(B)",
+    "task_type":"logical_deduction_three_objects"
+  },
+  {
+    "input":"I have a drum, an accordion, and a violin. How many musical instruments do I have?",
+    "target":"3",
+    "task_type":"object_counting"
+  },
+  {
+    "input":"I have a bed, a fridge, a lamp, a toaster, four chairs, and a table. How many objects do I have?",
+    "target":"9",
+    "task_type":"object_counting"
+  },
+  {
+    "input":"The following paragraphs each describe a set of three objects arranged in a fixed order. The statements are logically consistent within each paragraph. In an antique car show, there are three vehicles: a tractor, a station wagon, and a limousine. The tractor is newer than the limousine. The station wagon is the newest.\nOptions:\n(A) The tractor is the oldest\n(B) The station wagon is the oldest\n(C) The limousine is the oldest",
+    "target":"(C)",
+    "task_type":"logical_deduction_three_objects"
+  },
+  {
+    "input":"This SVG path element <path d=\"M 54.80,39.10 L 47.35,52.12 M 47.35,52.12 L 45.84,37.85 L 36.25,25.96 L 49.96,33.50 L 56.84,29.55 L 70.14,30.00 M 70.14,30.00 L 54.80,39.10\"\/> draws a\nOptions:\n(A) circle\n(B) heptagon\n(C) hexagon\n(D) kite\n(E) line\n(F) octagon\n(G) pentagon\n(H) rectangle\n(I) sector\n(J) triangle",
+    "target":"(B)",
+    "task_type":"geometric_shapes"
+  },
+  {
+    "input":"The following translations from German to English contain a particular error. That error will be one of the following types: Named Entities: An entity (names, places, locations, etc.) is changed to a different entity. Numerical Values: Numerical values (ordinals or cardinals), dates, and\/or units are changed. Modifiers or Adjectives: The modifiers and adjectives pertaining to a noun are changed. Negation or Antonyms: Introduce or remove a negation or change comparatives to their antonyms. Facts: Trivial factual errors not pertaining to the above classes are introduced in the translations. Dropped Content: A significant clause in the translation is removed. Please identify that error.  Source: Friedrich von Rothenstein war der Sohn von Konrad von Rothenstein, aus dem Adelsgeschlecht der von Rothenstein.\nTranslation: Friedrich von Rothenstein was the daughter of Konrad von Rothenstein, of the noble family of Rothenstein.\nThe translation contains an error pertaining to\nOptions:\n(A) Modifiers or Adjectives\n(B) Numerical Values\n(C) Negation or Antonyms\n(D) Named Entities\n(E) Dropped Content\n(F) Facts",
+    "target":"(C)",
+    "task_type":"salient_translation_error_detection"
+  },
+  {
+    "input":"Alice, Bob, Claire, Dave, Eve, Fred, and Gertrude are playing a game. At the start of the game, they are each holding a ball: Alice has a orange ball, Bob has a yellow ball, Claire has a brown ball, Dave has a white ball, Eve has a black ball, Fred has a red ball, and Gertrude has a purple ball.\nAs the game progresses, pairs of players trade balls. First, Claire and Bob swap balls. Then, Claire and Dave swap balls. Then, Fred and Gertrude swap balls. Then, Eve and Claire swap balls. Then, Eve and Fred swap balls. Then, Alice and Dave swap balls. Finally, Eve and Claire swap balls. At the end of the game, Eve has the\nOptions:\n(A) orange ball\n(B) yellow ball\n(C) brown ball\n(D) white ball\n(E) black ball\n(F) red ball\n(G) purple ball",
+    "target":"(E)",
+    "task_type":"tracking_shuffled_objects_seven_objects"
+  },
+  {
+    "input":"The following translations from German to English contain a particular error. That error will be one of the following types: Named Entities: An entity (names, places, locations, etc.) is changed to a different entity. Numerical Values: Numerical values (ordinals or cardinals), dates, and\/or units are changed. Modifiers or Adjectives: The modifiers and adjectives pertaining to a noun are changed. Negation or Antonyms: Introduce or remove a negation or change comparatives to their antonyms. Facts: Trivial factual errors not pertaining to the above classes are introduced in the translations. Dropped Content: A significant clause in the translation is removed. Please identify that error.  Source: Der Conseil du Roi kann am besten übersetzt werden als Königlicher Rat.\nTranslation: The Conseil du Roi can best be translated as the Common Council.\nThe translation contains an error pertaining to\nOptions:\n(A) Modifiers or Adjectives\n(B) Numerical Values\n(C) Negation or Antonyms\n(D) Named Entities\n(E) Dropped Content\n(F) Facts",
+    "target":"(F)",
+    "task_type":"salient_translation_error_detection"
+  },
+  {
+    "input":"( not False or ( True ) ) is",
+    "target":"True",
+    "task_type":"boolean_expressions"
+  },
+  {
+    "input":"\"Here comes a perfectly valid argument: To begin with, being a backer of Olympique de Marseille is sufficient for not being a devotee of SS Lazio. Moreover, every devotee of SS Lazio is a backer of Olympique de Marseille or, otherwise, neither a backer of Olympique de Marseille nor an admirer of AS Saint-Étienne. So, necessarily, being an admirer of AS Saint-Étienne is necessary for being a devotee of SS Lazio.\"\nIs the argument, given the explicitly stated premises, deductively valid or invalid?\nOptions:\n- valid \n- invalid",
+    "target":"invalid",
+    "task_type":"formal_fallacies"
+  },
+  {
+    "input":"In the following sentences, explain the antecedent of the pronoun (which thing the pronoun refers to), or state that it is ambiguous.\nSentence: The pathologist obtained tissue samples from the victim to look at under her microscope.\nOptions:\n(A) It was the pathologist's microscope\n(B) It was the victim's microscope\n(C) Ambiguous",
+    "target":"(A)",
+    "task_type":"disambiguation_qa"
+  },
+  {
+    "input":"Question: Ka lies. Rashida says Ka tells the truth. Sherrie says Rashida tells the truth. Tamika says Sherrie tells the truth. Elanor says Tamika tells the truth. Does Elanor tell the truth?",
+    "target":"No",
+    "task_type":"web_of_lies"
+  },
+  {
+    "input":"The following paragraphs each describe a set of five objects arranged in a fixed order. The statements are logically consistent within each paragraph. On a shelf, there are five books: a blue book, a red book, a purple book, a gray book, and a white book. The white book is to the right of the gray book. The blue book is the leftmost. The red book is to the left of the gray book. The red book is the third from the left.\nOptions:\n(A) The blue book is the second from the right\n(B) The red book is the second from the right\n(C) The purple book is the second from the right\n(D) The gray book is the second from the right\n(E) The white book is the second from the right",
+    "target":"(D)",
+    "task_type":"logical_deduction_five_objects"
+  },
+  {
+    "input":"Today, Jessica went to the swimming pool. Between what times could they have gone?\nWe know that:\nJessica woke up at 9am.\nRichard saw Jessica taking photos near the Leaning Tower of Pisa from 9am to 11am.\nMary saw Jessica reading at the library from 11am to 3pm.\nKimberly saw Jessica sitting on a rooftop from 3pm to 4pm.\nThe swimming pool was closed after 7pm.\nBetween what times could Jessica have gone to the swimming pool?\nOptions:\n(A) 9am to 11am\n(B) 3pm to 4pm\n(C) 11am to 3pm\n(D) 4pm to 7pm",
+    "target":"(D)",
+    "task_type":"temporal_sequences"
+  },
+  {
+    "input":"On the desk, you see a yellow puzzle, a pink paperclip, a brown pair of sunglasses, a gold sheet of paper, a blue fidget spinner, and a green cat toy. What color is the paperclip?\nOptions:\n(A) red\n(B) orange\n(C) yellow\n(D) green\n(E) blue\n(F) brown\n(G) magenta\n(H) fuchsia\n(I) mauve\n(J) teal\n(K) turquoise\n(L) burgundy\n(M) silver\n(N) gold\n(O) black\n(P) grey\n(Q) purple\n(R) pink",
+    "target":"(R)",
+    "task_type":"reasoning_about_colored_objects"
+  },
+  {
+    "input":"Sort the following words alphabetically: List: convair frighten citizen scrubby birdseed fateful soothe extensive trillion adonis southeastern stormy judaica trundle suppose contaminant",
+    "target":"adonis birdseed citizen contaminant convair extensive fateful frighten judaica scrubby soothe southeastern stormy suppose trillion trundle",
+    "task_type":"word_sorting"
+  },
+  {
+    "input":"Find a movie similar to Batman, The Mask, The Fugitive, Pretty Woman:\nOptions:\n(A) The Front Page\n(B) Maelstrom\n(C) The Lion King\n(D) Lamerica",
+    "target":"(C)",
+    "task_type":"movie_recommendation"
+  },
+  {
+    "input":"This SVG path element <path d=\"M 41.00,42.00 L 37.00,34.00 L 41.00,30.00 L 45.00,34.00 L 41.00,42.00\"\/> draws a\nOptions:\n(A) circle\n(B) heptagon\n(C) hexagon\n(D) kite\n(E) line\n(F) octagon\n(G) pentagon\n(H) rectangle\n(I) sector\n(J) triangle",
+    "target":"(D)",
+    "task_type":"geometric_shapes"
+  },
+  {
+    "input":"The following paragraphs each describe a set of three objects arranged in a fixed order. The statements are logically consistent within each paragraph. In a golf tournament, there were three golfers: Amy, Eli, and Eve. Eve finished above Amy. Eli finished below Amy.\nOptions:\n(A) Amy finished second\n(B) Eli finished second\n(C) Eve finished second",
+    "target":"(A)",
+    "task_type":"logical_deduction_three_objects"
+  },
+  {
+    "input":"The following paragraphs each describe a set of three objects arranged in a fixed order. The statements are logically consistent within each paragraph. On a branch, there are three birds: a hummingbird, an owl, and a falcon. The falcon is to the right of the owl. The hummingbird is to the left of the owl.\nOptions:\n(A) The hummingbird is the leftmost\n(B) The owl is the leftmost\n(C) The falcon is the leftmost",
+    "target":"(A)",
+    "task_type":"logical_deduction_three_objects"
+  },
+  {
+    "input":"Which sentence has the correct adjective order:\nOptions:\n(A) lovely fiberglass archaic pyramidal Nigerian brown motorcycle\n(B) lovely archaic pyramidal brown Nigerian fiberglass motorcycle",
+    "target":"(B)",
+    "task_type":"hyperbaton"
+  },
+  {
+    "input":"The following paragraphs each describe a set of five objects arranged in a fixed order. The statements are logically consistent within each paragraph. A fruit stand sells five fruits: watermelons, loquats, pears, plums, and apples. The pears are the second-cheapest. The loquats are more expensive than the pears. The plums are the second-most expensive. The watermelons are the most expensive.\nOptions:\n(A) The watermelons are the most expensive\n(B) The loquats are the most expensive\n(C) The pears are the most expensive\n(D) The plums are the most expensive\n(E) The apples are the most expensive",
+    "target":"(A)",
+    "task_type":"logical_deduction_five_objects"
+  },
+  {
+    "input":"In the following sentences, explain the antecedent of the pronoun (which thing the pronoun refers to), or state that it is ambiguous.\nSentence: The driver yelled at the tailor after he broke a window.\nOptions:\n(A) The driver broke a window\n(B) The tailor broke a window\n(C) Ambiguous",
+    "target":"(C)",
+    "task_type":"disambiguation_qa"
+  },
+  {
+    "input":"not ( False or False or True ) is",
+    "target":"False",
+    "task_type":"boolean_expressions"
+  },
+  {
+    "input":"The following paragraphs each describe a set of five objects arranged in a fixed order. The statements are logically consistent within each paragraph. On a branch, there are five birds: a falcon, a raven, a cardinal, a hawk, and a crow. The cardinal is the second from the right. The hawk is to the right of the falcon. The raven is the second from the left. The crow is the rightmost.\nOptions:\n(A) The falcon is the rightmost\n(B) The raven is the rightmost\n(C) The cardinal is the rightmost\n(D) The hawk is the rightmost\n(E) The crow is the rightmost",
+    "target":"(E)",
+    "task_type":"logical_deduction_five_objects"
+  },
+  {
+    "input":"The following paragraphs each describe a set of five objects arranged in a fixed order. The statements are logically consistent within each paragraph. On a shelf, there are five books: a white book, a gray book, a purple book, a yellow book, and a black book. The yellow book is to the left of the white book. The black book is to the left of the yellow book. The purple book is the rightmost. The white book is to the left of the gray book.\nOptions:\n(A) The white book is the second from the left\n(B) The gray book is the second from the left\n(C) The purple book is the second from the left\n(D) The yellow book is the second from the left\n(E) The black book is the second from the left",
+    "target":"(D)",
+    "task_type":"logical_deduction_five_objects"
+  },
+  {
+    "input":"How would a typical person answer each of the following questions about causation?\nNed has a new motorboat. When Ned turns the key, the motorboat starts if either the gear is in neutral or the motor is in the lock position. Today, the gear is in neutral, and the motor is in the lock position. Ned checks the motor to see if it is in the lock position. He sees that it is in the lock position, and he does not change its position at all. Because the motorboat would start if either the gear is in neutral or the motor is in the lock position, the motorboat starts when Ned turns the key. Did the motorboat start because Ned did not change the position of the motor?\nOptions:\n- Yes\n- No",
+    "target":"Yes",
+    "task_type":"causal_judgement"
+  },
+  {
+    "input":"Sort the following words alphabetically: List: sound consternate tariff blest proximity quizzes xerxes buxton",
+    "target":"blest buxton consternate proximity quizzes sound tariff xerxes",
+    "task_type":"word_sorting"
+  },
+  {
+    "input":"In the following sentences, explain the antecedent of the pronoun (which thing the pronoun refers to), or state that it is ambiguous.\nSentence: The guard called the cleaner and asked him to open the door.\nOptions:\n(A) Asked the guard\n(B) Asked the cleaner\n(C) Ambiguous",
+    "target":"(B)",
+    "task_type":"disambiguation_qa"
+  },
+  {
+    "input":"It was Sept. 1st, 2021 a week ago. What is the date one week ago from today in MM\/DD\/YYYY?\nOptions:\n(A) 09\/02\/2021\n(B) 09\/07\/2021\n(C) 09\/01\/2021\n(D) 09\/01\/2098\n(E) 09\/01\/2020\n(F) 12\/06\/2021",
+    "target":"(C)",
+    "task_type":"date_understanding"
+  },
+  {
+    "input":"The following paragraphs each describe a set of three objects arranged in a fixed order. The statements are logically consistent within each paragraph. In an antique car show, there are three vehicles: a truck, a minivan, and a tractor. The truck is newer than the minivan. The minivan is newer than the tractor.\nOptions:\n(A) The truck is the second-newest\n(B) The minivan is the second-newest\n(C) The tractor is the second-newest",
+    "target":"(B)",
+    "task_type":"logical_deduction_three_objects"
+  },
+  {
+    "input":"Alice, Bob, Claire, Dave, Eve, Fred, and Gertrude are holding a white elephant gift exchange. At the start of the event, they are each holding a present of a different color: Alice has a black ball, Bob has a orange ball, Claire has a white present, Dave has a green present, Eve has a blue present, Fred has a red present, and Gertrude has a yellow present.\nAs the event progresses, pairs of people swap gifts. First, Alice and Eve swap their gifts. Then, Alice and Fred swap their gifts. Then, Gertrude and Dave swap their gifts. Then, Fred and Eve swap their gifts. Then, Claire and Bob swap their gifts. Then, Claire and Dave swap their gifts. Finally, Dave and Alice swap their gifts. At the end of the event, Alice has the\nOptions:\n(A) black ball\n(B) orange ball\n(C) white present\n(D) green present\n(E) blue present\n(F) red present\n(G) yellow present",
+    "target":"(B)",
+    "task_type":"tracking_shuffled_objects_seven_objects"
+  },
+  {
+    "input":"Here is a table where the first line is a header and each subsequent line is a penguin:  name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm.  And here is a similar table, but listing giraffes:\nname, age, height (cm), weight (kg)\nJody, 5, 430, 620\nGladys, 10, 420, 590\nMarian, 2, 310, 410\nDonna, 9, 440, 650\nWhat is the name of the last penguin sorted by alphabetic order?\nOptions:\n(A) Louis\n(B) Bernard\n(C) Vincent\n(D) Gwen\n(E) James",
+    "target":"(C)",
+    "task_type":"penguins_in_a_table"
+  },
+  {
+    "input":"not ( True ) and ( True ) is",
+    "target":"False",
+    "task_type":"boolean_expressions"
+  },
+  {
+    "input":"Find a movie similar to Schindler's List, The Shawshank Redemption, Terminator 2 Judgment Day, Aladdin:\nOptions:\n(A) The Double Life of Veronique\n(B) Bridget Jones's Diary\n(C) The Lion King\n(D) Cujo",
+    "target":"(C)",
+    "task_type":"movie_recommendation"
+  },
+  {
+    "input":"The following translations from German to English contain a particular error. That error will be one of the following types: Named Entities: An entity (names, places, locations, etc.) is changed to a different entity. Numerical Values: Numerical values (ordinals or cardinals), dates, and\/or units are changed. Modifiers or Adjectives: The modifiers and adjectives pertaining to a noun are changed. Negation or Antonyms: Introduce or remove a negation or change comparatives to their antonyms. Facts: Trivial factual errors not pertaining to the above classes are introduced in the translations. Dropped Content: A significant clause in the translation is removed. Please identify that error.  Source: Das Congress-Centrum Koelnmesse ist ein Veranstaltungskomplex in Köln.\nTranslation: The Congress-Centrum Koelnmesse is an event complex in Color.\nThe translation contains an error pertaining to\nOptions:\n(A) Modifiers or Adjectives\n(B) Numerical Values\n(C) Negation or Antonyms\n(D) Named Entities\n(E) Dropped Content\n(F) Facts",
+    "target":"(D)",
+    "task_type":"salient_translation_error_detection"
+  },
+  {
+    "input":"Alice, Bob, Claire, Dave, Eve, Fred, and Gertrude are dancers at a square dance. At the start of a song, they each have a partner: Alice is dancing with Karl, Bob is dancing with Helga, Claire is dancing with Sam, Dave is dancing with Rodrigo, Eve is dancing with Melissa, Fred is dancing with Izzi, and Gertrude is dancing with Ophelia.\nThroughout the song, the dancers often trade partners. First, Gertrude and Fred switch partners. Then, Gertrude and Bob switch partners. Then, Alice and Bob switch partners. Then, Eve and Dave switch partners. Then, Bob and Gertrude switch partners. Then, Alice and Claire switch partners. Finally, Dave and Fred switch partners. At the end of the dance, Bob is dancing with\nOptions:\n(A) Karl\n(B) Helga\n(C) Sam\n(D) Rodrigo\n(E) Melissa\n(F) Izzi\n(G) Ophelia",
+    "target":"(B)",
+    "task_type":"tracking_shuffled_objects_seven_objects"
+  },
+  {
+    "input":"Which of the following is a humorous edit of this artist or movie name: 'the rolling stones'?\nOptions:\n(A) the rolling stones\n(B) the rtlling stones\n(C) the rolling scones\n(D) the polling stones",
+    "target":"(C)",
+    "task_type":"ruin_names"
+  },
+  {
+    "input":"The following paragraphs each describe a set of five objects arranged in a fixed order. The statements are logically consistent within each paragraph. In a golf tournament, there were five golfers: Amy, Dan, Mya, Eli, and Mel. Amy finished above Mel. Mya finished first. Amy finished below Eli. Dan finished last.\nOptions:\n(A) Amy finished third\n(B) Dan finished third\n(C) Mya finished third\n(D) Eli finished third\n(E) Mel finished third",
+    "target":"(A)",
+    "task_type":"logical_deduction_five_objects"
+  },
+  {
+    "input":"The following paragraphs each describe a set of five objects arranged in a fixed order. The statements are logically consistent within each paragraph. On a shelf, there are five books: a gray book, a red book, a purple book, a blue book, and a black book. The red book is to the right of the gray book. The black book is to the left of the blue book. The blue book is to the left of the gray book. The purple book is the second from the right.\nOptions:\n(A) The gray book is the third from the left\n(B) The red book is the third from the left\n(C) The purple book is the third from the left\n(D) The blue book is the third from the left\n(E) The black book is the third from the left",
+    "target":"(A)",
+    "task_type":"logical_deduction_five_objects"
+  },
+  {
+    "input":"((2 + -6 * -7 - 7) + (-2 - -5 + -4 + -2)) =",
+    "target":"34",
+    "task_type":"multistep_arithmetic_two"
+  },
+  {
+    "input":"Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ [ < [ [ ] ] > ] ] { } { ( { ( ( ) ) ( ) { { [ [ ( { < { [ { [ ( < ( ( < < < [ ( ) ] [ ] > > > ) ) > < [ < { < ( ) > } > ] > ) ] } ] } > ( ( ) ) } ) [ ( ) ] ] ( < > ) ] } } } ) } [",
+    "target":"]",
+    "task_type":"dyck_languages"
+  },
+  {
+    "input":"The following paragraphs each describe a set of seven objects arranged in a fixed order. The statements are logically consistent within each paragraph. In an antique car show, there are seven vehicles: a station wagon, a truck, a sedan, a limousine, a convertible, a bus, and a hatchback. The limousine is the newest. The bus is the third-newest. The bus is older than the convertible. The sedan is the third-oldest. The station wagon is older than the truck. The hatchback is the oldest.\nOptions:\n(A) The station wagon is the fourth-newest\n(B) The truck is the fourth-newest\n(C) The sedan is the fourth-newest\n(D) The limousine is the fourth-newest\n(E) The convertible is the fourth-newest\n(F) The bus is the fourth-newest\n(G) The hatchback is the fourth-newest",
+    "target":"(B)",
+    "task_type":"logical_deduction_seven_objects"
+  },
+  {
+    "input":"I have three heads of broccoli, two cauliflowers, a yam, and a lettuce head. How many vegetables do I have?",
+    "target":"7",
+    "task_type":"object_counting"
+  },
+  {
+    "input":"The following paragraphs each describe a set of seven objects arranged in a fixed order. The statements are logically consistent within each paragraph. On a branch, there are seven birds: a hummingbird, a cardinal, a blue jay, an owl, a raven, a quail, and a robin. The hummingbird is to the left of the quail. The robin is to the left of the cardinal. The blue jay is the leftmost. The cardinal is the fourth from the left. The raven is the third from the right. The owl is the third from the left.\nOptions:\n(A) The hummingbird is the second from the right\n(B) The cardinal is the second from the right\n(C) The blue jay is the second from the right\n(D) The owl is the second from the right\n(E) The raven is the second from the right\n(F) The quail is the second from the right\n(G) The robin is the second from the right",
+    "target":"(A)",
+    "task_type":"logical_deduction_seven_objects"
+  },
+  {
+    "input":"Today, Elizabeth went to the park. Between what times could they have gone?\nWe know that:\nElizabeth woke up at 10am.\nEmily saw Elizabeth buying a bike at the bike shop from 10am to 11am.\nLeslie saw Elizabeth buying lunch at the deli from 11am to 2pm.\nSarah saw Elizabeth playing tennis at the tennis court from 4pm to 8pm.\nThe park was closed after 8pm.\nBetween what times could Elizabeth have gone to the park?\nOptions:\n(A) 10am to 11am\n(B) 11am to 2pm\n(C) 4pm to 8pm\n(D) 2pm to 4pm",
+    "target":"(D)",
+    "task_type":"temporal_sequences"
+  },
+  {
+    "input":"Jane and John married on Jan 2, 1958. It is their 5-year anniversary today. What is the date today in MM\/DD\/YYYY?\nOptions:\n(A) 01\/02\/1894\n(B) 01\/02\/1961\n(C) 12\/23\/1960\n(D) 01\/02\/1960\n(E) 01\/03\/1961\n(F) 01\/02\/1990",
+    "target":"(B)",
+    "task_type":"date_understanding"
+  },
+  {
+    "input":"On the desk, you see several things arranged in a row: a burgundy bracelet, a grey mug, a green necklace, and a magenta textbook. What is the color of the thing directly to the left of the necklace?\nOptions:\n(A) red\n(B) orange\n(C) yellow\n(D) green\n(E) blue\n(F) brown\n(G) magenta\n(H) fuchsia\n(I) mauve\n(J) teal\n(K) turquoise\n(L) burgundy\n(M) silver\n(N) gold\n(O) black\n(P) grey\n(Q) purple\n(R) pink",
+    "target":"(P)",
+    "task_type":"reasoning_about_colored_objects"
+  },
+  {
+    "input":"The following paragraphs each describe a set of seven objects arranged in a fixed order. The statements are logically consistent within each paragraph. In a golf tournament, there were seven golfers: Ana, Rob, Eve, Mel, Mya, Joe, and Eli. Joe finished second-to-last. Eli finished first. Mya finished below Joe. Mel finished second. Rob finished third-to-last. Ana finished third.\nOptions:\n(A) Ana finished fourth\n(B) Rob finished fourth\n(C) Eve finished fourth\n(D) Mel finished fourth\n(E) Mya finished fourth\n(F) Joe finished fourth\n(G) Eli finished fourth",
+    "target":"(C)",
+    "task_type":"logical_deduction_seven_objects"
+  },
+  {
+    "input":"Alice, Bob, Claire, Dave, and Eve are on the same team in a soccer match. At the start of the match, they are each assigned to a position: Alice is playing goalkeeper, Bob is playing left winger, Claire is playing benchwarmer, Dave is playing cheerleader, and Eve is playing left midfielder.\nAs the game progresses, pairs of players occasionally swap positions. First, Eve and Alice trade positions. Then, Bob and Eve trade positions. Then, Alice and Dave trade positions. Then, Bob and Eve trade positions. Finally, Eve and Claire trade positions. At the end of the match, Bob is playing\nOptions:\n(A) goalkeeper\n(B) left winger\n(C) benchwarmer\n(D) cheerleader\n(E) left midfielder",
+    "target":"(B)",
+    "task_type":"tracking_shuffled_objects_five_objects"
+  },
+  {
+    "input":"Complete the rest of the sequence, making sure that the parentheses are closed properly. Input: [ ( [ ( [ < ( ) > [ < { } { [ ] } [ ] [ ] > { ( < { < > } > ) } ] ] ) ] )",
+    "target":"]",
+    "task_type":"dyck_languages"
+  },
+  {
+    "input":"The following paragraphs each describe a set of three objects arranged in a fixed order. The statements are logically consistent within each paragraph. On a shelf, there are three books: a white book, a black book, and a purple book. The black book is to the left of the purple book. The purple book is to the left of the white book.\nOptions:\n(A) The white book is the second from the left\n(B) The black book is the second from the left\n(C) The purple book is the second from the left",
+    "target":"(C)",
+    "task_type":"logical_deduction_three_objects"
+  },
+  {
+    "input":"Question: Leda tells the truth. Shalonda says Leda lies. Shenna says Shalonda tells the truth. Christie says Shenna lies. Crista says Christie tells the truth. Does Crista tell the truth?",
+    "target":"Yes",
+    "task_type":"web_of_lies"
+  },
+  {
+    "input":"If you follow these instructions, do you return to the starting point? Take 10 steps. Take 2 steps. Take 3 steps. Turn around. Take 4 steps. Turn around. Take 4 steps.\nOptions:\n- Yes\n- No",
+    "target":"No",
+    "task_type":"navigate"
+  },
+  {
+    "input":"\"Is Fred a fan of Liverpool? Are supporters of Real Madrid devotees of PSG? In European football, it is sometimes difficult to keep track of the mutual admiration and dislike. The following argument seeks to clarify some such relations: No member of ŠK Slovan Bratislava is a follower of OGC Nice. Whoever is a member of ŠK Slovan Bratislava is not a devotee of Royal Antwerp FC. Every member of ŠK Slovan Bratislava is a devotee of Royal Antwerp FC or a backer of FC Zenit or a follower of OGC Nice. Therefore, being a backer of FC Zenit is necessary for being a member of ŠK Slovan Bratislava.\"\nIs the argument, given the explicitly stated premises, deductively valid or invalid?\nOptions:\n- valid \n- invalid",
+    "target":"valid",
+    "task_type":"formal_fallacies"
+  },
+  {
+    "input":"The following translations from German to English contain a particular error. That error will be one of the following types: Named Entities: An entity (names, places, locations, etc.) is changed to a different entity. Numerical Values: Numerical values (ordinals or cardinals), dates, and\/or units are changed. Modifiers or Adjectives: The modifiers and adjectives pertaining to a noun are changed. Negation or Antonyms: Introduce or remove a negation or change comparatives to their antonyms. Facts: Trivial factual errors not pertaining to the above classes are introduced in the translations. Dropped Content: A significant clause in the translation is removed. Please identify that error.  Source: Die Alte Kirche ist eine evangelische Kirche im Ortskern des Wuppertaler Stadtteils Langerfeld.\nTranslation: The Kirchhof is an evangelical church in the centre of the Wuppertal district of Langerfeld.\nThe translation contains an error pertaining to\nOptions:\n(A) Modifiers or Adjectives\n(B) Numerical Values\n(C) Negation or Antonyms\n(D) Named Entities\n(E) Dropped Content\n(F) Facts",
+    "target":"(D)",
+    "task_type":"salient_translation_error_detection"
+  },
+  {
+    "input":"The following paragraphs each describe a set of three objects arranged in a fixed order. The statements are logically consistent within each paragraph. In an antique car show, there are three vehicles: a motorcyle, a bus, and a tractor. The motorcyle is the oldest. The bus is newer than the tractor.\nOptions:\n(A) The motorcyle is the newest\n(B) The bus is the newest\n(C) The tractor is the newest",
+    "target":"(B)",
+    "task_type":"logical_deduction_three_objects"
+  },
+  {
+    "input":"Find a movie similar to The Wizard of Oz, The Big Lebowski, Being John Malkovich, Run Lola Run:\nOptions:\n(A) Dragon Ball Z Dead Zone\n(B) Lightning in a Bottle\n(C) The Omega Man\n(D) Goodfellas",
+    "target":"(D)",
+    "task_type":"movie_recommendation"
+  },
+  {
+    "input":"Which sentence has the correct adjective order:\nOptions:\n(A) cloth smoking rectangular motorcycle\n(B) rectangular cloth smoking motorcycle",
+    "target":"(B)",
+    "task_type":"hyperbaton"
+  },
+  {
+    "input":"On May 9th, 2017 Jane bought 40 eggs. She ate one per day. Today she ran out of eggs. What is the date one year ago from today in MM\/DD\/YYYY?\nOptions:\n(A) 06\/18\/2030\n(B) 09\/18\/2016\n(C) 06\/18\/2016\n(D) 07\/18\/2015\n(E) 06\/22\/2016\n(F) 06\/25\/2016",
+    "target":"(C)",
+    "task_type":"date_understanding"
+  },
+  {
+    "input":"Is the following sentence plausible? \"Joe Burrow gained five yards.\"",
+    "target":"yes",
+    "task_type":"sports_understanding"
+  },
+  {
+    "input":"The following translations from German to English contain a particular error. That error will be one of the following types: Named Entities: An entity (names, places, locations, etc.) is changed to a different entity. Numerical Values: Numerical values (ordinals or cardinals), dates, and\/or units are changed. Modifiers or Adjectives: The modifiers and adjectives pertaining to a noun are changed. Negation or Antonyms: Introduce or remove a negation or change comparatives to their antonyms. Facts: Trivial factual errors not pertaining to the above classes are introduced in the translations. Dropped Content: A significant clause in the translation is removed. Please identify that error.  Source: Die United States Army ist das Heer der Streitkräfte der Vereinigten Staaten und der größte der acht uniformierten Dienste der Vereinigten Staaten.\nTranslation: The United States Army is the army of the United States Armed Forces and the largest of the six uniformed services in the United States.\nThe translation contains an error pertaining to\nOptions:\n(A) Modifiers or Adjectives\n(B) Numerical Values\n(C) Negation or Antonyms\n(D) Named Entities\n(E) Dropped Content\n(F) Facts",
+    "target":"(B)",
+    "task_type":"salient_translation_error_detection"
+  },
+  {
+    "input":"The following translations from German to English contain a particular error. That error will be one of the following types: Named Entities: An entity (names, places, locations, etc.) is changed to a different entity. Numerical Values: Numerical values (ordinals or cardinals), dates, and\/or units are changed. Modifiers or Adjectives: The modifiers and adjectives pertaining to a noun are changed. Negation or Antonyms: Introduce or remove a negation or change comparatives to their antonyms. Facts: Trivial factual errors not pertaining to the above classes are introduced in the translations. Dropped Content: A significant clause in the translation is removed. Please identify that error.  Source: Valtice ist eine Stadt mit 3.718 Einwohnern in Tschechien.\nTranslation: Valtice is a town in the Czech Republic.\nThe translation contains an error pertaining to\nOptions:\n(A) Modifiers or Adjectives\n(B) Numerical Values\n(C) Negation or Antonyms\n(D) Named Entities\n(E) Dropped Content\n(F) Facts",
+    "target":"(B)",
+    "task_type":"salient_translation_error_detection"
+  },
+  {
+    "input":"\"Consumer research aims at understanding whether users of some products also tend to consume other ones, or not. The following argument seeks to clarify some such relations: To begin with, being a frequent consumer of Dove soap is sufficient for being an owner of a Bumble and bumble shampoo. So, necessarily, everyone who is an owner of a Bumble and bumble shampoo is a frequent consumer of Dove soap, too.\"\nIs the argument, given the explicitly stated premises, deductively valid or invalid?\nOptions:\n- valid \n- invalid",
+    "target":"invalid",
+    "task_type":"formal_fallacies"
+  },
+  {
+    "input":"The following paragraphs each describe a set of seven objects arranged in a fixed order. The statements are logically consistent within each paragraph. In a golf tournament, there were seven golfers: Mya, Eli, Ana, Amy, Mel, Dan, and Joe. Amy finished below Joe. Dan finished above Mya. Eli finished third. Ana finished first. Amy finished second-to-last. Mya finished fourth.\nOptions:\n(A) Mya finished last\n(B) Eli finished last\n(C) Ana finished last\n(D) Amy finished last\n(E) Mel finished last\n(F) Dan finished last\n(G) Joe finished last",
+    "target":"(E)",
+    "task_type":"logical_deduction_seven_objects"
+  },
+  {
+    "input":"How would a typical person answer each of the following questions about causation?\nIn Bash Ball, opposing teams try to score points in the other team's zone by entering it. On each team, there are two types of players: Bashers and Runners. During the game, Bashers remain in the same spot, trying to hit the other team's Runners with balls, and Runners try to enter the other team's zone without getting hit. Zach, Harmon and a few other friends are on a team playing Bash Ball against another team. Zach is a Basher and Harmon is a Runner. At one point in the game, Zach spots one of the other team's Bashers behind a tree. Later on, Harmon passes by Zach. Knowing that he is not allowed to talk to Runners, Zach does not tell Harmon where the other team's Basher is. Soon after, the Basher that Zach spotted hits Harmon with a Bash Ball. Harmon is out for the remainder of the game. Was Harmon out of the game because Zach did not tell Harmon where the other team's Basher was?\nOptions:\n- Yes\n- No",
+    "target":"No",
+    "task_type":"causal_judgement"
+  }
+]
