@@ -135,7 +135,7 @@ class RouterModule:
             task_description=task.description,
 
             initial_agent_id=0,                
-            source_agent_id=self.agent_id,      # TODO
+            source_agent_id=self.agent_id,
             target_agent_id=next_agent_id,      
 
             route_history=task_history,         # Complete history of current task, temporarily just storing it
@@ -230,8 +230,8 @@ class RouterModule:
             task_progress_text=task.progress_text,
             task_description=task.description,
 
-            initial_agent_id=0,                 # TODO How to use this
-            source_agent_id=self.agent_id,      # TODO Is this for tasks from same Agent, increase similarity
+            initial_agent_id=0,
+            source_agent_id=self.agent_id,
             target_agent_id=next_agent_id,     
 
             route_history=task_history,             
@@ -314,9 +314,6 @@ class RouterModule:
                 agent_info += f"\n- Success Rate for This Task Type: Not Succeed Yet."
             agent_info += f"\n- Processed Tasks: {processed_task_str}"
             agent_info += "\n"
-
-            # TODO Connection line removed for now, not necessary to add temporarily
-            # agent_info += f"\n- Connection: {'Incoming' if single_neighbors_info['is_incoming'] else ''} {'Outgoing' if single_neighbors_info['is_outgoing'] else ''}"
 
         task.complexity = calculate_task_complexity(task)
         task_type_success_rate = float(self_info['success_rate'][current_task_type])
@@ -402,10 +399,6 @@ class RouterModule:
                 agent_info += f"\n- Success Rate for This Task Type: Not Succeed Yet."
             agent_info += f"\n- Processed Tasks: {processed_task_str}"
             agent_info += "\n"
-
-            # TODO Connection line removed for now, not necessary to add temporarily
-            # agent_info += f"\n- Connection: {'Incoming' if single_neighbors_info['is_incoming'] else ''} {'Outgoing' if single_neighbors_info['is_outgoing'] else ''}"
-                
         
         if task.progress_text.strip() == "":
             progress_text = "None progress yet."

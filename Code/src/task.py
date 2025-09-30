@@ -254,7 +254,6 @@ class TaskChain:
         self.task_type = task.task_type                 # Initial task type (for apps shouldn't be initial task, but look at latest, so will be updated frequently)
         self.complexity = task.complexity               # Initial task complexity
         self.priority = task.priority                   # Initial task priority
-        # TODO These three may need adjustment, their purpose is just to pass to next but next task may not be calculated this way
 
         self.major_problem = task.major_problem         # Always remember the main task
 

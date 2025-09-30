@@ -61,7 +61,7 @@ class ExecutorExperience:
     result: str                         # Execution result
     execution_time: float               # Execution time
     success: bool                       # Whether successful
-    error_type: Optional[str] = None    # Error type (if failed) TODO This is not implemented yet
+    error_type: Optional[str] = None    # Error type (if failed)
     source_agent_id: int = None         # Task source Agent
     performance_metrics: Dict[str, float] = field(default_factory=dict)  
     # Performance metrics
@@ -262,8 +262,6 @@ class RouterExperiencePool(BaseExperiencePool):
                     break
     
     def calculate_similarity(self, exp1: RouterExperience, exp2: RouterExperience) -> float:
-        # TODO
-        # How to calculate routing experience may need modification
         """Calculate similarity between two routing experiences"""
         # Calculate vector similarity
         vector_similarity = np.dot(exp1.embedding, exp2.embedding) / (np.linalg.norm(exp1.embedding) * np.linalg.norm(exp2.embedding))

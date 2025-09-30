@@ -103,7 +103,6 @@ class Experiment:
         while True:
             logger.info(f"Agent {current_agent.agent_id} is Solving Task {task_chain.get_current_task_id()}")
             output = current_agent.decide_action(task_chain, forward_times)
-            # TODO: Simplify logging
             logger.info(f"Router Query Prompt of Agent {current_agent.agent_id} for Task {task_chain.get_current_task_id()} is {output['query_prompt']}")
             logger.info(f"Router Response of Agent {current_agent.agent_id} for Task {task_chain.get_current_task_id()} is {output['response']}")
             logger.info(f"Router Decision of Agent {current_agent.agent_id} for Task {task_chain.get_current_task_id()} is {output['decision']}")

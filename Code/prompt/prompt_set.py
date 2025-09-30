@@ -12,50 +12,50 @@ class PromptSet(ABC):
     @staticmethod
     @abstractmethod
     def get_role() -> str:
-        """ TODO """
+        pass
 
     @staticmethod
     @abstractmethod
     def get_constraint() -> str:
-        """ TODO """
+        pass
 
     @staticmethod
     @abstractmethod
     def get_format() -> str:
-        """ TODO """
+        pass
 
     @staticmethod
     @abstractmethod
     def get_answer_prompt(question) -> str:
-        """ TODO """
+        pass
 
     @staticmethod
     @abstractmethod
     def get_adversarial_answer_prompt(question) -> str:
-        """ TODO """
+        pass
 
     @staticmethod
     @abstractmethod
     def get_query_prompt(question) -> str:
-        """ TODO """
+        pass
 
     @staticmethod
     @abstractmethod
     def get_file_analysis_prompt(query, file) -> str:
-        """ TODO """
+        pass
 
     # @staticmethod
     # @abstractmethod
     # def get_reflect_prompt(question, answer) -> str:
-    #     """ TODO """
+    #     pass
 
     # @staticmethod
     # def get_react_prompt(question, solutions, feedback) -> str:
-    #     """ TODO """
+    #     pass
 
     @staticmethod
     @abstractmethod
     def get_combine_materials(materials: Dict[str, Any]) -> str:
-        """ TODO """
+        pass
 
 
