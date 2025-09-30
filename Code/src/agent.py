@@ -99,7 +99,7 @@ class RouterModule:
                 if next_agent_id == None:
                     next_agent_id = self.find_best_alternative_agent(task.task_type, neighbors_info)
                 else:
-                    # 检查目标Agent的能力、负载和连接性
+                    # Check target Agent's capabilities, load, and connectivity
                     if next_agent_id in neighbors_info.keys():
                         next_agent_id_info = neighbors_info[next_agent_id]
 
@@ -138,7 +138,7 @@ class RouterModule:
             source_agent_id=self.agent_id,      # TODO
             target_agent_id=next_agent_id,      
 
-            route_history=task_history,         # 当前任务的完整历史, 暂时只是存进去
+            route_history=task_history,         # Complete history of current task, temporarily just storing it
             execution_time=execution_time,
             success=False,               
             timestamp=time.time()
@@ -192,10 +192,10 @@ class RouterModule:
         next_agent_id = None
 
         if decision in ["completed"]:
-            # 如果Agent认为它做完了
+            # If Agent thinks it's completed
             pass
         elif decision in ["incompleted"]:
-            # 如果Agent认为没有做完，则需要提取下一个Agent ID
+            # If Agent thinks it's not completed, need to extract next Agent ID
             try:
                 next_agent_id = extract_agent_id(str(response_dict.get('NEXT_AGENT_ID', None)))
                 
@@ -203,7 +203,7 @@ class RouterModule:
                     next_agent_id = self.find_best_alternative_agent(task.task_type, neighbors_info)
                 else:
                     if next_agent_id in neighbors_info.keys():
-                    # 检查目标Agent的能力、负载和连接性
+                        # Check target Agent's capabilities, load, and connectivity
                         next_agent_id_info = neighbors_info[next_agent_id]
                         ability = get_average_abilities_from_task_type(task.task_type, next_agent_id_info['abilities'])
                         if (ability >= 0.5 and
@@ -230,8 +230,8 @@ class RouterModule:
             task_progress_text=task.progress_text,
             task_description=task.description,
 
-            initial_agent_id=0,                 # TODO 这个要怎么用
-            source_agent_id=self.agent_id,      # TODO 这个是不是，被同一个Agent传来的任务，相似度上升
+            initial_agent_id=0,                 # TODO How to use this
+            source_agent_id=self.agent_id,      # TODO Is this for tasks from same Agent, increase similarity
             target_agent_id=next_agent_id,     
 
             route_history=task_history,             
@@ -286,7 +286,7 @@ class RouterModule:
         agent_info = "\nAvailable Agents:\n"
         for neighbors_id, single_neighbors_info in neighbors_info.items():
             if decide_mode == "Normal" and task.in_forward_history(single_neighbors_info['agent_id']):
-                # 该任务被传过之后，就不再传了
+                # Once task has been forwarded, don't forward again
                 continue 
             
             processed_task_str = ""
@@ -315,7 +315,7 @@ class RouterModule:
             agent_info += f"\n- Processed Tasks: {processed_task_str}"
             agent_info += "\n"
 
-            # TODO Connection这一行先去了，暂时没有必要加
+            # TODO Connection line removed for now, not necessary to add temporarily
             # agent_info += f"\n- Connection: {'Incoming' if single_neighbors_info['is_incoming'] else ''} {'Outgoing' if single_neighbors_info['is_outgoing'] else ''}"
 
         task.complexity = calculate_task_complexity(task)
@@ -379,7 +379,7 @@ class RouterModule:
 
         for neighbors_id, single_neighbors_info in neighbors_info.items():
             if task.in_forward_history(single_neighbors_info['agent_id']):
-                # 该任务被传过之后，就不再传了
+                # Once task has been forwarded, don't forward again
                 continue 
             
             processed_task_str = ""
@@ -403,7 +403,7 @@ class RouterModule:
             agent_info += f"\n- Processed Tasks: {processed_task_str}"
             agent_info += "\n"
 
-            # TODO Connection这一行先去了，暂时没有必要加
+            # TODO Connection line removed for now, not necessary to add temporarily
             # agent_info += f"\n- Connection: {'Incoming' if single_neighbors_info['is_incoming'] else ''} {'Outgoing' if single_neighbors_info['is_outgoing'] else ''}"
                 
         
@@ -412,7 +412,7 @@ class RouterModule:
         else:
             progress_text = task.progress_text
         
-        # 计算任务复杂度
+        # Calculate task complexity
         task.complexity = calculate_task_complexity(task)
         task_type_success_rate = float(self_info['success_rate'][current_task_type])
         if task_type_success_rate == 0:
@@ -441,32 +441,32 @@ class RouterModule:
 
 
     def find_best_alternative_agent(self, task_type, neighbors_info):
-        """找到最适合的替代Agent"""
+        """Find the most suitable alternative Agent"""
         candidates = []
         current_agent_id = self.agent_id
         for agent_id, info in neighbors_info.items():
             if agent_id != self.agent_id:
-                # 基础条件检查
+                # Basic condition check
                 if not (info['is_incoming'] or info['is_outgoing']):
-                    continue  # 跳过非邻居节点
+                    continue  # Skip non-neighbor nodes
     
                 ability = get_average_abilities_from_task_type(task_type, info['abilities'])
                 load = info['current_load']
                 success_rate = info['success_rate'][task_type]
                 
-                # 计算综合得分
+                # Calculate comprehensive score
                 score = (
-                    ability * 0.4 +  # 能力权重
-                    (1 - load/3) * 0.3 +  # 负载权重
-                    success_rate * 0.2 +  # 成功率权重
-                    (1.0 if info['is_outgoing'] else 0.5) * 0.1  # 连接性权重
+                    ability * 0.4 +  # Ability weight
+                    (1 - load/3) * 0.3 +  # Load weight
+                    success_rate * 0.2 +  # Success rate weight
+                    (1.0 if info['is_outgoing'] else 0.5) * 0.1  # Connectivity weight
                 )
                 
-                if ability >= 0.5 and load < 3:  # 基本条件筛选
+                if ability >= 0.5 and load < 3:  # Basic condition filtering
                     candidates.append((score, agent_id))
         
         if candidates:
-            candidates.sort(reverse=True)  # 按得分降序排序
+            candidates.sort(reverse=True)  # Sort by score in descending order
             return candidates[0][1]
         else:
             logger.warning(f"No suitable agent found for task type {task_type}")
@@ -539,7 +539,7 @@ class ExecutorModule:
 
 
     def executor_execute_task(self, abilities, task, experiences, constraints, few_shot, execution_choice):
-        """执行任务"""
+        """Execute task"""
         start_time = time.time()
         if execution_choice == "execute":
             thought_query_prompt = self.executor_make_prompt_for_thought(experiences=experiences,
@@ -594,9 +594,9 @@ class ExecutorModule:
             result=result,
             execution_time=execution_time, 
             success=False,                   
-            error_type = None,              # 暂时没有加error_type
+            error_type = None,              # error_type not added yet
             source_agent_id=self.agent_id,
-            performance_metrics=None,       # 暂时没有加performance_metrics
+            performance_metrics=None,       # performance_metrics not added yet
             timestamp=time.time()
         )
 
@@ -649,7 +649,7 @@ class ExecutorModule:
 
     def executor_make_prompt(self, experiences, task, prompt_template, constraints, few_shot, execution_choice, thought):
         
-        # 构建few-shot示例
+        # Build few-shot examples
     
         experience_strs = []
         logger.info(f"when making prompt, len(experiences): {len(experiences)}")
@@ -765,20 +765,20 @@ class Agent:
         description = current_task.description if current_task.description != "" else "You need to finish this code task."
         # description = "You need to finish this code task."
 
-        # 让当前的agent根据major_task和description决定任务类型
+        # Let current agent decide task type based on major_task and description
         query_prompt = ROUTER_CLASSIFY_PROMPT.format(major_problem=current_task.major_problem, description=description)
         logger.info(f'The prompt for router to decide task type is: \n{query_prompt}')
         response = llm_model_response_map[self.llm](system_prompt='You are a coding problem classifier.', query_prompt=query_prompt)
 
-        # 从回答中提取答案，处理可能出现的各种情况
+        # Extract answer from response, handle various possible cases
         try:
             extract_answer = extract_content_as_dict(response, ['CATEGORY'])
             logger.info(response)
-            category = extract_answer['CATEGORY'].lower().strip().strip('[').strip(']').strip()   # 小写，去掉最外面可能出现的空格和[]
-            logger.info(f'Agent {self.agent_id} think the task belongs to [{category}].')  # 可能是多个吧
-            abilities = category.split(',') # 拆分后也可能有空格
+            category = extract_answer['CATEGORY'].lower().strip().strip('[').strip(']').strip()   # Lowercase, remove possible outer spaces and []
+            logger.info(f'Agent {self.agent_id} think the task belongs to [{category}].')  # May be multiple
+            abilities = category.split(',') # May also have spaces after splitting
             for ability in abilities:
-                ability = ability.strip()  # 去掉空格
+                ability = ability.strip()  # Remove spaces
                 if ability in self.abilities.keys():
                     current_task.set_task_type(ability)
                     task_chain.set_task_type(ability)
@@ -787,8 +787,8 @@ class Agent:
         except:
             pass
         if task_chain.task_type == None:
-            # 如果不是None的话就可以沿用最开始那个，这样也具有更强的鲁棒性
-            # 如果没找到就统一设置为code_generation
+            # If not None, can reuse the original one, which is more robust
+            # If not found, uniformly set to code_generation
             # tmp_task_type = random.choice(list(self.abilities.keys()))
             tmp_task_type = 'others'
             current_task.set_task_type(tmp_task_type)
@@ -804,15 +804,15 @@ class Agent:
         current_task = task_chain.get_current_task()
 
         # description = current_task.description if current_task.description != "" else "You need to finish this code task."
-        # # 让当前的agent根据major_task和description决定任务类型
+        # # Let current agent decide task type based on major_task and description
         # query_prompt = ROUTER_CLASSIFY_PROMPT.format(major_problem=current_task.major_problem, description=description)
         # logger.info(query_prompt)
         # response = llm_model_response_map[self.llm](system_prompt='You are a coding problem classifier.', query_prompt=query_prompt)
-        # # 从回答中提取答案，处理可能出现的各种情况
+        # # Extract answer from response, handle various possible cases
         # extract_answer = extract_content_as_dict(response, ['CATEGORY'])
         # logger.info(response)
         # # logger.info(extract_answer['CATEGORY'])
-        # category = extract_answer['CATEGORY'].lower().strip().strip('[').strip(']').strip()   # 小写，去掉空格
+        # category = extract_answer['CATEGORY'].lower().strip().strip('[').strip(']').strip()   # Lowercase, remove spaces
         # logger.info(f'Agent {self.agent_id} think the task belongs to [{category}].')
         # # category = extract_answers['CATEGORIES'].lower().strip().replace(' ', '_')
         # # abilities = extract_answers['ABILITIES'].lower().split(',')
@@ -823,13 +823,13 @@ class Agent:
         # else:
         #     current_task.task_type = random.choice(list(self.abilities.keys()))
         #     logger.info(f"Cannot find {category}, random choose {current_task.task_type} as the task type.")
-        self.decide_task_type(task_chain)   # 更新当前任务的类型
+        self.decide_task_type(task_chain)   # Update current task type
 
-        # 开始进行任务
+        # Start task processing
         self_info = self.get_self_info()
         neighbors_info = self.collect_neighbors_info(agent_id=self.agent_id, task=current_task)
 
-        # 如果转发次数过低就改为强制执行，如果没有邻居了也改为强制执行
+        # If forward times too low, change to forced execution; if no neighbors left, also change to forced execution
         decide_mode = "Normal"
         No_Neighbor_Flag = True
         for key, value in neighbors_info.items():
@@ -838,7 +838,7 @@ class Agent:
         if (No_Neighbor_Flag) or (forward_times <=0):
             decide_mode = "Split_and_Execute"
         
-        # 对于新的任务，分类
+        # For new tasks, classify
         output = self.router_module.router_decide_action(
             task=current_task, 
             self_info=self_info, 
@@ -875,7 +875,7 @@ class Agent:
 
 
     def execute_task(self, task_chain, constraints, split_constraints, thought_constraints, few_shot, user_react=True, decision="execute"):
-        # 使用Agent的executor来执行任务, 返回任务的执行结果
+        # Use Agent's executor to execute task, return task execution result
         current_task = task_chain.get_current_task()
         logger.info(f"Agent {self.agent_id} is Executing Task {current_task.task_id}")
 
@@ -893,7 +893,7 @@ class Agent:
             relevant_experiences = relevant_experiences_by_thought
         
         logger.info(f"when execute task, len(relevant_experiences): {len(relevant_experiences)}")
-        # 根据Thought检索的结果执行任务
+        # Execute task based on Thought retrieval results
         if decision == "execute":
             output = self.executor_module.executor_execute_task(abilities=self.abilities, task=current_task, experiences=relevant_experiences, constraints=constraints, few_shot=few_shot, execution_choice="execute")
         elif decision == "split":   
@@ -905,8 +905,8 @@ class Agent:
         return output
 
 
-    # 这个地方，我们检索的时候是直接粗粒度的检索，还是需要按照thought检索，但是这属于Router检索的东西，我们之后再看
-    # 删除这个函数之后
+    # Here, when we retrieve, is it coarse-grained retrieval or retrieval by thought? This belongs to Router retrieval, we'll look at it later
+    # After deleting this function
     def get_relevant_experence(self, task):
         return self.executor_module.executor_pool.get_relevant_experiences(task, top_k=self.executor_retrieval_num)
 
@@ -944,28 +944,28 @@ class Agent:
 
 
     # def update_abilities(self, task_type, complexity, execution_time, success):
-    #     """更新能力值"""
-    #     # success为True增大能力，反之暂时不变
+    #     """Update ability values"""
+    #     # If success is True, increase ability; otherwise, no change for now
     #     if success == True:
 
     #         self.successful_task_num[task_type] += 1
     #         self.success_rate[task_type] = self.successful_task_num[task_type] / self.total_task_num[task_type]
 
-    #         # 基础能力提升
-    #         # 根据任务的难度来提升
+    #         # Basic ability improvement
+    #         # Improve based on task difficulty
     #         ability_gain = 0.1 * complexity
             
-    #         # 根据执行时间调整
-    #         time_factor = 1.0 / (1 + execution_time / 10)  # 归一化时间因子
+    #         # Adjust based on execution time
+    #         time_factor = 1.0 / (1 + execution_time / 10)  # Normalized time factor
 
     #         ability_gain *= time_factor
             
-    #         # 更新主要能力
+    #         # Update main abilities
     #         for ability_type in task_to_ability_map[task_type]:
-    #             self.abilities[ability_type] = min(2.0, self.abilities[ability_type] + ability_gain)   # 2.0是能力上限
+    #             self.abilities[ability_type] = min(2.0, self.abilities[ability_type] + ability_gain)   # 2.0 is ability upper limit
 
     #         for related_type, correlation in self.task_correlations[task_type].items():
-    #             if correlation > 0.3:  # 只更新强相关的能力
+    #             if correlation > 0.3:  # Only update strongly correlated abilities
     #                 for ability_type in task_to_ability_map[related_type]:
     #                     self.abilities[ability_type] = min(2.0, self.abilities[ability_type] + ability_gain * correlation * 0.5)
     #     else:
@@ -974,40 +974,40 @@ class Agent:
 
 
     def update_abilities(self, task_type, complexity, execution_time, success, pass_rate):
-        """更新能力值"""
+        """Update ability values"""
         if pass_rate > 0:
-            # success为True增大能力，反之暂时不变
-            ability_gain = round(pass_rate * 0.04 * complexity,2)   # 复杂度<1
-            # 限制小数点后两位
+            # If success is True, increase ability; otherwise, no change for now
+            ability_gain = round(pass_rate * 0.04 * complexity,2)   # Complexity <1
+            # Limit to two decimal places
             for ability_type in task_to_ability_map[task_type]:
-                self.abilities[ability_type] = min(2.0, self.abilities[ability_type] + ability_gain)  # 2.0是能力上限
+                self.abilities[ability_type] = min(2.0, self.abilities[ability_type] + ability_gain)  # 2.0 is ability upper limit
 
         if success:  
             self.successful_task_num[task_type] += 1
             self.success_rate[task_type] = self.successful_task_num[task_type] / self.total_task_num[task_type]
 
-            # 基础能力提升
-            ability_gain = 0.05  # 任务成功时，能力提升固定值（或者你可以自定义这个值）
+            # Basic ability improvement
+            ability_gain = 0.05  # When task succeeds, ability increases by fixed value (or you can customize this value)
 
-            # 更新主要能力
+            # Update main abilities
             for ability_type in task_to_ability_map[task_type]:
-                self.abilities[ability_type] = min(2.0, self.abilities[ability_type] + ability_gain)  # 2.0是能力上限
+                self.abilities[ability_type] = min(2.0, self.abilities[ability_type] + ability_gain)  # 2.0 is ability upper limit
 
-            # 更新相关能力，根据任务之间的相关性来加成能力
+            # Update related abilities, boost ability based on task correlation
             for related_type, correlation in self.task_correlations[task_type].items():
-                if correlation > 0.3:  # 只更新强相关的能力
+                if correlation > 0.3:  # Only update strongly correlated abilities
                     for ability_type in task_to_ability_map[related_type]:
                         self.abilities[ability_type] = min(2.0, self.abilities[ability_type] + ability_gain * correlation * 0.5)
 
-        else:  # 任务失败，能力不变
+        else:  # Task failed, ability remains unchanged
             pass
 
 
 
     def update_task_correlations(self, task_type, newest_experiences) -> None:
-        """更新任务类型相关性"""
+        """Update task type correlations"""
         if task_type not in self.task_correlations:
-            # 如果Agent还没有遇到这个任务，则扩充一下
+            # If Agent hasn't encountered this task yet, expand it
             self.task_correlations[task_type] = {}
         
         for experience in newest_experiences:
@@ -1020,8 +1020,8 @@ class Agent:
 
 
     def calculate_correlation(self, newest_history, task_type1, task_type2):
-        """计算两个任务类型之间的相关性"""
-        # 根据最近的历史(最多是最新的100个历史)
+        """Calculate correlation between two task types"""
+        # Based on recent history (at most the latest 100 histories)
         task_type1_count = sum(1 for entry in newest_history if entry['task_type'] == task_type1)
         task_type2_count = sum(1 for entry in newest_history if entry['task_type'] == task_type2)
         
@@ -1039,7 +1039,7 @@ class Agent:
 
 
     def set_executor_pool_result(self, task_id, task_type, success):
-        # 执行成功，对应的计数器重置，
+        # If execution successful, reset corresponding counter
         for key, value in self.decay_count_down.items():
             self.decay_count_down[key] = value - 1
         if success:
@@ -1060,12 +1060,12 @@ class Agent:
 
     
     def get_pool_info(self):
-        """获取经验池经验数量"""
+        """Get experience pool experience count"""
         return (self.router_module.router_pool,self.executor_module.executor_pool)
     
 
     def decay_abilities(self, task_type) -> None:
-        """能力衰减"""
+        """Ability decay"""
         for ability_type in task_to_ability_map[task_type]:
             self.abilities[ability_type] = max(0.1, self.abilities[ability_type] * (1 - self.decay_rate))
 

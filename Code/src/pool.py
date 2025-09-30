@@ -136,23 +136,23 @@ class RouterExperiencePool(BaseExperiencePool):
     #     scores = []
     #     for existed_task_type, experiences in self.retrieval_experiences.items():
     #         for i, exp in enumerate(experiences):
-    #             # 1. 时间衰减
+    #             # 1. Time decay
     #             time_factor = np.exp(-(current_time - exp.timestamp) / 86400)
                 
-    #             # 2. 成功率影响
+    #             # 2. Success rate impact
     #             success_factor = 1.5 if exp.success else 0.5
                 
-    #             # 3. 路由路径长度（更短的路径更valuable）
+    #             # 3. Routing path length (shorter paths are more valuable)
     #             path_length = len(exp.route_history)
     #             path_factor = 1.0 / (1 + path_length)
                 
-    #             # 4. 与新经验的相似度
+    #             # 4. Similarity with new experience
     #             similarity = self.calculate_similarity(new_experience, exp)
                 
-    #             # 5. 来源匹配度
+    #             # 5. Source matching degree
     #             source_factor = 1.2 if exp.source_agent_id == new_experience.source_agent_id else 1.0
                 
-    #             # 综合评分
+    #             # Comprehensive score
     #             score = (0.25 * time_factor +
     #                     0.25 * success_factor +
     #                     0.2 * path_factor +
@@ -161,7 +161,7 @@ class RouterExperiencePool(BaseExperiencePool):
                         
     #             scores.append((score, i, existed_task_type))
                 
-    #     # 淘汰最不重要的经验
+    #     # Evict the least important experience
     #     scores = sorted(scores)
     #     idx_to_remove = scores[0][1]
     #     task_type_to_remove = scores[0][2]
@@ -263,7 +263,7 @@ class RouterExperiencePool(BaseExperiencePool):
     
     def calculate_similarity(self, exp1: RouterExperience, exp2: RouterExperience) -> float:
         # TODO
-        # 如何计算路由经验可能需要进行修改
+        # How to calculate routing experience may need modification
         """Calculate similarity between two routing experiences"""
         # Calculate vector similarity
         vector_similarity = np.dot(exp1.embedding, exp2.embedding) / (np.linalg.norm(exp1.embedding) * np.linalg.norm(exp2.embedding))
@@ -310,7 +310,7 @@ class RouterExperiencePool(BaseExperiencePool):
 
 
     # def get_relevant_experiences(self, task, source_agent_id, top_k, threshold=0.7, success_only=True):
-    #     """获取相关的路由经验，增加阈值检查并随机选择"""
+    #     """Get relevant routing experiences, add threshold check and random selection"""
     #     query_embedding = self.compute_embedding(task.major_problem + task.progress_text + task.description)
         
     #     all_scores = []
@@ -318,18 +318,18 @@ class RouterExperiencePool(BaseExperiencePool):
     #         for exp in experiences:
     #             if success_only and not exp.success:
     #                 continue
-    #             # 计算经验与任务的相似度
+    #             # Calculate similarity between experience and task
     #             similarity = np.dot(query_embedding, exp.embedding) / (np.linalg.norm(query_embedding) * np.linalg.norm(exp.embedding))
     #             all_scores.append((similarity, exp))    
 
-    #     # 按相似度阈值筛选符合条件的经验
+    #     # Filter experiences that meet the similarity threshold
     #     valid_experiences = [exp for similarity, exp in all_scores if similarity >= threshold]
         
-    #     # 如果符合条件的经验数量少于top_k，返回所有符合条件的经验
+    #     # If the number of valid experiences is less than top_k, return all valid experiences
     #     if len(valid_experiences) < top_k:
     #         return valid_experiences
         
-    #     # 随机选择top_k个经验
+    #     # Randomly select top_k experiences
     #     selected_experiences = random.sample(valid_experiences, top_k)
         
     #     return selected_experiences
@@ -398,7 +398,7 @@ class ExecutorExperiencePool(BaseExperiencePool):
                 self.retrieval_experiences[task_type].append(experience)
 
     # def _smart_eviction_rule_based(self, abilities, task_type: str, new_experience: ExecutorExperience) -> None:
-    #     """智能淘汰策略"""
+    #     """Smart eviction strategy"""
     #     # experiences = self.retrieval_experiences[task_type]
     #     current_time = time.time()
         
@@ -409,17 +409,17 @@ class ExecutorExperiencePool(BaseExperiencePool):
 
     #             time_factor = np.exp(-(current_time - exp.timestamp) / 86400)
                 
-    #             # 2. 成功率影响
+    #             # 2. Success rate impact
     #             success_factor = 1.5 if exp.success else 0.5
                 
-    #             # 3. 执行效率（更快的执行更valuable）
-    #             # 尚未写好执行时间
-    #             efficiency_factor = 1.0 / (1 + exp.execution_time / 60)  # 标准化到分钟级
+    #             # 3. Execution efficiency (faster execution is more valuable)
+    #             # Execution time not yet implemented
+    #             efficiency_factor = 1.0 / (1 + exp.execution_time / 60)  # Normalized to minutes
                 
-    #             # 4. 与新经验的相似度
+    #             # 4. Similarity with new experience
     #             similarity = self.calculate_similarity(new_experience, exp)
                 
-    #             # 综合评分
+    #             # Comprehensive score
     #             score = (0.3 * time_factor +
     #                     0.3 * success_factor +
     #                     0.2 * efficiency_factor +
@@ -435,20 +435,20 @@ class ExecutorExperiencePool(BaseExperiencePool):
     #     self.retrieval_experiences[task_type].append(new_experience)
 
     #     # for i, exp in enumerate(experiences):
-    #     #     # 1. 时间衰减
+    #     #     # 1. Time decay
     #     #     time_factor = np.exp(-(current_time - exp.timestamp) / 86400)
             
-    #     #     # 2. 成功率影响
+    #     #     # 2. Success rate impact
     #     #     success_factor = 1.5 if exp.success else 0.5
             
-    #     #     # 3. 执行效率（更快的执行更valuable）
-    #     #     # 尚未写好执行时间
-    #     #     efficiency_factor = 1.0 / (1 + exp.execution_time / 60)  # 标准化到分钟级
+    #     #     # 3. Execution efficiency (faster execution is more valuable)
+    #     #     # Execution time not yet implemented
+    #     #     efficiency_factor = 1.0 / (1 + exp.execution_time / 60)  # Normalized to minutes
             
-    #     #     # 4. 与新经验的相似度
+    #     #     # 4. Similarity with new experience
     #     #     similarity = self.calculate_similarity(new_experience, exp)
             
-    #     #     # 综合评分
+    #     #     # Comprehensive score
     #     #     score = (0.3 * time_factor +
     #     #             0.3 * success_factor +
     #     #             0.2 * efficiency_factor +
@@ -456,7 +456,7 @@ class ExecutorExperiencePool(BaseExperiencePool):
                     
     #     #     scores.append((score, i))
             
-    #     # 淘汰最不重要的经验
+    #     # Evict the least important experience
     #     # scores = sorted(scores)
     #     # idx_to_remove = scores[0][1]
     #     # self.retrieval_experiences[task_type].pop(idx_to_remove)
