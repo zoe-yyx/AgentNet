@@ -73,8 +73,6 @@ good_code_agent_config: &good_code_agent_config
   
 
 
-
-# 这里是不同agent的config，主要是引用了锚点的能力，
 agent_config:
 #   agents:
   - id: 0
