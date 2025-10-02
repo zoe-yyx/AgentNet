@@ -252,7 +252,7 @@ class Experiment:
 
             experience = single_task_history.experience
             experience.success = success
-            # 将当前的experience加入pool中
+            # Add current experience to pool
             if mode in ["Execution", "Split_Execution"]:
                 agent.add_executor_experience(experience)
 
@@ -260,13 +260,13 @@ class Experiment:
                 agent.add_router_experience(experience)
                 
 
-                # 更新边权重
+                # Update edge weights
                 source_agent_id = single_task_history.current_agent_id
                 logger.info(f"source_agent_id is {source_agent_id}")
                 if "NEXT_AGENT_ID" in single_task_history.format_response.keys():
                     target_agent_id = single_task_history.format_response["NEXT_AGENT_ID"].strip()
                     # target_agent_id = single_task_history.format_response["NEXT_AGENT_ID"].strip()
-                    ### 这里是提取字符串中的数字，如果agent回复不符合格式，可以加上这个
+                    ### Here is extracting numbers from string, can be added if agent reply doesn't follow format
                     # if re.search(r'\d+', target_agent_id):
                     #     target_agent_id = re.search(r'\d+', target_agent_id)
                     execution_time = single_task_history.execution_time
@@ -277,6 +277,7 @@ class Experiment:
                     if target_agent_id in self.agent_graph.agent_neighbor_dict[source_agent_id]["outcoming_agent_id"]:
                         self.agent_graph.update_edge_weight(source_agent_id, target_agent_id, execution_time, success)
                         logger.info(f"Update Edge Weight from Agent {source_agent_id} to Agent {target_agent_id} to {self.agent_graph.edge_weight[source_agent_id][target_agent_id]}")
+                
 
         
         if success == False:
