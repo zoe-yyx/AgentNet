@@ -154,7 +154,6 @@ class Agent:
     def _update_task_correlations(self, current_task: 'Task', 
                                 relevant_experiences: List[Experience]) -> None:
         """Update correlation strength between task types"""
-        # 计算任务类型之间的关联强度
         for exp in relevant_experiences:
             if exp.task_type != current_task.task_type:
                 # Increase bidirectional correlation strength
@@ -164,27 +163,21 @@ class Agent:
                 self.task_correlation[exp.task_type][current_task.task_type] = new_correlation
                 
     def decide_to_process(self, task: 'Task') -> bool:
-        """决定是否处理任务"""
-        # 计算处理概率
         base_ability = self.abilities.get(task.task_type, 0)
         
-        # 考虑相关任务类型的能力
         related_abilities = sum(
             self.abilities.get(related_type, 0) * correlation
             for related_type, correlation in self.task_correlation[task.task_type].items()
         )
         
-        # 综合能力评分
         total_ability = base_ability * 0.7 + related_abilities * 0.3
-        # 根据当前负载调整概率
         load_factor = max(0.2, 1 - self.current_load / 3)
-        # 计算最终处理概率
         processing_probability = min(1.0, total_ability * load_factor)
         
         return random.random() < processing_probability
         
     def decay_abilities(self) -> None:
-        """能力衰减"""
+
         for task_type in self.abilities:
             self.abilities[task_type] = max(
                 0.1,
@@ -192,7 +185,7 @@ class Agent:
             )
             
     def get_status(self) -> Dict:
-        """获取Agent状态信息"""
+
         return {
             'agent_id': self.agent_id,
             'abilities': self.abilities,
