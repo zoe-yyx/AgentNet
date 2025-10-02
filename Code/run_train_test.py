@@ -107,7 +107,7 @@ def main():
     assert experiment_config["agent_num"] == len(agent_config), "Wrong With the Number of Agents in Initialization"
     dataset = BigBenchHardDataset()
     train_dataset = os.path.join(dataset_root_path, "bigbenchhard_train.jsonl")
-    test_dataset = os.path.join(dataset_root_path, "bigbenchhard_test_same.jsonl")
+    test_dataset = os.path.join(dataset_root_path, "bigbenchhard_test.jsonl")
     
     prompt_set = BigBenchHardPromptSet()
     constraints = prompt_set.get_constraint()
