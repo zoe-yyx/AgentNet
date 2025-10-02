@@ -104,16 +104,8 @@ def main():
     logger.info(f'default_agent_config is {total_experiment_config["default_agent_config"]}')
     logger.info(f'global_router_experience is {args.global_router_experience}')
 
-
     assert experiment_config["agent_num"] == len(agent_config), "Wrong With the Number of Agents in Initialization"
     dataset = BigBenchHardDataset()
-    # dataset_batch = dataset.generate_test_batch()
-    # dataset_batch = dataset.generate_morphagent_tasks()
-
-    dataset_file_path = "Your Dataset File Path"
-
-    # train_dataset = dataset.generate_tasks_by_file_path(dataset_file_path, 4000, 4400)  # First 400 for training
-    # test_dataset = dataset.generate_tasks_by_file_path(dataset_file_path, 4400, 4500)  # Last 100 for testing
     train_dataset = os.path.join(dataset_root_path, "bigbenchhard_train.jsonl")
     test_dataset = os.path.join(dataset_root_path, "bigbenchhard_test_same.jsonl")
     
@@ -135,8 +127,6 @@ def main():
                             thought_constraints = thought_constraints)
     experiment.fit()
     experiment.evaluate()
-    # experiment.fit_ontest()  # Train on test, not needed
-
 
     return 0
 
