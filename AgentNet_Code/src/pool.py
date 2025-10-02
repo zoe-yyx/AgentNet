@@ -23,57 +23,58 @@ MAX_SIZE = sys.maxsize
 
 @dataclass
 class RouterExperience:
-    """Router的经验记录"""
+    """Router experience record"""
     decision: str               # 'forward', 'split', 'execute'
 
     task_id: int
     task_type: str
-    task_major_problem: str     # 任务的主要目标(原始的任务)
-    task_progress_text: str     # 任务的进展
-    task_description: str       # 任务的描述
+    task_major_problem: str     # Main objective of the task (original task)
+    task_progress_text: str     # Task progress
+    task_description: str       # Task description
 
-    initial_agent_id: int       # 任务最初的分配给的Agent
-    source_agent_id: int        # 任务当前所在的Agent
-    target_agent_id: int        # 如果转发，目标agent
+    initial_agent_id: int       # Initial Agent assigned to the task
+    source_agent_id: int        # Current Agent where the task is located
+    target_agent_id: int        # Target agent if forwarding
 
-    route_history: List[Dict]   # 当前这条任务(TaskChain)的完整路由历史   
-    execution_time: float       # 执行时间
-    success: bool               # 决策是否成功, 默认失败
-    timestamp: float = field(default_factory=time.time)  # 记录这条经验入库的时间
+    route_history: List[Dict]   # Complete routing history of current TaskChain
+    execution_time: float       # Execution time
+    success: bool               # Whether decision was successful, default is failure
+    timestamp: float = field(default_factory=time.time)  # Time when this experience was recorded
 
-    embedding: np.ndarray = None  # 向量表示
+    embedding: np.ndarray = None  # Vector representation
 
 
 
 
 @dataclass
 class ExecutorExperience:
-    """Executor的经验记录"""
+    """Executor experience record"""
     task_id: int
     task_type: str
-    task_major_problem: str               # 任务的描述
-    task_description: str               # 任务的描述
-    # task_context: str               # 任务的上下文, 主要是前文的任务和进展
-    task_progress_text: str               # 任务的上下文, 主要是前文的任务和进展
+    task_major_problem: str               # Task description
+    task_description: str               # Task description
+    # task_context: str               # Task context, mainly previous tasks and progress
+    task_progress_text: str               # Task context, mainly previous tasks and progress
     
     task_thought: str
 
-    result: str                         # 执行结果
-    execution_time: float               # 执行时间
-    success: bool                       # 是否成功              
-    error_type: Optional[str] = None    # 错误类型(如果失败)     TODO 这条暂时还没写
-    source_agent_id: int = None         # 任务来源Agent         
+    result: str                         # Execution result
+    execution_time: float               # Execution time
+    success: bool                       # Whether successful
+    error_type: Optional[str] = None    # Error type (if failed)
+    source_agent_id: int = None         # Task source Agent
     performance_metrics: Dict[str, float] = field(default_factory=dict)  
-    # 性能指标
+    # Performance metrics
 
-    embedding: Optional[np.ndarray] = None  # 向量表示
-    timestamp: float = field(default_factory=time.time)  # 记录时间
+    embedding: Optional[np.ndarray] = None  # Vector representation
+    timestamp: float = field(default_factory=time.time)  # Recording time
+
 
 
 
 
 class BaseExperiencePool:
-    """经验池基类"""
+    """Base class for experience pool"""
     def __init__(self, capacity: int = 50):
         self.capacity = capacity
         self.embedding_cache = {}
@@ -83,7 +84,6 @@ class BaseExperiencePool:
         self.retrieval_experiences = defaultdict(list)
 
 
-
     def __len__(self):
         length = 0
         for key, value in self.retrieval_experiences.items():
@@ -91,9 +91,8 @@ class BaseExperiencePool:
         return length
     
 
-
     def compute_embedding(self, text: str) -> np.ndarray:
-        """计算文本的向量表示"""
+        """Compute vector representation of text"""
         if text in self.embedding_cache:
             return self.embedding_cache[text]
         
@@ -127,48 +126,7 @@ class RouterExperiencePool(BaseExperiencePool):
                 self._smart_eviction(abilities, task_type, experience)
             else:
                 self.retrieval_experiences[task_type].append(experience)
-                
-    # def _smart_eviction_rule_based(self, task_type: str, new_experience: RouterExperience) -> None:
-    #     """Rule-based eviction strategy"""
-    #     # experiences = self.retrieval_experiences[task_type]
-    #     current_time = time.time()
-        
-    #     scores = []
-    #     for existed_task_type, experiences in self.retrieval_experiences.items():
-    #         for i, exp in enumerate(experiences):
-    #             # 1. 时间衰减
-    #             time_factor = np.exp(-(current_time - exp.timestamp) / 86400)
-                
-    #             # 2. 成功率影响
-    #             success_factor = 1.5 if exp.success else 0.5
-                
-    #             # 3. 路由路径长度（更短的路径更valuable）
-    #             path_length = len(exp.route_history)
-    #             path_factor = 1.0 / (1 + path_length)
-                
-    #             # 4. 与新经验的相似度
-    #             similarity = self.calculate_similarity(new_experience, exp)
-                
-    #             # 5. 来源匹配度
-    #             source_factor = 1.2 if exp.source_agent_id == new_experience.source_agent_id else 1.0
-                
-    #             # 综合评分
-    #             score = (0.25 * time_factor +
-    #                     0.25 * success_factor +
-    #                     0.2 * path_factor +
-    #                     0.15 * similarity +
-    #                     0.15 * source_factor)
-                        
-    #             scores.append((score, i, existed_task_type))
-                
-    #     # 淘汰最不重要的经验
-    #     scores = sorted(scores)
-    #     idx_to_remove = scores[0][1]
-    #     task_type_to_remove = scores[0][2]
-    #     self.retrieval_experiences[task_type_to_remove].pop(idx_to_remove)
-    #     self.retrieval_experiences[task_type].append(new_experience)
-
-
+            
 
 
 
@@ -188,9 +146,9 @@ class RouterExperiencePool(BaseExperiencePool):
                     'task_id': exp.task_id,
                     'task_type': exp.task_type,
                     'success': exp.success,
-                    'major_problem': exp.task_major_problem,     # 任务的主要目标(原始的任务)
-                    'progress_text': exp.task_progress_text,   # 任务的进展
-                    'task_description': exp.task_description,  # 任务的描述
+                    'major_problem': exp.task_major_problem,     # Main objective of the task (original task)
+                    'progress_text': exp.task_progress_text,   # Task progress
+                    'task_description': exp.task_description,  # Task description
                     'agent_ability': temp_ability_dict,  # Agent's ability in this task type 
                     'timestamp': exp.timestamp,
                 })
@@ -199,9 +157,9 @@ class RouterExperiencePool(BaseExperiencePool):
         new_task_info = {
             'task_id': new_experience.task_id,
             'task_type': new_experience.task_type,
-            'major_problem': new_experience.task_major_problem,     # 任务的主要目标(原始的任务)
-            'progress_text': new_experience.task_progress_text,   # 任务的进展
-            'task_description': new_experience.task_description,  # 任务的描述
+            'major_problem': new_experience.task_major_problem,     # Main objective of the task (original task)
+            'progress_text': new_experience.task_progress_text,   # Task progress
+            'task_description': new_experience.task_description,  # Task description
             'timestamp': new_experience.timestamp,
         }
 
@@ -262,23 +220,22 @@ class RouterExperiencePool(BaseExperiencePool):
                     break
     
     def calculate_similarity(self, exp1: RouterExperience, exp2: RouterExperience) -> float:
-        # TODO
-        # 如何计算路由经验可能需要进行修改
-        """计算两个路由经验的相似度"""
-        # 计算向量相似度
+        """Calculate similarity between two routing experiences"""
+        # Calculate vector similarity
         vector_similarity = np.dot(exp1.embedding, exp2.embedding) / (np.linalg.norm(exp1.embedding) * np.linalg.norm(exp2.embedding))
         
-        # 考虑路由决策相似度
+        # Consider routing decision similarity
         decision_similarity = 1.0 if exp1.decision == exp2.decision else 0.5
         
-        # 考虑目标Agent相似度
+        # Consider target agent similarity
         target_similarity = 1.0 if exp1.target_agent_id == exp2.target_agent_id else 0.7
         
-        # 加权平均
+        # Weighted average
         return 1 * vector_similarity + 0 * decision_similarity + 0 * target_similarity
 
+  
     def get_relevant_experiences(self, task, source_agent_id, top_k, threshold=0.7, success_only=True):
-        """获取相关的路由经验，增加阈值检查"""
+        """Get relevant routing experiences, add threshold check"""
         query_embedding = self.compute_embedding(task.major_problem + task.progress_text + task.description)
         
         all_scores = []
@@ -286,11 +243,11 @@ class RouterExperiencePool(BaseExperiencePool):
             for exp in experiences:
                 if success_only and not exp.success:
                     continue
-                # 文本的基础相似度，主要是任务的上下文和任务的描述之间的相似度
+                # Basic similarity, mainly similarity between task context and task description
                 similarity = np.dot(query_embedding, exp.embedding) / (np.linalg.norm(query_embedding) * np.linalg.norm(exp.embedding))
                 all_scores.append((-similarity, exp))    
 
-        # 按照相似度进行排序
+        # Sort by similarity
         sorted_scores = sorted(all_scores, key=lambda x: x[0])
         score_list = []
         for score, exp in sorted_scores:
@@ -300,40 +257,12 @@ class RouterExperiencePool(BaseExperiencePool):
         logger.info(f"top_k: {top_k}")
         if len(sorted_scores) == 0:
             return []
-        # 如果符合条件的经验数量少于top_k，返回所有符合条件的经验
+        # If the number of valid experiences is less than top_k, return all valid experiences
         valid_experiences = [exp for _, exp in sorted_scores if -1 *_ >= threshold]
         if len(valid_experiences) < top_k:
             return valid_experiences
 
         return valid_experiences[:top_k]
-
-
-
-    # def get_relevant_experiences(self, task, source_agent_id, top_k, threshold=0.7, success_only=True):
-    #     """获取相关的路由经验，增加阈值检查并随机选择"""
-    #     query_embedding = self.compute_embedding(task.major_problem + task.progress_text + task.description)
-        
-    #     all_scores = []
-    #     for experiences in self.retrieval_experiences.values():
-    #         for exp in experiences:
-    #             if success_only and not exp.success:
-    #                 continue
-    #             # 计算经验与任务的相似度
-    #             similarity = np.dot(query_embedding, exp.embedding) / (np.linalg.norm(query_embedding) * np.linalg.norm(exp.embedding))
-    #             all_scores.append((similarity, exp))    
-
-    #     # 按相似度阈值筛选符合条件的经验
-    #     valid_experiences = [exp for similarity, exp in all_scores if similarity >= threshold]
-        
-    #     # 如果符合条件的经验数量少于top_k，返回所有符合条件的经验
-    #     if len(valid_experiences) < top_k:
-    #         return valid_experiences
-        
-    #     # 随机选择top_k个经验
-    #     selected_experiences = random.sample(valid_experiences, top_k)
-        
-    #     return selected_experiences
-
 
 
     def get_newest_experience(self,task_type, k=50):
@@ -397,71 +326,6 @@ class ExecutorExperiencePool(BaseExperiencePool):
             else:
                 self.retrieval_experiences[task_type].append(experience)
 
-    # def _smart_eviction_rule_based(self, abilities, task_type: str, new_experience: ExecutorExperience) -> None:
-    #     """智能淘汰策略"""
-    #     # experiences = self.retrieval_experiences[task_type]
-    #     current_time = time.time()
-        
-    #     scores = []
-
-    #     for existed_task_type, experiences in self.retrieval_experiences.items():
-    #         for i, exp in enumerate(experiences):
-
-    #             time_factor = np.exp(-(current_time - exp.timestamp) / 86400)
-                
-    #             # 2. 成功率影响
-    #             success_factor = 1.5 if exp.success else 0.5
-                
-    #             # 3. 执行效率（更快的执行更valuable）
-    #             # 尚未写好执行时间
-    #             efficiency_factor = 1.0 / (1 + exp.execution_time / 60)  # 标准化到分钟级
-                
-    #             # 4. 与新经验的相似度
-    #             similarity = self.calculate_similarity(new_experience, exp)
-                
-    #             # 综合评分
-    #             score = (0.3 * time_factor +
-    #                     0.3 * success_factor +
-    #                     0.2 * efficiency_factor +
-    #                     0.2 * similarity)
-                        
-    #             scores.append((score, i, existed_task_type))
-                
-    #     scores = sorted(scores)
-    #     idx_to_remove = scores[0][1]
-    #     task_type_to_remove = scores[0][2]
-
-    #     self.retrieval_experiences[task_type_to_remove].pop(idx_to_remove)
-    #     self.retrieval_experiences[task_type].append(new_experience)
-
-    #     # for i, exp in enumerate(experiences):
-    #     #     # 1. 时间衰减
-    #     #     time_factor = np.exp(-(current_time - exp.timestamp) / 86400)
-            
-    #     #     # 2. 成功率影响
-    #     #     success_factor = 1.5 if exp.success else 0.5
-            
-    #     #     # 3. 执行效率（更快的执行更valuable）
-    #     #     # 尚未写好执行时间
-    #     #     efficiency_factor = 1.0 / (1 + exp.execution_time / 60)  # 标准化到分钟级
-            
-    #     #     # 4. 与新经验的相似度
-    #     #     similarity = self.calculate_similarity(new_experience, exp)
-            
-    #     #     # 综合评分
-    #     #     score = (0.3 * time_factor +
-    #     #             0.3 * success_factor +
-    #     #             0.2 * efficiency_factor +
-    #     #             0.2 * similarity)
-                    
-    #     #     scores.append((score, i))
-            
-    #     # 淘汰最不重要的经验
-    #     # scores = sorted(scores)
-    #     # idx_to_remove = scores[0][1]
-    #     # self.retrieval_experiences[task_type].pop(idx_to_remove)
-    #     # self.retrieval_experiences[task_type].append(new_experience)
-
 
     def _smart_eviction(self, abilities, task_type: str, new_experience: ExecutorExperience) -> None:
         """Smart eviction strategy, let the LLM Agent decide which trajectory to remove"""
@@ -479,10 +343,10 @@ class ExecutorExperiencePool(BaseExperiencePool):
                     'task_id': exp.task_id,
                     'task_type': exp.task_type,
                     'success': exp.success,
-                    'major_problem': exp.task_major_problem,     # 任务的主要目标(原始的任务)
-                    'progress_text': exp.task_progress_text,   # 任务的进展
-                    'task_description': exp.task_description,  # 任务的描述
-                    'progress_text': exp.task_progress_text,               # 任务的上下文, 主要是前文的任务和进展
+                    'major_problem': exp.task_major_problem,    
+                    'progress_text': exp.task_progress_text,   
+                    'task_description': exp.task_description, 
+                    'progress_text': exp.task_progress_text,        
                     'task_thought': exp.task_thought,
                     'result': exp.result,
                     'agent_ability': temp_ability_dict,  # Agent's ability in this task type 
@@ -567,21 +431,21 @@ class ExecutorExperiencePool(BaseExperiencePool):
     
 
     def calculate_similarity(self, exp1: ExecutorExperience, exp2: ExecutorExperience) -> float:
-        """计算两个执行经验的相似度"""
-        # 向量相似度
+        """Calculate similarity between two execution experiences"""
+        # Vector similarity
         A_embedding = encode_model.encode(exp1.task_major_problem + exp1.task_progress_text + exp1.task_description)
         B_embedding = encode_model.encode(exp2.task_major_problem + exp2.task_progress_text + exp2.task_description)
 
         cos_similarity = calculate_cos_similarity_A_and_B(A_embedding, B_embedding)
 
-        # 执行时间相似度
+        # Execution time similarity
         time_diff = abs(exp1.execution_time - exp2.execution_time)
-        time_similarity = 1.0 / (1 + time_diff / 60)  # 标准化到分钟级
+        time_similarity = 1.0 / (1 + time_diff / 60)  # Normalized to minutes
         return 0.7 * cos_similarity + 0.3 * time_similarity
-    
+
 
     def get_relevant_experiences(self, task, success_only=True, top_k=0, threshold=0.7):
-        """获取相关的执行经验，基于任务上下文文本，增加阈值检查"""
+        """Get relevant execution experiences, based on task context text, add threshold check"""
         query_embedding = encode_model.encode(task.major_problem + task.progress_text + task.description).reshape(1, -1)
 
         all_texts = []
@@ -607,35 +471,34 @@ class ExecutorExperiencePool(BaseExperiencePool):
         logger.info(f"executor cos_similarity: {cos_similarity}")
         logger.info(f"executor all_efficiency_bonus: {all_efficiency_bonus}")
 
-        # 计算加权得分
+        # Calculate weighted scores
         scores = cos_similarity * (1 + 0.2 * all_efficiency_bonus)
         logger.info(f"executor scores: {scores}")
-        # 如果 score 是数组，转换为标量进行比较\
+        # If score is an array, convert to scalar for comparison
         valid_experiences = []
         for score, exp in zip(scores[0], all_experiences):
             if score >= threshold:
                 valid_experiences.append((score, exp))
-        # valid_experiences = [(score[0] if isinstance(score, np.ndarray) else score, exp) for score, exp in zip(scores, all_experiences) if (score[0] if isinstance(score, np.ndarray) else score) >= threshold]
-        # 如果符合条件的经验数量少于 top_k，返回所有符合条件的经验
+        # If the number of valid experiences is less than top_k, return all valid experiences
         logger.info(f"executor len(valid_experiences): {len(valid_experiences)}")
         if len(valid_experiences) < top_k:
             return [exp for _, exp in valid_experiences]
 
-        # 按得分排序
+        # Sort by score
         sorted_scores = sorted(valid_experiences, key=lambda x: x[0], reverse=True)
 
-        # 返回 top_k 个经验
+        # Return top_k experiences
         return [exp for _, exp in sorted_scores[:top_k]]
 
+  
     def get_relevant_experiences_by_thought(self, task, success_only=True, top_k=0, threshold=0.7):
-        """根据经验的Thought来获取相关的执行经验，增加阈值检查"""
+        """Get relevant execution experiences based on the Thought of the experience, add threshold check"""
         query_embedding = encode_model.encode(task.thought).reshape(1,-1)
 
         all_thoughts = []
         all_efficiency_bonus = []
         all_experiences = []
-        
-        # 遍历所有经验
+
         for experiences in self.retrieval_experiences.values():
             for exp in experiences:
                 if success_only and not exp.success:
@@ -647,15 +510,11 @@ class ExecutorExperiencePool(BaseExperiencePool):
         if len(all_experiences) == 0:
             return []
 
-        # 获取所有思想的嵌入
         all_thoughts_embeddings = encode_model.encode(all_thoughts, batch_size=512).reshape(-1, 1024)
         cos_similarity = calculate_cos_similarity_A_and_Batch_B(query_embedding, all_thoughts_embeddings)
         all_efficiency_bonus = np.array(all_efficiency_bonus)
 
-        # 计算加权得分
         scores = cos_similarity * (1 + 0.2 * all_efficiency_bonus)
-
-        # 如果 score 是数组，转换为标量进行比较
         valid_experiences = []
         for score, exp in zip(scores[0], all_experiences):
             if score >= threshold:
@@ -664,16 +523,16 @@ class ExecutorExperiencePool(BaseExperiencePool):
         logger.info(f"top_k: {top_k}")
         logger.info(f"executor get_relevant_experiences_by_thought len(valid_experiences): {len(valid_experiences)}")
 
-        # 如果符合条件的经验数量少于 top_k，返回所有符合条件的经验
+        # If the number of valid experiences is less than top_k, return all valid experiences
         if len(valid_experiences) < top_k:
             experiences = [exp for _, exp in valid_experiences]
             logger.info(f"executor get_relevant_experiences_by_thought len(experiences): {len(experiences)}")
             return experiences
 
-        # 按得分排序
+        # Sort by score
         sorted_scores = sorted(valid_experiences, key=lambda x: x[0], reverse=True)
 
-        # 返回 top_k 个经验
+        # Return top_k experiences
         experiences = [exp for _, exp in sorted_scores[:top_k]]
         logger.info(f"executor get_relevant_experiences_by_thought len(experiences): {len(experiences)}")
         return experiences
