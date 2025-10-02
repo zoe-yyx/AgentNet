@@ -64,16 +64,6 @@ The following animation provides a comprehensive demonstration of AgentNet's dec
 
 
 
-## 📁 Repository Structure
-
-
----
-
-## 🛠️ Setup and Usage
-
-Coming soon...
-
----
 
 ## 📌 Citation
 
