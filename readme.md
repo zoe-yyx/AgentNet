@@ -1,4 +1,4 @@
-# 🌐 AgentNet: Decentralized Evolutionary Coordination for LLM-Based Multi-Agent Systems
+# 🌐 [NIPS2025] AgentNet: Decentralized Evolutionary Coordination for LLM-Based Multi-Agent Systems
 
 **AgentNet** is a novel framework for building **decentralized, privacy-preserving, and adaptive multi-agent systems (MAS)** powered by large language models (LLMs). It addresses the limitations of traditional MAS architectures that rely on centralized controllers and static workflows.
 
