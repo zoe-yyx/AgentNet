@@ -1,4 +1,3 @@
-# 有不同的dataset, 比如BIGBENCH等，这里我们用随机task
 experiment_config:
   LLM: gpt-4o-mini
   dataset: random
@@ -100,9 +99,6 @@ agent_config:
     config: *default_agent_config
 
 
-
-# 设置AgentGraph相关的设定, 主要是图的边边, 默认情况下我们不妨设置为全部双联通的
-# 可以设置为complete完全图，ring环状图，manual手动设置
 agent_graph_config:
   graph_type: complete
   
