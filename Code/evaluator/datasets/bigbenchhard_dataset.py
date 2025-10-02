@@ -7,7 +7,7 @@ from typing import Union, List, Literal
 import numpy as np
 
 from evaluator.datasets.base_dataset import BaseDataset, ProblemInput
-# 将项目根目录添加到 sys.path 中
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
 from big_datasets.bigbenchhard.bbh_types import bbh_types
 from src.task import Task
@@ -41,7 +41,6 @@ class BigBenchHardDataset(BaseDataset):
                 data = json.load(f)
                 # Assuming each JSON file has a key 'examples' which is a list of dictionaries
                 df = pd.DataFrame(data['examples'])
-                # 为每条数据添加task_type列
                 df['task_type'] = task_type
                 total_df = pd.concat([total_df, df], ignore_index=True)
 
