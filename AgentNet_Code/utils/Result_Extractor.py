@@ -1,19 +1,19 @@
 import re
 
 def extract_all_results(text):
-    # 使用正则表达式匹配所有以 "Result:" 或 "RESULT:" 开头的行，处理换行符
+    # Use regex to match all lines starting with "Result:" or "RESULT:", handle newlines
     result_pattern = re.compile(r"(?:Result:|RESULT:)\s*(.*?)(?=\n|$)", re.DOTALL)
     results = re.findall(result_pattern, text)
     return results
 
 def extract_answer(text):
-    # 提取所有的Result后面的答案
+    # Extract all answers after "Result"
     results = extract_all_results(text)
     
-    # 找到最后一个答案并返回（假设最后一个答案是正确的）
+    # Return the last answer (assuming the last one is the correct answer)
     if results:
         last_result = results[-1].strip()
-        # 判断最后一个结果是否为空
+        # Check if the last result is not empty
         if last_result:
             return last_result
     return text
