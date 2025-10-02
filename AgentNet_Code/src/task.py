@@ -1,10 +1,12 @@
 '''
-此文件包括了Task类，TaskTree类。
+This file contains the Task class and TaskTree class.
 
-Task类是基本的用来存储task的类，包括task的id, description, 其他基本信息(type等), state(是否完成), 需要的话也需要记录这条task的经历
+The Task class is the basic class for storing tasks, including task id, description, other basic information (type, etc.), 
+state (whether completed), and if necessary, recording the history of this task.
 
-TaskTree类的目的是可以很好地split任务，当任务被split的时候，TaskTree类就可以据此延伸叶子节点，并且依靠中序遍历来维持目前的task的
-运行序列，同时需要保存这个root task (最原始的task)的经历(转发执行等)
+The TaskTree class aims to effectively split tasks. When tasks are split, the TaskTree class can extend leaf nodes accordingly 
+and maintain the current task sequence through in-order traversal, while also saving the history of the root task 
+(the original task) such as forwarding and execution.
 
 '''
 
@@ -16,10 +18,7 @@ import  time
 
 
 
-
-
-
-# 定义复杂度因子，可以根据实际情况设置
+# Define complexity factors, can be set according to actual situations
 complexity_factors = {
     "math_problem": 0.2,
     "code_generation": 0.5,
@@ -31,7 +30,7 @@ complexity_factors = {
 
 
 def _generate_prompt(task_type: str, task_templates: dict) -> str:
-    """根据任务类型生成具体提示"""
+    """Generate specific prompts based on task type"""
     template = random.choice(task_templates[task_type])
     
     if task_type == "math_problem":
@@ -99,8 +98,7 @@ def _generate_prompt(task_type: str, task_templates: dict) -> str:
 
 
 def generate_random_task(task_id: Optional[int] = None, task_type=None):
-        
-    """生成随机任务"""
+    """Generate random task"""
     task_counter = 0
     task_types = [
         "math_problem",
@@ -148,7 +146,7 @@ def generate_random_task(task_id: Optional[int] = None, task_type=None):
     if task_type == None:
         task_type = random.choice(task_types)
     
-    complexity = complexity_factors[task_type]  # 随便设置的
+    complexity = complexity_factors[task_type]
     prompt = _generate_prompt(task_type, task_templates)
 
     generated_task = Task(
@@ -165,7 +163,7 @@ def generate_random_task(task_id: Optional[int] = None, task_type=None):
 
 
 def generate_batch_tasks(count: int, task_type=None):
-    """生成一批任务"""
+    """Generate a batch of tasks"""
     
     return [generate_random_task(_, task_type) for _ in range(count)]
 
@@ -208,7 +206,7 @@ class Task:
         self.state = state                                      
         
         self.forward_history = []                               
-        self.correct_answer = correct_answer                    # 正确答案
+        self.correct_answer = correct_answer                 
 
     def __str__(self):
         return f"Task {self.task_id} is a {self.task_type} problem. Its major problem is '{self.major_problem}'. Its context is {self.context}"
@@ -238,26 +236,25 @@ class Task:
 
 class TaskChain:
     def __init__(self, task: Task):
-        self.original_task = task                       # 初始化的任务，它的ID应该是str(xx)的形式，也是task_chain的ID
-        self.task_chain_id = task.task_id               # 初始化的task_chain的ID，
-        self.task_id_count = 1                          # 每次多加一个新任务，就多加一
+        self.original_task = task                       # Initial task, its ID should be in str(xx) format, also the task_chain ID
+        self.task_chain_id = task.task_id               # Initial task_chain ID
+        self.task_id_count = 1                          # Increment by one each time a new task is added
 
 
         self.progress_list = []
-        self.task_type = task.task_type                 # 初始任务的任务类型
-        self.complexity = task.complexity               # 初始任务的复杂度
-        self.priority = task.priority                   # 初始任务的优先级      
-        # TODO 这三个可能需要调节，它们的目的只是为了传给下一个但是下一个任务可能不是这样计算的
+        self.task_type = task.task_type                 # Initial task type (for apps shouldn't be initial task, but look at latest, so will be updated frequently)
+        self.complexity = task.complexity               # Initial task complexity
+        self.priority = task.priority                   # Initial task priority
 
-        self.major_problem = task.major_problem         # 始终谨记主要任务
+        self.major_problem = task.major_problem         # Always remember the main task
 
-        self.state = "incompleted"                      # 状态全小写吧
+        self.state = "incompleted"                      # State in lowercase
         
-        self.final_result = ""                        # 这条任务链的最终回复,
+        self.final_result = ""                        # Final response of this task chain
 
-        self.current_task = task                        # 当前的任务
-        self.task_history = []                          # 总的任务历史, 包括每一次决策执行和寻找下一个Agent的历史
-        self.task_chain = []                            # 一条task的chain，仅仅包括每次的task
+        self.current_task = task                        # Current task
+        self.task_history = []                          # Total task history, including each decision execution and finding next Agent history
+        self.task_chain = []                            # A task chain, only includes each task
 
 
     def create_next_task(self):
