@@ -13,8 +13,6 @@ from src.experiment import Experiment
 from evaluator.datasets.bigbenchhard_dataset import BigBenchHardDataset
 from src.utils import read_yaml
 from prompt.bigbenchhard_prompt_set import BigBenchHardPromptSet
-import os
-
 
 
 def setup_logging(log_file_path):
@@ -78,17 +76,6 @@ def main():
     os.makedirs(os.path.dirname(json_file_path_task_history), exist_ok=True)
     os.makedirs(os.path.dirname(json_file_path_experience), exist_ok=True)
 
-    with open(json_file_path_result, 'w', encoding='utf-8') as f:
-        json.dump([], f, ensure_ascii=False, indent=2)
-    with open(json_file_path_ability, 'w', encoding='utf-8') as f:
-        json.dump([], f, ensure_ascii=False, indent=2)
-    with open(json_file_path_edge_weight, 'w', encoding='utf-8') as f:
-        json.dump([], f, ensure_ascii=False, indent=2)
-    with open(json_file_path_task_history, 'w', encoding='utf-8') as f:
-        json.dump([], f, ensure_ascii=False, indent=2)
-    with open(json_file_path_experience, 'w', encoding='utf-8') as f:
-        json.dump([], f, ensure_ascii=False, indent=2)
-
     config_dir_path = "./config/experiment"
     dataset_root_path = "./big_datasets/bigbenchhard"
     
@@ -106,9 +93,12 @@ def main():
 
     assert experiment_config["agent_num"] == len(agent_config), "Wrong With the Number of Agents in Initialization"
     dataset = BigBenchHardDataset()
-    train_dataset = os.path.join(dataset_root_path, "bigbenchhard_train.jsonl")
-    test_dataset = os.path.join(dataset_root_path, "bigbenchhard_test.jsonl")
-    
+    train_dataset_file_path = os.path.join(dataset_root_path, "bigbenchhard_train.jsonl")
+    test_dataset_file_path = os.path.join(dataset_root_path, "bigbenchhard_test.jsonl")
+
+    train_dataset = dataset.generate_tasks_by_file_path(train_dataset_file_path)
+    test_dataset = dataset.generate_tasks_by_file_path(test_dataset_file_path1)
+
     prompt_set = BigBenchHardPromptSet()
     constraints = prompt_set.get_constraint()
     thought_constraints = prompt_set.get_thought_constraint()
