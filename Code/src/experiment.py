@@ -375,11 +375,3 @@ class Experiment:
         for task in self.test_dataset:                
             final_task_chain = self.solve_a_single_task(task)
             result = self.evaluate_task_result(final_task_chain, task.correct_answer, "Test")
-
-    def evaluate_unseen(self):
-        logger.info("Experiment Start in Test Unseen Dataset!")
-        for task in self.test_dataset_unseen:                
-            final_task_chain = self.solve_a_single_task(task)
-            result = self.evaluate_task_result(final_task_chain, task.correct_answer, "Test")
-            
-            
