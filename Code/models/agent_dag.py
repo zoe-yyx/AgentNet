@@ -88,7 +88,7 @@ class AgentDAG:
             for to_id in self.edges[from_id]:
                 in_degree[to_id] += 1
 
-        # 使用优先队列来确保稳定的拓扑排序
+        # Use a priority queue to get a deterministic/stable topological order
         queue = [(0, agent_id) for agent_id in self.agents if in_degree[agent_id] == 0]
         heapq.heapify(queue)
         
@@ -100,6 +100,7 @@ class AgentDAG:
             for to_id in self.edges[agent_id]:
                 in_degree[to_id] -= 1
                 if in_degree[to_id] == 0:
+                    # Push by node id to keep deterministic order among peers
                     heapq.heappush(queue, (to_id, to_id))
 
     def update_edge_weight(self, from_agent_id: int, to_agent_id: int, 
@@ -114,11 +115,11 @@ class AgentDAG:
             execution_time: Time taken to execute the task
         """
         if from_agent_id in self.edges and to_agent_id in self.edges[from_agent_id]:
-            # 更新成功率
+            # Update success rate
             history = self.edge_success_rate[from_agent_id][to_agent_id]
             self.edge_success_rate[from_agent_id][to_agent_id] = history * 0.9 + (1.0 if success else 0.0) * 0.1
 
-            # 更新边权重
+            # Update edge weight
             current_weight = self.edges[from_agent_id][to_agent_id]
             success_factor = 1.1 if success else 0.9
             time_factor = min(1.0, 1.0 / execution_time) if execution_time > 0 else 1.0
@@ -140,7 +141,7 @@ class AgentDAG:
         distances[start_agent_id] = 0
         predecessors = {agent_id: None for agent_id in self.agents}
         
-        # 使用 Dijkstra 算法找最优路径
+        # Use Dijkstra's algorithm to find the best path
         pq = [(0, start_agent_id)]
         visited = set()
         
@@ -157,7 +158,7 @@ class AgentDAG:
                 success_rate = self.edge_success_rate[current_id][next_id]
                 agent_ability = self.agents[next_id].abilities.get(task.task_type, 0)
                 
-                # 综合考虑边权重、成功率和agent能力
+                # Combine edge weight, success rate, and agent ability
                 weight = edge_weight * (2 - success_rate) / (agent_ability + 0.1)
                 distance = current_distance + weight
                 
@@ -166,7 +167,7 @@ class AgentDAG:
                     predecessors[next_id] = current_id
                     heapq.heappush(pq, (distance, next_id))
         
-        # 构建最优路径
+        # Build the best path
         best_target = min(distances.keys(), key=lambda x: distances[x])
         path = []
         current = best_target
@@ -188,7 +189,7 @@ class AgentDAG:
         Returns:
             Optional[str]: Task execution result if successful, None otherwise
         """
-        # 选择起始节点：优先选择空闲且能力匹配的agent
+        # Choose a start node: prefer idle agents whose abilities match
         available_agents = [
             agent_id for agent_id, agent in self.agents.items()
             if agent.current_load < 3 and agent.abilities.get(task.task_type, 0) > 0.5
@@ -197,7 +198,7 @@ class AgentDAG:
         start_agent_id = random.choice(available_agents) if available_agents else \
                         random.choice(list(self.agents.keys()))
         
-        # 找到最优执行路径
+        # Find the optimal execution path
         optimal_path = self.find_optimal_path(start_agent_id, task)
         attempts = 0
         
@@ -210,7 +211,7 @@ class AgentDAG:
             if current_agent.decide_to_process(task):
                 response, success = current_agent.process_task(task)
                 
-                # 更新路径权重
+                # Update edge weight toward the next hop
                 if len(optimal_path) > 0:
                     next_agent_id = optimal_path[0]
                     self.update_edge_weight(
@@ -230,11 +231,11 @@ class AgentDAG:
                 
             attempts += 1
             
-            # 如果当前路径失败，重新计算路径
+            # If the current path fails, recompute a new path from the next hop
             if attempts < max_attempts and optimal_path:
                 optimal_path = self.find_optimal_path(optimal_path[0], task)
         
-        # 如果所有尝试都失败，选择负载最小的agent强制执行
+        # If all attempts fail, fall back to the least loaded agent
         least_busy_agent = min(self.agents.values(), key=lambda a: a.current_load)
         response, success = least_busy_agent.process_task(task)
         
