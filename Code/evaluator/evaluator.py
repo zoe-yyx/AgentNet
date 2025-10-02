@@ -40,85 +40,73 @@ def match_dyck_language(input_answer, model_answer):
 
 
 
-"""
-Run solutions from one problem in APPS.
-"""
-import sys
-sys.path.append('/hdd/yxyang/AgentNet-Experiments_APPS/evaluator')  # Adjust the path
 
-import argparse
-import json
-import numpy as np
-import os
-import pprint
-import multiprocessing
-import testing_util as test_util
-import subprocess
-# for timing debugging
-from datetime import datetime, date
-from tqdm import tqdm
+def evaluate_answer_old(ground_truth_answer, predicted_answer):
+    '''auto determine the type of the answer and compare the answer'''
+    ground_truth_answer = ground_truth_answer.strip()
+    predicted_answer = predicted_answer.strip()
+    
+    if ground_truth_answer.lower() in ['yes', 'no','true','false','valid','invalid'] and predicted_answer.lower() in ['yes', 'no','true','false','valid','invalid']:
+        print("detect Yes/No type match")
+        return match_yes_no(ground_truth_answer, predicted_answer)
 
-from types import SimpleNamespace
-from typing import Dict
+    cleaned_input = ground_truth_answer.strip().lower().replace('(','').replace(')','')
+    cleaned_model = predicted_answer.strip().lower().replace('(','').replace(')','')
+    
+    if len(cleaned_input) == 1 and cleaned_input.isalpha() and len(cleaned_model) == 1 and cleaned_model.isalpha():
+        print("detect single letter option type match")   
+        return match_option(ground_truth_answer, predicted_answer)
 
+    cleaned_input_alpha = ground_truth_answer.replace(',', '').replace(' ', '')
+    cleaned_model_alpha = predicted_answer.replace(',', '').replace(' ', '')
+    print(cleaned_input_alpha, cleaned_model_alpha)
+    if cleaned_input_alpha.isalpha() and cleaned_model_alpha.isalpha():
+        print("detect pure letters type match")
+        return match_sorted_words(ground_truth_answer, predicted_answer)
+    
+    cleaned_input_brackets = ground_truth_answer.replace(' ', '')
+    cleaned_model_brackets = predicted_answer.replace(' ', '')
+    
+    if all(c in '()[]{}' for c in cleaned_input_brackets) and all(c in '()[]{}' for c in cleaned_model_brackets):
+        print("detect brackets sequence type match")
+        return match_dyck_language(ground_truth_answer, predicted_answer)
 
-EXAMPLE_RESULTS = {"0": [[-2]],"1": [[False,False,False]],"2": [[True,True]],"3": [[False,True,False,True,False,False,False,True,False,True,False,True,True,True,False,True]],"4": [[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]]}
-EXAMPLE_ARGS = SimpleNamespace(debug=True)
-TIMEOUT = 10
-
-
-def check_correctness(prob_path, generation, timeout):
-    """Check correctness of code generation with a global timeout.
-    The global timeout is to catch some extreme/rare cases not handled by the timeouts
-    inside `run_test`"""
-    def _temp_run(prob_path, generation, result):
-        result.append(test_util.run_test(prob_path=prob_path, test=generation))  # Test instance + generated code
-    # print("prob_path",prob_path,"generation",generation)
-    manager = multiprocessing.Manager()
-    result = manager.list()
-    p = multiprocessing.Process(target=_temp_run, args=(prob_path, generation, result))
-    p.start()
-    p.join(timeout=timeout + 1)
-    if p.is_alive():
-        p.kill()
-    if not result:
-        # Reamark: ideally we would consider that all tests failed but we can't access number of tests here easily
-        # so we use 21=the average number of tests for a smaple in the test split instead 
-        avg_number_tests = 21
-        result = [[-1] * avg_number_tests]
-    return result[0]
+    print("cannot match the answer type, compare the answer directly")
+    return ground_truth_answer == predicted_answer
 
 
+# New
+def contains_lowercase_in_parentheses(s):
+    if re.search(r'\([a-z]\)', s):
+        return True
+    return False
+
+def normalize_option_answer(answer):
+    answer = re.sub(r'[()]', '', answer)
+    return answer.strip().lower()
+
+def clean_and_extract(predicted_answer):
+    predicted_answer = predicted_answer.replace('.', ' ').replace(',', ' ')
+    match = re.match(r'\(([a-z])\)', predicted_answer.strip())
+    if match:
+        return match.group(1)
+    return predicted_answer.strip().replace(" ", "").lower()
 
 
-def evaluate_answer(test_cases, output_str):
-    # output_str is generated code, test_case is test input/output
-    res = []
+def evaluate_answer(ground_truth_answer, predicted_answer):
+    ground_truth_answer = ground_truth_answer.strip().lower()
+    predicted_answer = predicted_answer.strip().lower()
 
-    curr_res = [-2]
-    try:
-        curr_res = check_correctness(prob_path=test_cases, generation=output_str, timeout=10)  
-        fixed = []
-        for e in curr_res:
-            if isinstance(e, np.ndarray):
-                e = e.item(0)
-            if isinstance(e, np.bool_):
-                e = bool(e)
-            fixed.append(e)
-        curr_res = fixed
-        if not np.all(curr_res):
-            print(f"Results were not all True: {curr_res}")
-    except Exception as e:
-        print(f"test framework exception = {repr(e)}{e}\n")
-    finally:
-        assert isinstance(curr_res, list)
-        res.append(curr_res)
-        print(f"results = {res}")
-
-    return res
-
-
-
+    # Yes/No Binary Type
+    if ground_truth_answer in ['yes', 'no', 'valid', 'invalid', 'true', 'false']:
+        return ground_truth_answer == predicted_answer
+    
+    # Option (A)/(B)... Type
+    elif contains_lowercase_in_parentheses(ground_truth_answer):
+        predicted_answer = clean_and_extract(predicted_answer)
+        return normalize_option_answer(ground_truth_answer) == normalize_option_answer(predicted_answer)
+    
+    return ground_truth_answer == predicted_answer
 
 def test_function():
     return 
