@@ -362,10 +362,10 @@ class ExecutorExperiencePool(BaseExperiencePool):
             'task_id': new_experience.task_id,
             'task_type': new_experience.task_type,
             'success': new_experience.success,
-            'major_problem': new_experience.task_major_problem,     # 任务的主要目标(原始的任务)
-            'progress_text': new_experience.task_progress_text,   # 任务的进展
-            'task_description': new_experience.task_description,  # 任务的描述
-            'progress_text': new_experience.task_progress_text,               # 任务的上下文, 主要是前文的任务和进展
+            'major_problem': new_experience.task_major_problem,     
+            'progress_text': new_experience.task_progress_text,  
+            'task_description': new_experience.task_description,  
+            'progress_text': new_experience.task_progress_text,            
             'task_thought': new_experience.task_thought,
             'result': new_experience.result,
             'agent_ability': temp_ability_dict,  # Agent's ability in this task type 4
