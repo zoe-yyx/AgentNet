@@ -136,7 +136,6 @@ class Experiment:
                     execution_time=output["execution_time"], 
                     mode="Forward")
 
-
             elif decision == "execute":
 
                 task_chain.set_current_task_description(description) 
@@ -161,7 +160,6 @@ class Experiment:
 
 
             elif decision in ["split"]:
-                
                 task_chain.set_current_task_description(executable_tasks)
                 output = current_agent.execute_task(task_chain, self.constraints, self.split_constraints, self.thought_constraints, self.few_shot, self.user_react,decision="split")
 
@@ -198,7 +196,6 @@ class Experiment:
                 
                 task_chain.set_current_task_description(output["reason"]) 
                 
-
                 if output["decision"].lower().strip() in ["completed"]:
                     break
 
@@ -215,8 +212,6 @@ class Experiment:
                     
         return task_chain
     
-
-
 
     def evaluate_task_result(self, task_chain, correct_answer, mode="Train"):
         raw_result = task_chain.get_final_result()
@@ -330,7 +325,6 @@ class Experiment:
             }
             task_history_save.append(single_task_history_save)
 
-
         self.task_history_record.append(task_history_save)                
         result["total_accuracy"] = self.train_accuracy.get_accuracy()
         logger.info(f'The result is {result}')
@@ -358,15 +352,12 @@ class Experiment:
         logger.info(f"The Edge Weight of All Agents Is {self.agent_graph.edge_weight}")
 
 
-
-
         save_json(self.edge_weight_record, self.json_file_path_edge_weight)
         logger.info(f"self.task_result_record is {self.task_result_record}")
         save_json(self.task_result_record, self.json_file_path_task_result)
         save_json(self.agent_info_record, self.json_file_path_agent_info)
         save_json(self.task_history_record, self.json_file_path_task_history)
         save_json(self.agent_experiences_record, self.json_file_path_experience)
-
 
         return 0
 
