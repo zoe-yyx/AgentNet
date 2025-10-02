@@ -10,9 +10,9 @@ import os
 import colorlog
 import json
 from src.experiment import Experiment
-from evaluator.datasets.apps_dataset import APPSDataset
+from evaluator.datasets.bigbenchhard_dataset import BigBenchHardDataset
 from src.utils import read_yaml
-from prompt.apps_prompt_set import APPSPromptSet
+from prompt.bigbenchhard_prompt_set import BigBenchHardPromptSet
 import os
 
 
@@ -45,7 +45,7 @@ def setup_logging(log_file_path):
 
 def get_args():
     parser = argparse.ArgumentParser(description="Run Agent DAG Task Processing System")
-    parser.add_argument("--experiment_name", type=str, default="apps_qwen", help="Name of our experiment")
+    parser.add_argument("--experiment_name", type=str, default="bigbenchhard", help="Name of our experiment")
     parser.add_argument("--global_router_experience", action="store_true")
 
     args = parser.parse_args()
@@ -59,17 +59,17 @@ def main():
 
     import datetime
     date = datetime.datetime.now().strftime('%m%d-%H') #:%M
-    log_file_path = os.path.join("./yylog", f"{args.experiment_name}_{date}.log" )
+    log_file_path = os.path.join("./log", f"{args.experiment_name}_{date}.log" )
     setup_logging(log_file_path)
     logger = logging.getLogger(__name__)
     logger.info("Progress Start!")
     
     # Define paths
-    json_file_path_result = f"./yysave/{args.experiment_name}_{date}/result.json"
-    json_file_path_ability = f"./yysave/{args.experiment_name}_{date}/ability.json"
-    json_file_path_edge_weight = f"./yysave/{args.experiment_name}_{date}/edge_weight.json"
-    json_file_path_task_history = f"./yysave/{args.experiment_name}_{date}/task_history.json"
-    json_file_path_experience = f"./yysave/{args.experiment_name}_{date}/experience.json"
+    json_file_path_result = f"./save/{args.experiment_name}_{date}/result.json"
+    json_file_path_ability = f"./save/{args.experiment_name}_{date}/ability.json"
+    json_file_path_edge_weight = f"./save/{args.experiment_name}_{date}/edge_weight.json"
+    json_file_path_task_history = f"./save/{args.experiment_name}_{date}/task_history.json"
+    json_file_path_experience = f"./save/{args.experiment_name}_{date}/experience.json"
 
     # Ensure directories for JSON files exist
     os.makedirs(os.path.dirname(json_file_path_result), exist_ok=True)
@@ -90,8 +90,9 @@ def main():
         json.dump([], f, ensure_ascii=False, indent=2)
 
     config_dir_path = "./config/experiment"
-
-    total_experiment_config = read_yaml(os.path.join(config_dir_path, "apps.yaml" ))
+    dataset_root_path = "./big_datasets/bigbenchhard"
+    
+    total_experiment_config = read_yaml(os.path.join(config_dir_path, "bigbenchhard_new_abilities.yaml" ))
     
     experiment_config = total_experiment_config["experiment_config"]
     agent_config = total_experiment_config["agent_config"]
@@ -105,17 +106,18 @@ def main():
 
 
     assert experiment_config["agent_num"] == len(agent_config), "Wrong With the Number of Agents in Initialization"
-    dataset = APPSDataset()
+    dataset = BigBenchHardDataset()
     # dataset_batch = dataset.generate_test_batch()
     # dataset_batch = dataset.generate_morphagent_tasks()
 
     dataset_file_path = "Your Dataset File Path"
 
-    train_dataset = dataset.generate_tasks_by_file_path(dataset_file_path, 4000, 4400)  # First 400 for training
-    test_dataset = dataset.generate_tasks_by_file_path(dataset_file_path, 4400, 4500)  # Last 100 for testing
-
+    # train_dataset = dataset.generate_tasks_by_file_path(dataset_file_path, 4000, 4400)  # First 400 for training
+    # test_dataset = dataset.generate_tasks_by_file_path(dataset_file_path, 4400, 4500)  # Last 100 for testing
+    train_dataset = os.path.join(dataset_root_path, "bigbenchhard_train.jsonl")
+    test_dataset = os.path.join(dataset_root_path, "bigbenchhard_test_same.jsonl")
     
-    prompt_set = APPSPromptSet()
+    prompt_set = BigBenchHardPromptSet()
     constraints = prompt_set.get_constraint()
     thought_constraints = prompt_set.get_thought_constraint()
     # Initialize Experiment class:
@@ -135,8 +137,6 @@ def main():
     experiment.evaluate()
     # experiment.fit_ontest()  # Train on test, not needed
 
-
-    
 
     return 0
 
