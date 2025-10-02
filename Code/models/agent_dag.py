@@ -8,13 +8,13 @@ class AgentDAG:
     def __init__(self):
         """
         Initialize an enhanced DAG structure with edge weights and cycle detection.
-        """
-        self.agents = {}  # 存储所有 agent
-        self.edges = defaultdict(dict)  # 存储边和权重: {from_id: {to_id: weight}}
-        self.task_history = defaultdict(list)  # 存储任务执行历史
-        self.edge_success_rate = defaultdict(lambda: defaultdict(lambda: 1.0))  # 边的成功率统计
-        self.topological_order = []  # 存储拓扑排序结果
-        self.max_path_length = 5  # 最大路径长度限制
+        """        
+        self.agents = {}  # Store all agents
+        self.edges = defaultdict(dict)  # Store edges and weights: {from_id: {to_id: weight}}
+        self.task_history = defaultdict(list)  # Store task execution history
+        self.edge_success_rate = defaultdict(lambda: defaultdict(lambda: 1.0))  # Success rate statistics for edges
+        self.topological_order = []  # Store topological order
+        self.max_path_length = 5  # Maximum path length limit
         self.neighbors = defaultdict(set)  # Store neighbors for each agent
 
     def add_agent(self, agent) -> None:
@@ -49,7 +49,7 @@ class AgentDAG:
         if from_agent_id not in self.agents or to_agent_id not in self.agents:
             raise ValueError("One or both agents do not exist in the DAG")
 
-        # 检查是否会形成环
+        # Check if this creates a cycle
         if self._would_create_cycle(from_agent_id, to_agent_id):
             print(f"Warning: Edge from {from_agent_id} to {to_agent_id} would create a cycle. Skipping.")
             return False
